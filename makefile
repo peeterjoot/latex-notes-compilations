@@ -1,7 +1,9 @@
 REPOS := $(subst .git,,$(wildcard */.git))
 
-#$(error REPOS: $(REPOS))
 all:
+
+show:
+	@echo $(REPOS) | tr ' ' '\n'
 
 commit: 
 	-$(foreach dir,$(REPOS),echo $(dir) ; (cd $(dir) && git commit -a);)
