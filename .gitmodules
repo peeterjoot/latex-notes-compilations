@@ -1,0 +1,45 @@
+[submodule "GAelectrodynamics"]
+	path = GAelectrodynamics
+	url = ./GAelectrodynamics
+[submodule "GAelectrodynamics-figures"]
+	path = GAelectrodynamics-figures
+	url = ./GAelectrodynamics-figures
+[submodule "curvilinear"]
+	path = curvilinear
+	url = ./curvilinear
+[submodule "ece1229-antenna-figures"]
+	path = ece1229-antenna-figures
+	url = ./ece1229-antenna-figures
+[submodule "ece1229-antenna"]
+	path = ece1229-antenna
+	url = ./ece1229-antenna
+[submodule "frequencydomain"]
+	path = frequencydomain
+	url = ./frequencydomain
+[submodule "gabook-figures"]
+	path = gabook-figures
+	url = ./gabook-figures
+[submodule "gabookI"]
+	path = gabookI
+	url = ./gabookI
+[submodule "gabookII"]
+	path = gabookII
+	url = ./gabookII
+[submodule "gapauli"]
+	path = gapauli
+	url = ./gapauli
+[submodule "latex"]
+	path = latex
+	url = ./latex
+[submodule "phy1520-quantum-figures"]
+	path = phy1520-quantum-figures
+	url = ./phy1520-quantum-figures
+[submodule "phy1520-quantum"]
+	path = phy1520-quantum
+	url = ./phy1520-quantum
+[submodule "potentialMethods"]
+	path = potentialMethods
+	url = ./potentialMethods
+[submodule "stokesTheorem"]
+	path = stokesTheorem
+	url = ./stokesTheorem
