@@ -43,3 +43,75 @@
 [submodule "stokesTheorem"]
 	path = stokesTheorem
 	url = ./stokesTheorem
+[submodule "ece1254-multiphysics"]
+	path = ece1254-multiphysics
+	url = ./ece1254-multiphysics
+[submodule "ece1254-multiphysics-figures"]
+	path = ece1254-multiphysics-figures
+	url = ./ece1254-multiphysics-figures
+[submodule "classicalmechanics"]
+	path = classicalmechanics
+	url = ./classicalmechanics
+[submodule "ece1236-microwaves"]
+	path = ece1236-microwaves
+	url = ./ece1236-microwaves
+[submodule "miscphysics"]
+	path = miscphysics
+	url = ./miscphysics
+[submodule "otherbook"]
+	path = otherbook
+	url = ./otherbook
+[submodule "phy356-qmI"]
+	path = phy356-qmI
+	url = ./phy356-qmI
+[submodule "phy450-relativisticEandM"]
+	path = phy450-relativisticEandM
+	url = ./phy450-relativisticEandM
+[submodule "phy452-basicstatmech"]
+	path = phy452-basicstatmech
+	url = ./phy452-basicstatmech
+[submodule "phy454-continuumechanics"]
+	path = phy454-continuumechanics
+	url = ./phy454-continuumechanics
+[submodule "phy456-qmII"]
+	path = phy456-qmII
+	url = ./phy456-qmII
+[submodule "phy485-optics"]
+	path = phy485-optics
+	url = ./phy485-optics
+[submodule "phy487-qmsolids"]
+	path = phy487-qmsolids
+	url = ./phy487-qmsolids
+[submodule "figures/classicalmechanics"]
+	path = figures/classicalmechanics
+	url = git@github.com:peeterjoot/classicalmechanics-figures.git
+[submodule "figures/ece1236-microwaves"]
+	path = figures/ece1236-microwaves
+	url = git@github.com:peeterjoot/ece1236-microwaves-figures.git
+[submodule "figures/miscphysics"]
+	path = figures/miscphysics
+	url = git@github.com:peeterjoot/miscphysics-figures.git
+[submodule "figures/otherbook"]
+	path = figures/otherbook
+	url = git@github.com:peeterjoot/otherbook-figures.git
+[submodule "figures/phy356-qmI"]
+	path = figures/phy356-qmI
+	url = git@github.com:peeterjoot/phy356-qmI-figures.git
+[submodule "figures/phy450-relativisticEandM"]
+	path = figures/phy450-relativisticEandM
+	url = git@github.com:peeterjoot/phy450-relativisticEandM-figures.git
+[submodule "figures/phy452-basicstatmech"]
+	path = figures/phy452-basicstatmech
+	url = git@github.com:peeterjoot/phy452-basicstatmech-figures.git
+[submodule "figures/phy454-continuumechanics"]
+	path = figures/phy454-continuumechanics
+	url = git@github.com:peeterjoot/phy454-continuumechanics-figures.git
+[submodule "figures/phy456-qmII"]
+	path = figures/phy456-qmII
+	url = git@github.com:peeterjoot/phy456-qmII-figures.git
+[submodule "figures/phy485-optics"]
+	path = figures/phy485-optics
+	url = git@github.com:peeterjoot/phy485-optics-figures.git
+[submodule "figures/phy487-qmsolids"]
+	path = figures/phy487-qmsolids
+	url = git@github.com:peeterjoot/phy487-qmsolids-figures.git
