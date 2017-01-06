@@ -1,4 +1,4 @@
-REPOS := $(subst .git,,$(wildcard */.git))
+REPOS := $(subst .git,,$(shell find . -name .git))
 
 all:
 

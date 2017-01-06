@@ -1,24 +1,15 @@
 [submodule "GAelectrodynamics"]
 	path = GAelectrodynamics
 	url = ./GAelectrodynamics
-[submodule "GAelectrodynamics-figures"]
-	path = GAelectrodynamics-figures
-	url = ./GAelectrodynamics-figures
 [submodule "curvilinear"]
 	path = curvilinear
 	url = ./curvilinear
-[submodule "ece1229-antenna-figures"]
-	path = ece1229-antenna-figures
-	url = ./ece1229-antenna-figures
 [submodule "ece1229-antenna"]
 	path = ece1229-antenna
 	url = ./ece1229-antenna
 [submodule "frequencydomain"]
 	path = frequencydomain
 	url = ./frequencydomain
-[submodule "gabook-figures"]
-	path = gabook-figures
-	url = ./gabook-figures
 [submodule "gabookI"]
 	path = gabookI
 	url = ./gabookI
@@ -31,9 +22,6 @@
 [submodule "latex"]
 	path = latex
 	url = ./latex
-[submodule "phy1520-quantum-figures"]
-	path = phy1520-quantum-figures
-	url = ./phy1520-quantum-figures
 [submodule "phy1520-quantum"]
 	path = phy1520-quantum
 	url = ./phy1520-quantum
@@ -46,9 +34,6 @@
 [submodule "ece1254-multiphysics"]
 	path = ece1254-multiphysics
 	url = ./ece1254-multiphysics
-[submodule "ece1254-multiphysics-figures"]
-	path = ece1254-multiphysics-figures
-	url = ./ece1254-multiphysics-figures
 [submodule "classicalmechanics"]
 	path = classicalmechanics
 	url = ./classicalmechanics
@@ -115,3 +100,21 @@
 [submodule "figures/phy487-qmsolids"]
 	path = figures/phy487-qmsolids
 	url = git@github.com:peeterjoot/phy487-qmsolids-figures.git
+[submodule "figures/GAelectrodynamics"]
+	path = figures/GAelectrodynamics
+	url = git@github.com:peeterjoot/GAelectrodynamicsFigures.git
+[submodule "figures/ece1228-electromagnetic-theory"]
+	path = figures/ece1228-electromagnetic-theory
+	url = git@github.com:peeterjoot/ece1228-electromagnetic-theory-figures.git
+[submodule "figures/ece1229-antenna"]
+	path = figures/ece1229-antenna
+	url = git@github.com:peeterjoot/ece1229-antenna-figures.git
+[submodule "figures/ece1254-multiphysics"]
+	path = figures/ece1254-multiphysics
+	url = git@github.com:peeterjoot/ece1254-multiphysics-figures.git
+[submodule "figures/gabook"]
+	path = figures/gabook
+	url = git@github.com:peeterjoot/gabookFigures.git
+[submodule "figures/phy1520-quantum"]
+	path = figures/phy1520-quantum
+	url = git@github.com:peeterjoot/phy1520-quantum-figures.git
