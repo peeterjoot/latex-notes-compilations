@@ -31,3 +31,7 @@ TODO:
 - removed the dependency on commit_msg, but now the mkRevInfo runs unconditionally.
 
 - write a master equation label renamer to normalize labels that have been cut and pasted.
+
+- for completeness, prove the general divergence theorem (for all grades and volume types)?  Should at least state it.
+
+- indexing missing.

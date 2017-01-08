@@ -20,5 +20,8 @@ push:
 subdirs:
 	$(foreach dir,$(SUBDIRS),echo $(dir) ; make -C $(dir);)
 
+diff:
+	$(foreach dir,$(REPOS),echo $(dir) ; (cd $(dir) && git diff -a);)
+
 subclean:
 	$(foreach dir,$(SUBDIRS),echo $(dir) ; make -C $(dir) clean;)
