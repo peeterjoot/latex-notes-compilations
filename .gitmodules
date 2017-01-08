@@ -49,3 +49,12 @@
 [submodule "figures/phy1520-quantum"]
 	path = figures/phy1520-quantum
 	url = git@github.com:peeterjoot/phy1520-quantum-figures.git
+[submodule "mathematica"]
+	path = mathematica
+	url = git@github.com:peeterjoot/mathematica.git
+[submodule "matlab"]
+	path = matlab
+	url = git@github.com:peeterjoot/matlab.git
+[submodule "julia"]
+	path = julia
+	url = git@github.com:peeterjoot/julia.git
