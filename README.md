@@ -22,10 +22,12 @@ TODO:
 
    and in the METADATA rules.
 
-- BASEVER rule doesn't work before first commit and after initial clone.
-
 - Do I now have the .eps -> .pdf rules right?
 
 - .gitignore rules missing Bibliography.bib and generated .pdf's (from eps)
 
+- frequencydomain and curvilinear master .tex files get clobbered after initial clone (from classicthesis).  Rules for those aren't right in those makefiles.
 
+- removed the dependency on commit_msg, but now the mkRevInfo runs unconditionally.
+
+- write a master equation label renamer to normalize labels that have been cut and pasted.
