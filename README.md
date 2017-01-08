@@ -12,15 +12,7 @@ TODO:
 
 - think that the .gitignore rules are busted after this move.
 
-- physicsplay repo references in:
-
-      ece1228-electromagnetic-theory/GNUmakefile
-      ece1236-microwaves/GNUmakefile
-      ece1254-multiphysics/GNUmakefile
-      gabookI/GNUmakefile
-      phy1520-quantum/GNUmakefile
-
-   and in the METADATA rules.
+- potentially break up the mathematica repo into submodules (or at least put the METADATA into submodule?)
 
 - Do I now have the .eps -> .pdf rules right?
 
@@ -35,3 +27,6 @@ TODO:
 - for completeness, prove the general divergence theorem (for all grades and volume types)?  Should at least state it.
 
 - indexing missing.
+
+- have old general TODO list still in physicsplay/notes/
+
