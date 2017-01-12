@@ -58,3 +58,9 @@
 [submodule "julia"]
 	path = julia
 	url = git@github.com:peeterjoot/julia.git
+[submodule "ece1505-convex-optimization"]
+	path = ece1505-convex-optimization
+	url = git@github.com:peeterjoot/ece1505H.git
+[submodule "figures/ece1505-convex-optimization"]
+	path = figures/ece1505-convex-optimization
+	url = git@github.com:peeterjoot/ece1505-convex-optimization-figures.git
