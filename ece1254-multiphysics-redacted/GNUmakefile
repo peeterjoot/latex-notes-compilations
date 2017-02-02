@@ -1,4 +1,4 @@
-THISDIR := ece1254-redacted
+THISDIR := ece1254-multiphysics-redacted
 THISBOOK := ece1254
 ORIGDIR := ece1254-multiphysics
 
