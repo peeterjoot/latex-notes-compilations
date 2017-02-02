@@ -1,6 +1,7 @@
 REPOS := $(subst .git,,$(shell find . -name .git))
 FIGURES := $(subst .git,,$(shell find ./figures -name .git))
 SUBDIRS := $(filter-out $(FIGURES) ./,$(REPOS))
+SUBDIRS += $(wildcard *-redacted)
 
 all: subdirs
 
