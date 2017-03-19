@@ -368,12 +368,12 @@ elsif ( $doBib )
    #              'http://peeterjoot.com/archives/math2009/gabook.pdf',
    #              @gabook ) ;
 
-   printBookBib( 'Exploring physics with Geometric Algebra, Book I',
+   printBookBib( 'Exploring physics with Geometric Algebra, Part I',
                  'gabookI',
                  'http://peeterjoot.com/archives/math2015/gabookI.pdf',
                  @gabookI ) ;
 
-   printBookBib( 'Exploring physics with Geometric Algebra, Book II',
+   printBookBib( 'Exploring physics with Geometric Algebra, Part II',
                  'gabookII',
                  'http://peeterjoot.com/archives/math2015/gabookII.pdf',
                  @gabookII ) ;
@@ -1122,6 +1122,8 @@ sub printBookBib
    use POSIX qw(strftime);
    my $now_string = strftime "%d-%B-%Y", localtime;
 
+   my $firstdone = 0;
+
    foreach ( sort { $a->{SOURCE} cmp $b->{SOURCE} } @rest )
    {
       my $r = $_->{'REF'} ;
@@ -1132,6 +1134,21 @@ sub printBookBib
       {
          $year = "   year={$1},\n" ;
       }
+
+      unless ( $firstdone )
+      {
+      print qq(
+\@inbook{$tag,
+   author={Peeter Joot},
+   title={{$title}},
+   note = "[Online; accessed $now_string]",
+   publisher={peeterjoot.com},
+$year   url={$url}
+}
+
+) ;
+         $firstdone = 1;
+       }
 
       print qq(
 \@inbook{$tag:$r,
