@@ -26,3 +26,6 @@ diff:
 
 subclean:
 	$(foreach dir,$(SUBDIRS),echo $(dir) ; make -C $(dir) clean;)
+
+l:
+	find . -name "*.tex" | grep -vF .revinfo | sed 's/^..//' > $@
