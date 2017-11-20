@@ -1,0 +1,5 @@
+submods=`grep submodule .gitmodules | cut -f2 -d'"'`
+for i in $submods ; do
+   git submodule update --init $i
+   (cd $i && git checkout master)
+done
