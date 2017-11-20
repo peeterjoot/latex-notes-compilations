@@ -1,13 +1,12 @@
-REPOS := $(subst .git,,$(shell find . -name .git))
-FIGURES := $(subst .git,,$(shell find ./figures -name .git))
-SUBDIRS := $(filter-out $(FIGURES) ./,$(REPOS))
+REPOS := $(subst /.git,,$(shell find . -name .git | sed 's/^..//'))
+FIGURES := $(subst /.git,,$(shell find ./figures -name .git | sed 's/^..//'))
+SUBDIRS := $(filter-out $(FIGURES) .git gabookI,$(REPOS))
 SUBDIRS += $(wildcard *-redacted)
 
 all: subdirs
 
 show:
 	@echo $(SUBDIRS) | tr ' ' '\n'
-	#@echo $(REPOS) | tr ' ' '\n'
 
 commit: 
 	-$(foreach dir,$(REPOS),echo $(dir) ; (cd $(dir) && git commit -a);)
