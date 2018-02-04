@@ -1,0 +1,5 @@
+submods="figures/GAelectrodynamics GAelectrodynamics latex"
+for i in $submods latex ; do
+   git submodule update --init $i
+   (cd $i && git checkout master)
+done
