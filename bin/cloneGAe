@@ -1,4 +1,4 @@
-submods="figures/GAelectrodynamics GAelectrodynamics latex"
+submods="figures/GAelectrodynamics GAelectrodynamics latex figures/gabook gabookI"
 for i in $submods latex ; do
    git submodule update --init $i
    (cd $i && git checkout master)
