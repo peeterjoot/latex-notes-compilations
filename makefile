@@ -1,6 +1,10 @@
 REPOS := $(subst /.git,,$(shell find . -name .git | sed 's/^..//'))
 FIGURES := $(subst /.git,,$(shell find ./figures -name .git | sed 's/^..//'))
-SUBDIRS := $(filter-out $(FIGURES) .git gabookI,$(REPOS))
+BUSTED += gabookI
+BUSTED += stokesTheorem
+BUSTED += curvilinear
+BUSTED += frequencydomain
+SUBDIRS := $(filter-out $(FIGURES) .git $(BUSTED),$(REPOS))
 SUBDIRS += $(wildcard *-redacted)
 
 all: subdirs
