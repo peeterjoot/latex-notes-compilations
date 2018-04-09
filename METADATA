@@ -25,6 +25,7 @@ my $doEce1229 = 0 ;
 my $doPhy1520 = 0 ;
 my $doEce1236 = 0 ;
 my $doEce1228 = 0 ;
+my $doGAelectrodynamics = 0 ;
 my $doOtherbook = 0 ;
 
 my $doBib = 0 ;
@@ -56,6 +57,7 @@ GetOptions
    'phy1520!'              => \$doPhy1520,
    'ece1236!'              => \$doEce1236,
    'ece1228!'              => \$doEce1228,
+   'GAelectrodynamics'     => \$doGAelectrodynamics,
    'miscphysics!'          => \$doNonga,
    'latex!'                => \$latex,
    'cdf!'                  => \$cdf,
@@ -86,10 +88,11 @@ GetOptions
                           $doPhy1520 = 1 ;
                           $doEce1236 = 1 ;
                           $doEce1228 = 1 ;
+                          $doGAelectrodynamics = 1 ;
                        },
 
    'help'       => sub { die
-"METADATA [-help | -history | -bib] [-mathematica [-latex|-cdf] | -matlab [-latex] | -julia | -other | -phy356 | -classicalmechanics | -phy456 | -phy454 | -phy485 | -phy450 | -phy452 | -phy487 | -gabook | -gabookI | -gabookII | -ece1254 | -ece1229 | -phy1520 | -ece1236 | -ece1228] [-redacted] [-filter dirname/]
+"METADATA [-help | -history | -bib] [-mathematica [-latex|-cdf] | -matlab [-latex] | -julia | -other | -phy356 | -classicalmechanics | -phy456 | -phy454 | -phy485 | -phy450 | -phy452 | -phy487 | -gabook | -gabookI | -gabookII | -ece1254 | -ece1229 | -phy1520 | -ece1236 | -ece1228 -GAelectrodynamics] [-redacted] [-filter dirname/]
 
 options:
 -history hypertext history.
@@ -118,6 +121,7 @@ my @META = (
 "phy450-relativisticEandM/METADATA",
 "ece1236-microwaves/METADATA",
 "ece1228-electromagnetic-theory/METADATA",
+"GAelectrodynamics/METADATA",
 "otherbook/METADATA",
 "mathematica/METADATA",
 "matlab/METADATA",
@@ -142,6 +146,7 @@ my @ece1229 = ece1229Meta() ;
 my @phy1520 = phy1520Meta() ;
 my @ece1236 = ece1236Meta() ;
 my @ece1228 = ece1228Meta() ;
+my @GAelectrodynamics = GAelectrodynamicsMeta() ;
 my @phy454 = phy454Meta() ;
 my @phy450 = phy450Meta() ;
 my @otherbook = otherbookMeta() ;
@@ -231,6 +236,11 @@ if ( !defined $filter )
    {
       $filter = "ece1228-emt/" ;
    }
+
+   if ( $doGAelectrodynamics )
+   {
+      $filter = "GAelectrodynamics/" ;
+   }
 }
 
 my %monthsOfYear = (
@@ -251,6 +261,7 @@ my %monthsOfYear = (
 'Aug' => 8,
 'September' => 9,
 'Sept' => 9,
+'Sep' => 9,
 'October' => 10,
 'Oct' => 10,
 'November' => 11,
@@ -344,6 +355,11 @@ if ( $doEce1228 )
    push( @All, @ece1228 ) ;
 }
 
+if ( $doGAelectrodynamics )
+{
+   push( @All, @GAelectrodynamics ) ;
+}
+
 if ( $doPhy450 )
 {
    push( @All, @phy450 ) ;
@@ -360,7 +376,7 @@ if ( $doHistory )
 }
 elsif ( $doBib )
 {
-   printBib( @gabookI, @gabookII, @miscphysics, @phy356, @classicalmechanics, @phy456, @phy454, @phy485, @phy452, @phy450, @phy487, @ece1254, @ece1229, @otherbook, @phy1520, @ece1236, @ece1228 ) ;
+   printBib( @gabookI, @gabookII, @miscphysics, @phy356, @classicalmechanics, @phy456, @phy454, @phy485, @phy452, @phy450, @phy487, @ece1254, @ece1229, @otherbook, @phy1520, @ece1236, @ece1228, @GAelectrodynamics ) ;
 
    ## generate cross reference's to gabook for miscphysics.pdf
    #printBookBib( 'Exploring physics with Geometric Algebra',
@@ -447,6 +463,11 @@ elsif ( $doBib )
                  'ece1228',
                  'http://peeterjoot.com/archives/math2016/ece1228.pdf',
                  @ece1228 ) ;
+
+   printBookBib( 'Geometric Algebra for Electrical Engineers.',
+                 'GAelectrodynamics',
+                 'http://peeterjoot.com/archives/math2018/GAelectrodynamics.pdf',
+                 @GAelectrodynamics ) ;
 }
 elsif ( $doMathematica )
 {
@@ -759,9 +780,17 @@ my $out = "
 
    my $foundCDF = 0 ;
 
+#   foreach ( @mathematica )
+#{
+#      my $path = $_->{'path'} ;
+#print "p0: $path\n" if ( $path =~ /GAe/ );
+#print "p1: $path\n" unless ( $path =~ /GAe/ );
+#}
+
    foreach ( sort datesort @mathematica )
    {
       my $path = $_->{'path'} ;
+#print "path: $path\n";
       my $date = $_->{'DATE'} ;
       my $desc = $_->{'WHAT'} ;
       my $thisfilter = $_->{'FILTER'} ;
@@ -769,6 +798,11 @@ my $out = "
       if ( $filter )
       {
          my $match = ( $path =~ m@$filter@ ) ;
+
+#         if ( $match )
+#{
+#         print "filter: $path: $match\n" ;
+#}
 
          # Subfiltering for problem sets.  This is a hack.
          if ( !$match 
@@ -1053,7 +1087,7 @@ sub checkDate
 sub datesort
 {
    my ($adate, $bdate) = ( $$a{'DATE'}, $$b{'DATE'} ) ;
-
+#print "a: $$a{'DATE'}, b: $$b{'DATE'}\n";
 #   my ($asource, $atitle, $adate, $aref)
 #         = ( $$a{'SOURCE'},
 #             $$a{'TITLE'},
@@ -1075,6 +1109,9 @@ sub datesort
    my $rc = $ayear <=> $byear ;
    if ( !$rc )
    {
+      die "amonth: $amonth" if ( !defined $monthsOfYear{$amonth} );
+      die "bmonth: $bmonth" if ( !defined $monthsOfYear{$bmonth} );
+
       $rc = $monthsOfYear{$amonth} <=> $monthsOfYear{$bmonth} ;
 
       if ( !$rc )
