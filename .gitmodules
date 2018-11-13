@@ -136,3 +136,9 @@
 [submodule "potentialMethods"]
 	path = potentialMethods
 	url = git@github.com:peeterjoot/potentialMethods.git
+[submodule "phy2403-quantum-field-theory"]
+	path = phy2403-quantum-field-theory
+	url = git@github.com:peeterjoot/phy2403-quantum-field-theory.git
+[submodule "figures/phy2403-quantum-field-theory"]
+	path = figures/phy2403-quantum-field-theory
+	url = git@github.com:peeterjoot/phy2403-quantum-field-theory-figures.git
