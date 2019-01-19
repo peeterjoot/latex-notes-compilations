@@ -1,0 +1,7 @@
+#!/bin/bash
+
+submods="figures/phy356-qmI figures/phy456-qmII phy356-qmI phy456-qmII figures/phy1520-quantum phy1520-quantum julia mathematica latex"
+for i in $submods ; do
+   git submodule update --init $i
+   (cd $i && git checkout master)
+done
