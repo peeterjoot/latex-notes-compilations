@@ -52,6 +52,11 @@ $(PHY2403TEX) : %.tex : ../$(ORIGDIR)/%.tex
 $(PHY2403STY) : %.sty : ../$(ORIGDIR)/%.sty
 	cp $< $@
 
+# doesn't work.  gets overwritten:
+#rerev:
+#	rm -rf .revinfo
+#	cp -a ../$(ORIGDIR)/.revinfo .revinfo
+
 clean ::
 	rm -f $(PHY2403TEX) $(PHY2403STY)
 
