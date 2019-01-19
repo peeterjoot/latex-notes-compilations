@@ -1,0 +1,7 @@
+#!/bin/bash
+
+submods="phy2403-quantum-field-theory figures/phy2403-quantum-field-theory mathematica latex"
+for i in $submods ; do
+   git submodule update --init $i
+   (cd $i && git checkout master)
+done
