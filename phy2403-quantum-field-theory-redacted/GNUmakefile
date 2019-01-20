@@ -2,13 +2,10 @@ THISDIR := phy2403-quantum-field-theory-redacted
 THISBOOK := phy2403
 ORIGDIR := phy2403-quantum-field-theory
 
-export BOOKSUBVER := 1
-export BOOKMAJVER := 0
-# This isn't a good way to version.  It depends on the local git reflog history count.
-export REVCOUNTSTART := 1
+include ../$(ORIGDIR)/make.revision
 
 #.revinfo/gitCommitDateAsMyTime.tex:\newcommand{\myTime}{April 2018}\newcommand{\myVersion}{version V0.117\xspace}
-VER := $(shell grep Version .revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
+VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
 
 include ../latex/make.bookvars
 

@@ -2,6 +2,7 @@ THISDIR := phy1520-quantum-redacted
 THISBOOK := phy1520
 ORIGDIR := phy1520-quantum
 
+include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
 
 #ONCEFLAGS := -justonce

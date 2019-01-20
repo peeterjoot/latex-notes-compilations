@@ -2,6 +2,7 @@ THISDIR := ece1254-multiphysics-redacted
 THISBOOK := ece1254
 ORIGDIR := ece1254-multiphysics
 
+include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
 
 THISBOOK_DEPS += kbordermatrix.sty

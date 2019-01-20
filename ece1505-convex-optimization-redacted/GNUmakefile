@@ -2,6 +2,7 @@ THISDIR := ece1505-convex-optimization-redacted
 THISBOOK := ece1505
 ORIGDIR := ece1505-convex-optimization
 
+include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
 
 #ONCEFLAGS := -justonce

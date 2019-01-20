@@ -2,6 +2,7 @@ THISDIR := ece1228-electromagnetic-theory-redacted
 THISBOOK := ece1228
 ORIGDIR := ece1228-electromagnetic-theory
 
+include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
 
 #ONCEFLAGS := -justonce
