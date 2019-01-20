@@ -66,16 +66,16 @@
 	url = git@github.com:peeterjoot/ece1505-convex-optimization-figures.git
 [submodule "stokesTheorem"]
 	path = stokesTheorem
-	url = git@gitlab.com:peeterjoot/stokesTheorem.git
+	url = git@github.com:peeterjoot/stokesTheorem.git
 [submodule "GAelectrodynamics"]
 	path = GAelectrodynamics
-	url = git@gitlab.com:peeterjoot/GAelectrodynamics.git
+	url = git@github.com:peeterjoot/GAelectrodynamics.git
 [submodule "classicalmechanics"]
 	path = classicalmechanics
 	url = git@github.com:peeterjoot/classicalmechanics.git
 [submodule "curvilinear"]
 	path = curvilinear
-	url = git@gitlab.com:peeterjoot/curvilinear.git
+	url = git@github.com:peeterjoot/curvilinear.git
 [submodule "ece1228-electromagnetic-theory"]
 	path = ece1228-electromagnetic-theory
 	url = git@github.com:peeterjoot/ece1228-electromagnetic-theory.git
@@ -90,7 +90,7 @@
 	url = git@github.com:peeterjoot/ece1254-multiphysics.git
 [submodule "frequencydomain"]
 	path = frequencydomain
-	url = git@gitlab.com:peeterjoot/frequencydomain.git
+	url = git@github.com:peeterjoot/frequencydomain.git
 [submodule "gabookI"]
 	path = gabookI
 	url = git@github.com:peeterjoot/gabookI.git
