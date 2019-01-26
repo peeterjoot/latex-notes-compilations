@@ -1,0 +1,62 @@
+%
+% Copyright © 2019 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{iinverse}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+\usepackage{verbatim}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{XXX}
+%\chapter{XXX}
+%\label{chap:iinverse}
+% \citep{sakurai2014modern} pr X.Y
+% \citep{pozar2009microwave}
+% \citep{qftLectureNotes}
+% \citep{doran2003gap}
+% \citep{jackson1975cew}
+% \citep{griffiths1999introduction}
+
+You can always factor a unit-bivector \( \Bi = \Bu \Bv \) (at least in 2-3 dimensions), where \( \Bu, \Bv \) are orthogonal vectors (which can be orthonormal if you choose), then
+\begin{dmath}\label{eqn:iinverse:n}
+   \Bi^{-1} = \inv{\Bv} \inv{\Bu} = \frac{\Bv \Bu}{\Bu^2 \Bv^2}.
+\end{dmath}
+
+The simplest examples are those where the bivector is some scalar multiple of two clearly orthonormal factors, such as 
+
+\begin{dmath}\label{eqn:iinverse:n}
+(\Be_1 \Be_2)^{-1} = \inv{\Be_2} \inv{\Be_1} = \Be_2 \Be_1,
+\end{dmath}
+
+A less trivial example is \( \Bi = \inv{\sqrt{3}}\lr{ \Be_1 \Be_2 + \Be_2 \Be_3 + \Be_3 \Be_1 } \), where possible factorizations include
+\begin{dmath}\label{eqn:iinverse:n}
+\begin{aligned}
+   \Bi 
+   &= \inv{\sqrt{3}} 
+   \lr{ \Be_1 + \Be_2 - 2 \Be_3 } \frac{ \Be_2 - \Be_1 }{2}
+   &= \inv{\sqrt{3}} 
+   \frac{ \Be_3 - \Be_2 }{2} \lr{ 2 \Be_1 - \Be_2 - \Be_3 },
+\end{aligned}
+\end{dmath}
+but once you find such factors, inversion follows using the reciepe above.
+
+%}
+\EndArticle
+%\EndNoBibArticle
