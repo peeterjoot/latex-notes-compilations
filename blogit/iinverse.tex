@@ -55,7 +55,17 @@ A less trivial example is \( \Bi = \inv{\sqrt{3}}\lr{ \Be_1 \Be_2 + \Be_2 \Be_3 
    \frac{ \Be_3 - \Be_2 }{2} \lr{ 2 \Be_1 - \Be_2 - \Be_3 },
 \end{aligned}
 \end{dmath}
-but once you find such factors, inversion follows using the reciepe above.
+but once you find such factors, you can easily compute $\mathbf{i}^{-1} = -\mathbf{i}$ using these factors, for example:
+
+\begin{dmath}\label{eqn:iinverse:n}
+\begin{aligned}
+\Bi^{-1} 
+&= 2 \sqrt{3} \frac{ 2 \Be_1 - \Be_2 - \Be_3 }{6} \frac{ \Be_3 - \Be_2 }{2 } \\
+&= \inv{2 \sqrt{3}} \lr{ 2 \Be_1 - \Be_2 - \Be_3 } \lr{ \Be_3 - \Be_2 } \\
+&= \inv{\sqrt{3}} \lr{ \Be_1 \Be_3 + \Be_2 \Be_1 + \Be_3 \Be_2 }
+&= -\Bi.
+\end{aligned}
+\end{dmath}
 
 %}
 \EndArticle
