@@ -5,6 +5,7 @@ FIGURES := $(subst /.git,,$(shell find ./figures -name .git | sed 's/^..//'))
 DONT_MAKE += gabookI
 
 DONT_MAKE += stokesTheorem
+DONT_MAKE += potentialMethods
 DONT_MAKE += curvilinear
 DONT_MAKE += frequencydomain
 DONT_MAKE += phy450-relativisticEandM/mmacells

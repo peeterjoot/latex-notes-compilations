@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+grep 'Output written.*pages' */*.log | grep -ve redacted -e desaiTypos | sed 's/ pages/-pages/;' | tr '[(, ]' '\n' | grep pages | sed 's/-pages//' | perl -nle '$sum += $_ } END { print $sum'
