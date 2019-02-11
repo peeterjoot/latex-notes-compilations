@@ -385,6 +385,33 @@ if ( $doNonga )
    push( @All, @miscphysics ) ;
 }
 
+my %titles =
+(
+   'gabook'                       => 'Exploring physics with Geometric Algebra',
+   'gabookI'                      => 'Exploring physics with Geometric Algebra, Part I',
+   'gabookII'                     => 'Exploring physics with Geometric Algebra, Part II',
+   'miscphysics'                  => 'Misc Physics and Math Play',
+   'phy356'                       => 'Quantum Mechanics I',
+   'phy456'                       => 'Quantum Mechanics II',
+   'phy450'                       => 'Relativistic Electrodynamics',
+   'classicalmechanics'           => 'Some classical mechanics notes',
+   'phy454'                       => 'Continuum mechanics',
+   'phy452'                       => 'Basic statistical mechanics',
+   'phy485'                       => 'Advanced classical optics',
+   'phy487'                       => 'Condensed matter physics',
+   'ece1254'                      => 'Modeling of Multiphysics Systems',
+   'ece1229'                      => 'Advanced Antenna Theory',
+   'phy1520'                      => 'Graduate Quantum Mechanics',
+   'phy2403'                      => 'Quantum Field Theory I',
+   'phy2403-quantum-field-theory' => 'Quantum Field Theory I',
+   'ece1236'                      => 'Microwave Circuits',
+   'ece1228'                      => 'Electromagnetic Theory',
+   'ece1228-emt'                  => 'Electromagnetic Theory',
+   'ece1505'                      => 'Convex Optimization',
+   'ece1505-convex-optimization'  => 'Convex Optimization',
+   'GAelectrodynamics'            => 'Geometric Algebra for Electrical Engineers',
+);
+
 if ( $doHistory )
 {
    printHistory( @All ) ;
@@ -399,93 +426,75 @@ elsif ( $doBib )
    #              'http://peeterjoot.com/archives/math2009/gabook.pdf',
    #              @gabook ) ;
 
-   printBookBib( 'Exploring physics with Geometric Algebra, Part I',
-                 'gabookI',
+   printBookBib( 'gabookI',
                  'http://peeterjoot.com/archives/math2015/gabookI.pdf',
                  @gabookI ) ;
 
-   printBookBib( 'Exploring physics with Geometric Algebra, Part II',
-                 'gabookII',
+   printBookBib( 'gabookII',
                  'http://peeterjoot.com/archives/math2015/gabookII.pdf',
                  @gabookII ) ;
 
-   printBookBib( 'Misc Physics and Math Play',
-                 'miscphysics',
+   printBookBib( 'miscphysics',
                  'http://peeterjoot.com/archives/math2009/miscphysics.pdf',
                  @miscphysics ) ;
 
-   printBookBib( 'Quantum Mechanics I.',
-                 'phy356',
+   printBookBib( 'phy356',
                  'http://peeterjoot.com/archives/math2010/phy356.pdf',
                  @phy356 ) ;
 
-   printBookBib( 'Quantum Mechanics II.',
-                 'phy456',
+   printBookBib( 'phy456',
                  'http://peeterjoot.com/archives/math2011/phy456.pdf',
                  @phy456 ) ;
 
-   printBookBib( 'Relativistic Electrodynamics.',
-                 'phy450',
+   printBookBib( 'phy450',
                  'http://peeterjoot.com/archives/math2011/phy450.pdf',
                  @phy450 ) ;
 
-   printBookBib( 'Some classical mechanics notes.',
-                 'classicalmechanics',
+   printBookBib( 'classicalmechanics',
                  'http://peeterjoot.com/archives/math2013/classicalmechanics.pdf',
                  @classicalmechanics ) ;
 
-   printBookBib( 'Continuum mechanics.',
-                 'phy454',
+   printBookBib( 'phy454',
                  'http://peeterjoot.com/archives/math2012/phy454.pdf',
                  @phy454 ) ;
 
-   printBookBib( 'Basic statistical mechanics.',
-                 'phy452',
+   printBookBib( 'phy452',
                  'http://peeterjoot.com/archives/math2013/phy452.pdf',
                  @phy452 ) ;
 
-   printBookBib( 'Advanced classical optics.',
-                 'phy485',
+   printBookBib( 'phy485',
                  'http://peeterjoot.com/archives/math2012/phy485.pdf',
                  @phy485 ) ;
 
-   printBookBib( 'Condensed matter physics.',
-                 'phy487',
+   printBookBib( 'phy487',
                  'http://peeterjoot.com/archives/math2013/phy487.pdf',
                  @phy487 ) ;
 
-   printBookBib( 'Modeling of Multiphysics Systems.',
-                 'ece1254',
+   printBookBib( 'ece1254',
                  'http://peeterjoot.com/archives/math2014/ece1254.pdf',
                  @ece1254 ) ;
 
-   printBookBib( 'Advanced Antenna Theory.',
-                 'ece1229',
+   printBookBib( 'ece1229',
                  'http://peeterjoot.com/archives/math2015/ece1229.pdf',
                  @ece1229 ) ;
 
-   printBookBib( 'Graduate Quantum Mechanics.',
-                 'phy1520',
+   printBookBib( 'phy1520',
                  'http://peeterjoot.com/archives/math2015/phy1520.pdf',
                  @phy1520 ) ;
 
-   printBookBib( 'Quantum Field Theory I.',
-                 'phy2403',
+   printBookBib( 'phy2403',
                  'http://peeterjoot.com/archives/math2018/phy2403.pdf',
                  @phy2403 ) ;
 
-   printBookBib( 'Microwave Circuits.',
-                 'ece1236',
+   printBookBib( 'ece1236',
                  'http://peeterjoot.com/archives/math2016/ece1236.pdf',
                  @ece1236 ) ;
 
-   printBookBib( 'Electromagnetic Theory.',
-                 'ece1228',
+   printBookBib( 'ece1228',
                  'http://peeterjoot.com/archives/math2016/ece1228.pdf',
                  @ece1228 ) ;
 
-   printBookBib( 'Geometric Algebra for Electrical Engineers.',
-                 'GAelectrodynamics',
+   printBookBib( 'GAelectrodynamics',
                  'http://peeterjoot.com/archives/math2018/GAelectrodynamics.pdf',
                  @GAelectrodynamics ) ;
 }
@@ -592,18 +601,56 @@ exit ;
 
 sub mathematicaIndex
 {
+   my ($filter) = @_;
+
+   my $extra = '';
+   if ( !defined $filter )
+   {
+      $extra = qq(
+<p>
+Mathematica listings by directory
+<ul>
+);
+      my %dirs = ();
+      foreach (sort @mathematica)
+      {
+         my $path = $_->{'path'} ;
+         $path =~ s,/.*,,;
+
+         $dirs{$path}++;
+      }
+
+      foreach ( sort keys %dirs )
+      {
+         my $title = '';
+         if ( defined $titles{$_} )
+         {
+            $title = "  $titles{$_}.";
+         }
+         $extra .= qq(<li><a href="$_">$_</a>$title</li>\n);
+      }
+
+      $extra .= qq(
+</ul>
+</p>
+);
+   }
+
    print qq(
 <html>
 <body>
 <title>
 My Mathematica notebooks.
 </title>
-
+<p>
+Here is a listing of my mathematica notebooks. The most recent of any of these notebooks can all be obtained from my github <a href="https://github.com/peeterjoot/mathematica">Mathematica repository</a>.
+</p>
+<p>
 The <a href="http://www.wolfram.com/cdf-player/">Wolfram CDF player</a> can also be used to view a number of these notebooks after download.
-
+</p>
+$extra
 <ul>
 ) ;
-
 
    foreach (sort datesort @mathematica)
    {
@@ -613,6 +660,11 @@ The <a href="http://www.wolfram.com/cdf-player/">Wolfram CDF player</a> can also
       my $date = $_->{'DATE'} ;
       my $desc = $_->{'WHAT'} ;
       my ($width, $height) = ( $_->{'WIDTH'}, $_->{'HEIGHT'} ) ;
+
+      if ( defined $filter and !($path =~ m,$filter,) )
+      {
+         next;
+      }
 
       unless (defined $width)
       {
@@ -639,11 +691,11 @@ The <a href="http://www.wolfram.com/cdf-player/">Wolfram CDF player</a> can also
 #         $path = "https://raw.github.com/peeterjoot/mathematica/master/$path" ;
          $path = "https://github.com/peeterjoot/mathematica/raw/master/$path" ;
       }
-      else
-      {
-         # for bitnami Mathematica wordpress page:
-         $path = "../documents/physicsplay/mathematica/$path" ;
-      }
+#      else
+#      {
+#         # for bitnami Mathematica wordpress page:
+#         $path = "$path" ;
+#      }
 
       # hack up the description to force html newlines.
       $desc =~ s/\n\n/<p>/gsm ;
@@ -657,15 +709,21 @@ $desc</li>\n) ;
       }
       else
       {
+my $xpath = $path;
+if ( defined $filter )
+{
+   $xpath = "../$xpath";
+}
 #<p>
 #EMBEDDED:
 #<a href="$pathWithoutSuffix.htm">$pathWithoutSuffix</a>
 #<p>
 #DIRECT:
-         print qq(   <li> $date
-<a href="$path">$pathWithoutQualification</a>
+         print qq(   <li> $date  <a href="$xpath">$pathWithoutQualification</a>
 <p>
-$desc</li>\n) ;
+$desc
+</p>
+</li>\n) ;
       }
 
       # now generate a helper embedding page.
@@ -1174,7 +1232,9 @@ $year   url={$_->{'URL'}}
 
 sub printBookBib
 {
-   my ($title, $tag, $url, @rest) = @_ ;
+   my ($tag, $url, @rest) = @_ ;
+
+   my $title = "$titles{$tag}.";
 
    use POSIX qw(strftime);
    my $now_string = strftime "%d-%B-%Y", localtime;
