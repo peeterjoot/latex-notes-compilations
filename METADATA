@@ -636,19 +636,34 @@ Mathematica listings by directory
 );
    }
 
+   my $subtitle = '';
+   if ( defined $filter )
+   {
+      my $t = $filter;
+      $t =~ s,/,,;
+
+      if ( defined $titles{$t} )
+      {
+         $subtitle = " for '$titles{$t}'";
+      }
+   }
+
    print qq(
 <html>
 <body>
 <title>
-My Mathematica notebooks.
+My Mathematica notebooks$subtitle.
 </title>
 <p>
-Here is a listing of my mathematica notebooks. The most recent of any of these notebooks can all be obtained from my github <a href="https://github.com/peeterjoot/mathematica">Mathematica repository</a>.
+This page lists my mathematica notebooks$subtitle. The most recent copy of any of these notebooks can all be obtained from my github <a href="https://github.com/peeterjoot/mathematica">Mathematica repository</a>.
 </p>
 <p>
-The <a href="http://www.wolfram.com/cdf-player/">Wolfram CDF player</a> can also be used to view a number of these notebooks after download.
+If you do not have a copy of Mathematica, many of these notebooks can be viewed with the free <a href="http://www.wolfram.com/cdf-player/">Wolfram CDF player</a>.
 </p>
 $extra
+<p>
+Chronological listing of Mathematica notebooks
+</p>
 <ul>
 ) ;
 
