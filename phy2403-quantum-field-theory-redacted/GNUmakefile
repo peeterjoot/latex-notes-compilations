@@ -2,11 +2,9 @@ THISDIR := phy2403-quantum-field-theory-redacted
 THISBOOK := phy2403
 ORIGDIR := phy2403-quantum-field-theory
 
-include ../$(ORIGDIR)/make.revision
-
-#.revinfo/gitCommitDateAsMyTime.tex:\newcommand{\myTime}{April 2018}\newcommand{\myVersion}{version V0.117\xspace}
 VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
 
+include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
 
 #ONCEFLAGS := -justonce

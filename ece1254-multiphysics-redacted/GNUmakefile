@@ -2,6 +2,8 @@ THISDIR := ece1254-multiphysics-redacted
 THISBOOK := ece1254
 ORIGDIR := ece1254-multiphysics
 
+VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
+
 include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
 
@@ -26,9 +28,6 @@ REDACTED := -redacted
 
 GENERATED_SOURCES += matlab.tex 
 GENERATED_SOURCES += mathematica.tex 
-#GENERATED_SOURCES += ps3amatlab.tex
-#GENERATED_SOURCES += ps3bmatlab.tex
-#GENERATED_SOURCES += projmatlab.tex
 
 # rules for mathematica.tex, ... output to $(THISDIR) explicitly.  Depend on those files being generated first in ../ece1254
 #ECE1254TEX := $(filter-out $(GENERATED_SOURCES),$(notdir $(wildcard ../$(THISBOOK)/*.tex)))
@@ -45,18 +44,6 @@ THISBOOK_DEPS += $(PDFS_FROM_EPS)
 include ../latex/make.rules
 
 LATEXMK := ../latex/bin/make_pdflatex --oldscript -filename
-
-#ece1254.pdf :: ece1254.tex
-#	$(dopdflatex)
-
-#projmatlab.tex : ../METADATA ../matlab/METADATA
-#	(cd .. ; ./METADATA -matlab -latex -ece1254 -filter ece1254redacted/proj ) > $@
-#
-#ps3bmatlab.tex : ../METADATA ../matlab/METADATA
-#	(cd .. ; ./METADATA -matlab -latex -ece1254 -filter ece1254redacted/ps3b/ ) > $@
-#
-#ps3amatlab.tex : ../METADATA ../matlab/METADATA
-#	(cd .. ; ./METADATA -matlab -latex -ece1254 -filter ece1254redacted/ps3a/ ) > $@
 
 $(ECE1254TEX) : %.tex : ../$(ORIGDIR)/%.tex
 	mkdir -p $(dir $@)

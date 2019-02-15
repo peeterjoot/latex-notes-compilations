@@ -2,6 +2,8 @@ THISDIR := phy1520-quantum-redacted
 THISBOOK := phy1520
 ORIGDIR := phy1520-quantum
 
+VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
+
 include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
 

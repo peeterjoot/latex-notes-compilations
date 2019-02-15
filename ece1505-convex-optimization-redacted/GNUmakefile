@@ -2,6 +2,8 @@ THISDIR := ece1505-convex-optimization-redacted
 THISBOOK := ece1505
 ORIGDIR := ece1505-convex-optimization
 
+VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
+
 include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
 
