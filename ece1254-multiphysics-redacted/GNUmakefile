@@ -2,7 +2,7 @@ THISDIR := ece1254-multiphysics-redacted
 THISBOOK := ece1254
 ORIGDIR := ece1254-multiphysics
 
-VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
+#VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
 
 include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars

@@ -848,6 +848,11 @@ sub mathematicaIndexLatex
    #my $urlpath = "https://raw.github.com/peeterjoot/mathematica/master/" ;
    my $urlpath = "https://github.com/peeterjoot/mathematica/tree/master/" ;
 
+   if ( $filter )
+   {
+      $urlpath .= "$filter" ;
+   }
+
    my $prologue1 =
 "
 %-------------------------------------------------------
@@ -888,6 +893,8 @@ my $out = "
       my $desc = $_->{'WHAT'} ;
       my $thisfilter = $_->{'FILTER'} ;
 
+      my $fullpath = "https://raw.github.com/peeterjoot/mathematica/master/$path" ;
+
       if ( $filter )
       {
          my $match = ( $path =~ m@$filter@ ) ;
@@ -909,10 +916,13 @@ my $out = "
          next unless ( $match ) ;
       }
 
-      my $fullpath = "https://raw.github.com/peeterjoot/mathematica/master/$path" ;
-
       my $label = $path ;
       $label =~ s,/,:,g ;
+
+      if ( $filter )
+      {
+         $path =~ s@$filter@@;
+      }
 
       $foundCDF++ if ( $path =~ /\.cdf$/i ) ;
 

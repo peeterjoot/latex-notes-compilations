@@ -2,7 +2,7 @@ THISDIR := ece1228-electromagnetic-theory-redacted
 THISBOOK := ece1228
 ORIGDIR := ece1228-electromagnetic-theory
 
-VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
+#VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
 
 include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars

@@ -2,7 +2,7 @@ THISDIR := phy2403-quantum-field-theory-redacted
 THISBOOK := phy2403
 ORIGDIR := phy2403-quantum-field-theory
 
-VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
+#VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
 
 include ../$(ORIGDIR)/make.revision
 include ../latex/make.bookvars
