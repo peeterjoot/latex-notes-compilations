@@ -1,0 +1,57 @@
+
+Landing pages:
+   Go through all the pdf links, and if any are to non-versioned versions, update those, and
+   add separate landing pages for each of these:
+
+      odds and ends:
+         GAbookI
+         GAbookII
+         ece1236-microwaves/ece1236.pdf
+         ece1505-convex-optimization/ece1505.pdf
+         miscphysics/miscphysics.pdf
+
+   phy1520
+      - use thick for the mathematica figures.
+
+   # update:
+
+   http://peeterjoot.com/physicsplay-git/
+
+   # and then rewrite:
+   http://peeterjoot.com/writing/
+
+Figures:
+
+   Going through this list looking at the Mathematia based figures to see which should be updated
+   (PlotStyle -> Thick and so forth)
+
+      phy454-continuumechanics
+      phy487-qmsolids
+      ece1254-multiphysics
+      gabook
+      phy1520-quantum
+      ece1505-convex-optimization
+      phy2403-quantum-field-theory
+      ece1228-electromagnetic-theory
+      phy485-optics
+      ece1229-antenna
+
+GAelectrodynamics
+   -- apply phy450/backmatter.tex index markup to get index to show up properly in the contents like the bib.
+   -- use the emptypage logic from phy450 -- note that this requires \endgroup's and not using those 
+      in 452 resulted in NO-PAGE-NUMBERS!
+
+450, 452, GAelectrodynamics
+   -- dashes in version_bash.tex aren't showing up properly.  Figure out (probably applies to all.)
+
+Rework as 6x9 and post to kdp (for draft copies)
+#   452  -- stat mech
+      -- update landing page when kdp link is available.  
+#   450  -- e&m
+   485  -- optics
+   487  -- condensed matter
+
+maybe (redacted):
+   1254 -- multiphysics
+   1520 -- quantum
+   2403 -- fields
