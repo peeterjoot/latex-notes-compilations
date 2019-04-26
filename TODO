@@ -27,43 +27,48 @@ Figures:
 
       phy487-qmsolids
       phy485-optics
+         -- repost those when that's done.
+
       phy454-continuumechanics
       ece1254-multiphysics
       gabook
       phy1520-quantum
       ece1505-convex-optimization
-      phy2403-quantum-field-theory
       ece1228-electromagnetic-theory
       ece1229-antenna
 
-450, 452, GAelectrodynamics
+450, 452, 487, GAelectrodynamics
    -- dashes in version_bash.tex aren't showing up properly.  Figure out (probably applies to all.)
 
 Rework as 6x9 and post to kdp (for draft copies)
-   356 -- qm I
-#   450  -- e&m
-   456 -- qm II
+#  450  -- e&m
+#  485  -- optics
+#  452  -- stat mech
+#  487  -- condensed matter
+   2403 -- fields i/p.
    454  -- fluid mechanics
-   485  -- optics <<< AFTER 487.
-#   452  -- stat mech
-*  487  -- condensed matter <<< NEXT.
-   1254 -- multiphysics
+
+   356 -- qm I
+   456 -- qm II
    1229 -- antenna
-   1520 -- grad qm
-   1520 -- quantum
-   2403 -- fields
+
+   1254 -- multiphysics << unredacted for myself.
+   1520 -- grad qm      << unredacted for myself.
+
+phy450:
+   refresh on kdp and on wordpress http server -- contents was the page heading for everything!
+   -- update the changelog on the blog.
 
 6x9 instructions:
 
 - specialize: 
    backmatter.tex
-   GNUmakefile
+   GNUmakefile # new path for $(THISBOOK).tex, ...
    thisbook.sty
    classicthesis-config.tex
-   $(THISBOOK).tex -- patch and git add it.
+   hack preface.tex for the page numbering position bug (add: \thispagestyle{empty})
+   customize the dedication and change the rules to avoid the generic one being used (do this for phy485)
 
+   git commit -a
    make clean;make
 
-these are all basically identical I think (452, 450, GAe, 487) ... use common version from alterate path.
-
-   $(THISBOOK).tex
