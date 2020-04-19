@@ -10,9 +10,6 @@ Landing pages:
          ece1505-convex-optimization/ece1505.pdf
          miscphysics/miscphysics.pdf
 
-   phy1520
-      - use thick for the mathematica figures.
-
    # update:
 
    http://peeterjoot.com/physicsplay-git/
@@ -32,32 +29,28 @@ Figures:
       phy454-continuumechanics
       ece1254-multiphysics
       gabook
-      phy1520-quantum
       ece1505-convex-optimization
       ece1228-electromagnetic-theory
       ece1229-antenna
 
-450, 452, 487, GAelectrodynamics
-   -- dashes in version_bash.tex aren't showing up properly.  Figure out (probably applies to all.)
+450, 452, 487, GAelectrodynamics, 2403
+   -- dashes in version_bash.tex weren't showing up properly
+      rebuild and refresh all these pdf's
 
 Rework as 6x9 and post to kdp (for draft copies)
 #  450  -- e&m
 #  485  -- optics
 #  452  -- stat mech
 #  487  -- condensed matter
-   2403 -- fields i/p.
-   454  -- fluid mechanics
+#  2403 -- fields
+#  1520 -- grad qm      -- Arun has given permission not to redact.
+#   454  -- fluid mechanics
+   1254 -- multiphysics << unredacted for myself.
+   354  -- classical mechanics
 
    356 -- qm I
    456 -- qm II
    1229 -- antenna
-
-   1254 -- multiphysics << unredacted for myself.
-   1520 -- grad qm      << unredacted for myself.
-
-phy450:
-   refresh on kdp and on wordpress http server -- contents was the page heading for everything!
-   -- update the changelog on the blog.
 
 6x9 instructions:
 
