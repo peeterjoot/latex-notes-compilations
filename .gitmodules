@@ -142,3 +142,6 @@
 [submodule "figures/phy2403-quantum-field-theory"]
 	path = figures/phy2403-quantum-field-theory
 	url = git@github.com:peeterjoot/phy2403-quantum-field-theory-figures.git
+[submodule "blogit"]
+	path = blogit
+	url = git@github.com:peeterjoot/blogit.git
