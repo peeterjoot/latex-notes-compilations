@@ -1,0 +1,210 @@
+% max_print_line=1000 latexmk -pdf  -latexoption='-file-line-error' -latexoption='-synctex=1' -latexoption='-shell-escape' -latexoption='--halt-on-error' hyperwedge.tex
+\documentclass[letterpaper]{scrreprt}
+\usepackage[left=2cm,right=2cm]{geometry}
+%\usepackage[svgnames]{xcolor}
+\usepackage{amssymb}
+\RequirePackage{amsmath}
+\newcommand{\lr}[1]{\left(#1\right)}
+\newcommand{\Ba}[0]{\mathbf{a}}
+\newcommand{\Bb}[0]{\mathbf{b}}
+\newcommand{\Bc}[0]{\mathbf{c}}
+\newcommand{\Bd}[0]{\mathbf{d}}
+\newcommand{\Be}[0]{\mathbf{e}}
+\newcommand{\Bx}[0]{\mathbf{x}}
+\newcommand{\BA}[0]{\mathbf{A}}
+\newcommand{\bbR}[0]{\mathbb{R}}
+\newcommand{\conj}[0]{{*}}
+\newcommand{\gpgrade}[2] {{\left\langle{{#1}}\right\rangle}_{#2}}
+\newcommand{\gpgradezero}[1] {\gpgrade{#1}{}}
+\newcommand{\gpgradeone}[1] {\gpgrade{#1}{1}}
+\newcommand{\gpgradetwo}[1] {\gpgrade{#1}{2}}
+\RequirePackage{amsmath}
+\usepackage[english]{cleveref}
+
+\begin{document}
+
+\section{Review of hyperwedge.pdf}
+
+\paragraph{Overall impression.}
+This was an enjoyable paper.  It was very interesting to see the homogenous solution method that started it off, and to follow the progression of the narrative to the conclusion, where linear equation solution methods were used to compute the hyperwedge (wedge of N-1 vec{t}ors).
+
+I would have liked to have seen more discussion about the specific numerical algorthims chosen for the implementation, and how those fared against each other (if that was studied.)
+
+I don't think that the \( m \ne n \) case in section 3 is worth mentioning in this paper.  There are enough new ideas being introduced, and with that never being relevant for the rest of the paper, I don't think that it adds anything to mention, and it is distracting as one starts to think about how to handle that case.
+
+Section 5 spells out the 3D CGA example.  This initially gives the impression that it is to help clarify the ideas with a specific example, but really seems to be just to introduce the numerical results.  I think that (18), and unnumbered-after-that don't add much, since they just restate things without change.
+
+I do think that a specific worked example, specifically that of the 3D case, which is complicated enough to be fairly general, but simple enough to follow easily would be valuable before diving into the general case.  I've written out sample latex where I did this for myself in order to follow the ideas of the paper.  Without that example I had a lot of trouble.
+
+\paragraph{Minor comments.}
+
+\begin{itemize}
+\item After equation (10) in the sentence starting ``For \(m = n\)'', the \( A \) of \(A_m^\conj\) should be in bold for consistency.
+\item That same sentence should call out the \( \alpha \Bx = \BA_m^\conj \) relationship (as a non-inline equation), so that equation (15) is more obvious.
+\item Page 4: Paragraph starting with ``Suppose'': I would have found it more obvious to use \( n \) whereever \( N -1 \) was written.
+\item Same page.  Inline equation just after (15): \( \vec{x} = A^{-1} \vec{y} \).  \( \vec{y} \) should be \( \vec{b}\).
+\item Page 5: ``We are studying this issue.''  Perhaps it is reasonable to use a strategy akin to pivoting in Gaussian elimination (columns and rows are permuted so that divisions are always by the largest absolute value possible.)  The translation of that idea to this algorithm would probably be to pick the homogeneous dimension to match the column vec{t}or with the largest absolute magnitude.
+\end{itemize}
+
+\paragraph{Worked example.}
+
+A three variable system
+\begin{equation}\label{eqn:hyperwedge:160}
+A \vec{x} = \vec{b}.
+\end{equation}
+can be written out explicitly as three equations
+\begin{equation}\label{eqn:hyperwedge:120}
+\begin{aligned}
+\vec{a}_0 \cdot \vec{x} + b_1 &= 0 \\
+\vec{b}_2 \cdot \vec{x} + b_2 &= 0 \\
+\vec{c}_3 \cdot \vec{x} + b_3 &= 0.
+\end{aligned}
+\end{equation}
+We can solve an equivalent \( 3 + 1 \) dimensional homogeneous equation by letting
+\begin{equation}\label{eqn:hyperwedge:180}
+\begin{aligned}
+\Ba_1 &= \vec{a}_1 + \Be_4 b_1 \\
+\Ba_2 &= \vec{b}_2 + \Be_4 b_2 \\
+\Ba_3 &= \vec{c}_3 + \Be_4 b_3 \\
+\Bx &= \vec{x} + \Be_4,
+\end{aligned}
+\end{equation}
+for which the equivalent system to solve is
+\begin{equation}\label{eqn:hyperwedge:200}
+\begin{aligned}
+\Ba_1 \cdot \Bx &= 0 \\
+\Ba_2 \cdot \Bx &= 0 \\
+\Ba_3 \cdot \Bx &= 0.
+\end{aligned}
+\end{equation}
+Because \( \Bx \) is perpendicular to each of \( \Ba_1, \Ba_2, \Ba_3 \) it's dot product with the volume element for that subspace is zero.  That is
+\begin{equation}\label{eqn:hyperwedge:220}
+\Bx \cdot \lr{ \Ba_1 \wedge \Ba_2 \wedge \Ba_3 }
+=
+\lr{\Bx \cdot \Ba_1} \lr{ \Ba_2 \wedge \Ba_3 }
+-\lr{\Bx \cdot \Ba_2} \lr{ \Ba_1 \wedge \Ba_3 }
++\lr{\Bx \cdot \Ba_3} \lr{ \Ba_1 \wedge \Ba_2 }
+= 0.
+\end{equation}
+Let
+\begin{equation}\label{eqn:hyperwedge:240}
+\BA_3 = \Ba_1 \wedge \Ba_2 \wedge \Ba_3 = \BA_3^\conj I_4,
+\end{equation}
+where \( \BA_3^\conj \) is a vector dual to \( \BA_3 \).  Observe that \( \Bx \cdot \BA_3 \) can be reexpressed using in terms of the dual
+\begin{equation}\label{eqn:hyperwedge:260}
+\begin{aligned}
+\Bx \cdot \BA_3
+&= \gpgradetwo{ \Bx \BA_3^\conj I_4 }
+&=
+\Bx \cdot \BA_3^\conj \gpgradetwo{ I_4 } + \lr{ \Bx \wedge \BA_3^\conj } I_4
+&=
+\lr{ \Bx \wedge \BA_3^\conj } I_4,
+\end{aligned}
+\end{equation}
+so
+\begin{equation}\label{eqn:hyperwedge:280}
+\Bx \wedge \BA_3^\conj = 0.
+\end{equation}
+Since \( \BA_3^\conj \) is a vector, it must be proportional to \( \Bx \).  That is
+\begin{equation}\label{eqn:hyperwedge:300}
+\alpha \Bx = \BA_3^\conj.
+\end{equation}
+This allows us to write
+\begin{equation}\label{eqn:hyperwedge:320}
+\BA_3^\conj = \alpha \lr{ \vec{x} + \Be_4 },
+\end{equation}
+or
+\begin{equation}\label{eqn:hyperwedge:340}
+\begin{aligned}
+\BA_3
+&= \alpha \lr{ A^{-1} \vec{b} + \Be_4 }^\conj. \\
+&= \alpha \lr{ A^{-1} \vec{b} }^\conj + \alpha I_3.
+\end{aligned}
+\end{equation}
+To fix \( \alpha \) consider the expansion of \( \BA_3 \) in terms of the original 3D basis
+\begin{equation}\label{eqn:hyperwedge:360}
+\begin{aligned}
+\Ba_1 \wedge \Ba_2 \wedge \Ba_3
+&=
+\lr{ \vec{a}_1 + \Be_4 b_1 }
+\wedge
+\lr{ \vec{a}_2 + \Be_4 b_2 }
+\wedge
+\lr{ \vec{a}_3 + \Be_4 b_3 } \\
+&=
+\vec{a}_1
+\wedge
+\vec{a}_2
+\wedge
+\vec{a}_3
++
+\lr{
+\vec{a}_1 \wedge \Be_4 \wedge \vec{a}_3
+} b_2
++
+\lr{
+\vec{a}_1 \wedge \vec{a}_2 \wedge \Be_4
+} b_3
++
+\lr{
+\Be_4 \wedge \vec{a}_2 \wedge \vec{a}_3
+} b_1 \\
+&=
+\vec{a}_1
+\wedge
+\vec{a}_2
+\wedge
+\vec{a}_3
++
+\Be_4 \lr{
+   \lr{
+   \vec{a}_3 \wedge \vec{a}_1
+   } b_2
+   +
+   \lr{
+   \vec{a}_1 \wedge \vec{a}_2
+   } b_3
+   +
+   \lr{
+   \vec{a}_2 \wedge \vec{a}_3
+   } b_1
+}.
+\end{aligned}
+\end{equation}
+This can be summarized as
+\begin{equation}\label{eqn:hyperwedge:380}
+\BA_3 =
+\vec{a}_1 \wedge \vec{a}_2 \wedge \vec{a}_3
++ \Be_4 \gamma,
+\end{equation}
+where \( \gamma \in \bigwedge^2(\bbR^3) \) is a bivector in the original 3D space.  This allows for determination of the \( \alpha \) factor in \cref{eqn:hyperwedge:340}
+\begin{equation}\label{eqn:hyperwedge:400}
+\vec{a}_1 \wedge \vec{a}_2 \wedge \vec{a}_3
+= \det\lr{A} I_3 = \alpha I_3,
+\end{equation}
+so
+\begin{equation}\label{eqn:hyperwedge:420}
+\alpha = \det\lr{A},
+\end{equation}
+and
+\begin{equation}\label{eqn:hyperwedge:440}
+\BA_3
+=
+\det\lr{A} \lr{
+   \lr{A^{-1} \vec{b}}^\conj + I_3
+}.
+\end{equation}
+This can be written out explicitly as
+\begin{equation}\label{eqn:hyperwedge:460}
+\BA_3
+=
+\det\lr{A} \lr{
+   \sum_{i = 1}^3
+\Be_i^\conj
+\lr{A^{-1} \vec{b}} \cdot \Be_i
++ I_3
+}.
+\end{equation}
+This demonstrates the claim that the duality operation on \( A^{-1} \vec{d} \) only requires picking off the coordinates.
+
+\end{document}
