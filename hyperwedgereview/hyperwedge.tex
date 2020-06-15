@@ -1,0 +1,1962 @@
+\newcommand{\authorname}{Anonymized.}
+\newcommand{\email}{xxx@yyy.zzz}
+\newcommand{\basename}{FIXMEbasenameUndefined}
+\newcommand{\dirname}{notes/FIXMEdirnameUndefined/}
+\renewcommand{\basename}{hyperwedge}
+
+\renewcommand{\dirname}{blah}
+
+\newcommand{\sourcepath}{\dirname\basename.tex}
+\newcommand{\generatetitle}[1]{\chapter{#1}}
+
+
+\newcommand{\underlineAndIndex}[1]{\underline{#1}}
+\newcommand{\paragraphAndIndex}[1]{\paragraph{#1}}
+
+\newcommand{\vcsinfo}{
+\section*{}
+\noindent{\color{DarkOliveGreen}{\rule{\linewidth}{0.1mm}}}
+\paragraph{Document version}
+
+{
+\small
+\begin{itemize}
+\item Available online at:\\
+\href{\onlineurl}{\onlineurl}
+\item Git Repository: \input{./.revinfo/gitRepo.tex}
+\item Source: \sourcepath
+\item last commit: \input{./.revinfo/gitCommitString.tex}
+\item commit date: \input{./.revinfo/gitCommitDate.tex}
+\end{itemize}
+}
+}
+
+
+\PassOptionsToPackage{square,numbers}{natbib}
+\documentclass[letterpaper]{scrreprt}
+
+\usepackage[left=2cm,right=2cm]{geometry}
+\usepackage[svgnames]{xcolor}
+
+%
+% This latex file is for style related stuff (mostly color related), to be used in
+% my notes collections based on the
+% classicthesis template.
+%
+% Some of these are also applicable to articles that use the scrreprt
+% document class.
+%
+% Basic macros (\Br, ...) have been left in Xxxxxxx_macros (but this imports those as a side effect).
+%
+%-----------------------------------------------------------------------------------
+
+\RequirePackage{amsmath}
+\RequirePackage{mathpazo}
+\RequirePackage{cancel} % \cancel
+\RequirePackage{caption} % \captionsetup
+\RequirePackage{graphicx} % \includegraphics
+
+% stub for wordpress postings by email.  Embed the category in the .texfile
+\newcommand{\wordpresscategory}[1]{}
+
+%% http://tex.stackexchange.com/questions/45242/animations-with-movie15-and-swf-files
+% requires:
+% \usepackage[english]{babel}
+% \usepackage{media9}
+%
+% ... media9 is a bit touchy to install with MikTex.  I had to refresh the repository so that it would find
+% media9, and then manually install the dependencies: l3packages, l3kernel (also installed l3experimental, but
+% am not sure that was required).
+%
+\newcommand{\videoFigure}[5]{%
+\begin{figure}[htp]%
+   \centering%
+   \includemedia[%
+      activate=pageopen,%
+      #4,%
+      addresource=#1,%
+      flashvars={%
+src=#1% same path as in addresource!
+&allowFullScreen=true%
+&verbose=true%
+}%
+   ]{}{#5}%
+   \caption{#2}%
+   \label{#3}%
+\end{figure}%
+}
+
+% path, caption, label, dimensions
+\newcommand{\movieFigure}[4]{\videoFigure{#1}{#2}{#3}{#4}{./StrobeMediaPlayback.swf}}
+%\newcommand{\movieFigure}[4]{\videoFigure{#1}{#2}{#3}{#4}{VPlayer.swf}}
+
+%\includemovie[ poster, text={\small(Loading ...)} ]{10cm}{10cm}{channelFlowWithStepPressureGradientTimeEvolution.avi}
+% requires movie15 package
+%\newcommand{\movieFigure}[4]{%
+%\begin{figure}[htp]%
+%   \centering%
+%   \includemovie[ poster, text={\small(Loading ...)} ]{10cm}{10cm}{#1}%
+%   \caption{#2}%
+%   \label{#3}%
+%\end{figure}%
+%}
+
+%\def\etal{{et~al.}}
+
+\DeclareMathOperator{\FT}{FT}
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Mod}{mod}
+\DeclareMathOperator{\Prob}{Prob}
+\DeclareMathOperator{\Det}{det}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Sgn}{sgn}
+\DeclareMathOperator{\Area}{Area}
+\DeclareMathOperator{\Volume}{Volume}
+\DeclareMathOperator{\AbsName}{abs}
+\DeclareMathOperator{\Rot}{R}
+\DeclareMathOperator{\ExpName}{e}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\something}{something}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\RejName}{Rej}
+\DeclareMathOperator{\AName}{A}
+\DeclareMathOperator{\VName}{V}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\PV}{PV}
+\DeclareMathOperator{\atan2}{atan2}
+\DeclareMathOperator{\Atan}{atan}
+\DeclareMathOperator{\Atanh}{atanh}
+\DeclareMathOperator{\Acosh}{acosh}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Ei}{Ei}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\cond}{cond}
+
+\newcommand{\lr}[1]{\left(#1\right)}
+\newcommand{\biglr}[1]{\Bigl(#1\Bigr)}
+\newcommand{\Biglr}[1]{\Biggl(#1\Biggr)}
+\newcommand{\setlr}[1]{\left\{#1\right\}}
+\newcommand{\evalbar}[2]{{\left.{#1}\right\vert}_{#2}}
+\newcommand{\evalrange}[3]{{\left.{#1}\right\vert}_{#2}^{#3}}
+% this one just a convienence to allow switching easily from bar to nobar
+\newcommand{\evalnobar}[2]{{#1}_{#2}}
+
+\newcommand{\symmetricVecBladePauli}[3]{\left\{{#1},\left[{#2},{#3}\right]\right\}}
+\newcommand{\symmetricBladeVecPauli}[3]{\left\{\left[{#1},{#2}\right],{#3}\right\}}
+
+\newcommand{\InvGamma}[0]{\sqrt{1 - \frac{\Bv^2}{c^2}}}
+
+%
+% shorthand for bold symbols, convenient for vectors and matrices
+%
+\newcommand{\Ba}[0]{\mathbf{a}}
+\newcommand{\Bb}[0]{\mathbf{b}}
+\newcommand{\Bc}[0]{\mathbf{c}}
+\newcommand{\Bd}[0]{\mathbf{d}}
+\newcommand{\Be}[0]{\mathbf{e}}
+\newcommand{\Bf}[0]{\mathbf{f}}
+\newcommand{\Bg}[0]{\mathbf{g}}
+\newcommand{\Bh}[0]{\mathbf{h}}
+\newcommand{\Bi}[0]{\mathbf{i}}
+\newcommand{\Bj}[0]{\mathbf{j}}
+\newcommand{\Bk}[0]{\mathbf{k}}
+\newcommand{\Bl}[0]{\mathbf{l}}
+\newcommand{\Bm}[0]{\mathbf{m}}
+\newcommand{\Bn}[0]{\mathbf{n}}
+\newcommand{\Bo}[0]{\mathbf{o}}
+\newcommand{\Bp}[0]{\mathbf{p}}
+\newcommand{\Bq}[0]{\mathbf{q}}
+\newcommand{\Br}[0]{\mathbf{r}}
+\newcommand{\Bs}[0]{\mathbf{s}}
+\newcommand{\Bt}[0]{\mathbf{t}}
+\newcommand{\Bu}[0]{\mathbf{u}}
+\newcommand{\Bv}[0]{\mathbf{v}}
+\newcommand{\Bw}[0]{\mathbf{w}}
+\newcommand{\Bx}[0]{\mathbf{x}}
+\newcommand{\By}[0]{\mathbf{y}}
+\newcommand{\Bz}[0]{\mathbf{z}}
+\newcommand{\BA}[0]{\mathbf{A}}
+\newcommand{\BB}[0]{\mathbf{B}}
+\newcommand{\BC}[0]{\mathbf{C}}
+\newcommand{\BD}[0]{\mathbf{D}}
+\newcommand{\BE}[0]{\mathbf{E}}
+\newcommand{\BF}[0]{\mathbf{F}}
+\newcommand{\BG}[0]{\mathbf{G}}
+\newcommand{\BH}[0]{\mathbf{H}}
+\newcommand{\BI}[0]{\mathbf{I}}
+\newcommand{\BJ}[0]{\mathbf{J}}
+\newcommand{\BK}[0]{\mathbf{K}}
+\newcommand{\BL}[0]{\mathbf{L}}
+\newcommand{\BM}[0]{\mathbf{M}}
+\newcommand{\BN}[0]{\mathbf{N}}
+\newcommand{\BO}[0]{\mathbf{O}}
+\newcommand{\BP}[0]{\mathbf{P}}
+\newcommand{\BQ}[0]{\mathbf{Q}}
+\newcommand{\BR}[0]{\mathbf{R}}
+\newcommand{\BS}[0]{\mathbf{S}}
+\newcommand{\BT}[0]{\mathbf{T}}
+\newcommand{\BU}[0]{\mathbf{U}}
+\newcommand{\BV}[0]{\mathbf{V}}
+\newcommand{\BW}[0]{\mathbf{W}}
+\newcommand{\BX}[0]{\mathbf{X}}
+\newcommand{\BY}[0]{\mathbf{Y}}
+\newcommand{\BZ}[0]{\mathbf{Z}}
+
+\newcommand{\Bzero}[0]{\mathbf{0}}
+\newcommand{\Btheta}[0]{\boldsymbol{\theta}}
+\newcommand{\BEta}[0]{\boldsymbol{\eta}}
+\newcommand{\BXI}[0]{\boldsymbol{\xi}}
+\newcommand{\Btau}[0]{\boldsymbol{\tau}}
+\newcommand{\Bomega}[0]{\boldsymbol{\omega}}
+
+%
+% to write R^n and C^n in a distinguishable fashion.  Perhaps change this
+% to the double lined characters upon figuring out how to do so.
+%
+\newcommand{\C}[1]{$\mathbb{C}^{#1}$}
+\newcommand{\R}[1]{$\mathbb{R}^{#1}$}
+\newcommand{\Z}[0]{$\mathbb{Z}$}
+\newcommand{\bbZ}[0]{\mathbb{Z}}
+\newcommand{\bbC}[0]{\mathbb{C}}
+\newcommand{\bbR}[0]{\mathbb{R}}
+
+%
+% various generally useful helpers
+%
+
+% derivative of #1 wrt. #2:
+\newcommand{\D}[2] {\frac {d#2} {d#1}}
+
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\cross}[0]{\times}
+
+\newcommand{\abs}[1]{\lvert{#1}\rvert}
+\newcommand{\norm}[1]{\lVert{#1}\rVert}
+\newcommand{\innerprod}[2]{\langle{#1}, {#2}\rangle}
+\newcommand{\dotprod}[2]{{#1} \cdot {#2}}
+\newcommand{\bdotprod}[2]{\left({#1} \cdot {#2}\right)}
+\newcommand{\crossprod}[2]{{#1} \cross {#2}}
+\newcommand{\tripleprod}[3]{\dotprod{\left(\crossprod{#1}{#2}\right)}{#3}}
+
+
+
+%
+% A few miscellaneous things specific to this document
+%
+\newcommand{\crossop}[1]{\crossprod{#1}{}}
+
+% R2 vector.
+\newcommand{\VectorTwo}[2]{
+\begin{bmatrix}
+ {#1} \\
+ {#2}
+\end{bmatrix}
+}
+
+\newcommand{\VectorN}[1]{
+\begin{bmatrix}
+{#1}_1 \\
+{#1}_2 \\
+\vdots \\
+{#1}_N \\
+\end{bmatrix}
+}
+
+\newcommand{\DETuvij}[4]{
+\begin{vmatrix}
+ {#1}_{#3} & {#1}_{#4} \\
+ {#2}_{#3} & {#2}_{#4}
+\end{vmatrix}
+}
+
+\newcommand{\DETuvwijk}[6]{
+\begin{vmatrix}
+ {#1}_{#4} & {#1}_{#5} & {#1}_{#6} \\
+ {#2}_{#4} & {#2}_{#5} & {#2}_{#6} \\
+ {#3}_{#4} & {#3}_{#5} & {#3}_{#6}
+\end{vmatrix}
+}
+
+\newcommand{\DETuvwxijkl}[8]{
+\begin{vmatrix}
+ {#1}_{#5} & {#1}_{#6} & {#1}_{#7} & {#1}_{#8} \\
+ {#2}_{#5} & {#2}_{#6} & {#2}_{#7} & {#2}_{#8} \\
+ {#3}_{#5} & {#3}_{#6} & {#3}_{#7} & {#3}_{#8} \\
+ {#4}_{#5} & {#4}_{#6} & {#4}_{#7} & {#4}_{#8} \\
+\end{vmatrix}
+}
+
+%\newcommand{\DETuvwxyijklm}[10]{
+%\begin{vmatrix}
+% {#1}_{#6} & {#1}_{#7} & {#1}_{#8} & {#1}_{#9} & {#1}_{#10} \\
+% {#2}_{#6} & {#2}_{#7} & {#2}_{#8} & {#2}_{#9} & {#2}_{#10} \\
+% {#3}_{#6} & {#3}_{#7} & {#3}_{#8} & {#3}_{#9} & {#3}_{#10} \\
+% {#4}_{#6} & {#4}_{#7} & {#4}_{#8} & {#4}_{#9} & {#4}_{#10} \\
+% {#5}_{#6} & {#5}_{#7} & {#5}_{#8} & {#5}_{#9} & {#5}_{#10}
+%\end{vmatrix}
+%}
+
+% R3 vector.
+\newcommand{\VectorThree}[3]{
+\begin{bmatrix}
+ {#1} \\
+ {#2} \\
+ {#3}
+\end{bmatrix}
+}
+
+%---------------------------------------------------------
+
+%<misc>
+%
+\newcommand{\Abs}[1]{{\left\lvert{#1}\right\rvert}}
+\newcommand{\Norm}[1]{\left\lVert{#1}\right\rVert}
+\newcommand{\spacegrad}[0]{\boldsymbol{\nabla}}
+\newcommand{\boldpartial}[0]{\boldsymbol{\partial}}
+\newcommand{\grad}[0]{\nabla}
+
+\newcommand{\ddt}[1]{\frac{d{#1}}{dt}}
+\newcommand{\ddtau}[1]{\frac{d{#1}}{d\tau}}
+\newcommand{\dds}[1]{\frac{d{#1}}{ds}}
+\newcommand{\ddx}[1]{\frac{d{#1}}{dx}}
+\newcommand{\ddrho}[1]{\frac{d{#1}}{d\rho}}
+\newcommand{\ddz}[1]{\frac{d{#1}}{dz}}
+
+% == \partial_{#1} {#2}
+\newcommand{\PD}[2]{\frac{\partial {#2}}{\partial {#1}}}
+% inline variant
+\newcommand{\PDi}[2]{{\partial {#2}}/{\partial {#1}}}
+
+% Like \PD, but with an additional parameter saying what's held constant:
+% example: \PDc{T}{U}{V}
+\newcommand{\PDc}[3]{%
+\left(
+\frac{\partial {#2}}{\partial {#1}}%
+\right)_{#3}%
+}
+
+\newcommand{\PDD}[3]{\frac{\partial^2 {#3}}{\partial {#1}\partial {#2}}}
+%\newcommand{\PDd}[2]{\frac{\partial^2 {#2}}{{\partial{#1}}^2}}
+\newcommand{\PDsq}[2]{\frac{\partial^2 {#2}}{(\partial {#1})^2}}
+
+\newcommand{\Partial}[2]{\frac{\partial {#1}}{\partial {#2}}}
+
+% fixme: would be nice to be more consistent here
+\newcommand{\ProjOp}[2]{\Proj_{#1}\left( {#2} \right)}
+\newcommand{\Rej}[2]{\RejName_{#1}\left( {#2} \right)}
+
+\newcommand{\Rm}[1]{\mathbb{R}^{#1}}
+\newcommand{\Cm}[1]{\mathbb{C}^{#1}}
+\newcommand{\conj}[0]{{*}}
+\newcommand{\conjugateStar}[1]{{#1}^{*}}
+
+
+%</misc>
+
+% <grade selection>
+%
+\newcommand{\gpgrade}[2] {{\left\langle{{#1}}\right\rangle}_{#2}}
+
+\newcommand{\gpgradezero}[1] {\gpgrade{#1}{}}
+%\newcommand{\gpscalargrade}[1] {{\left\langle{{#1}}\right\rangle}}
+%\newcommand{\gpgradezero}[1] {\gpgrade{#1}{0}}
+
+%\newcommand{\gpgradeone}[1] {{\left\langle{{#1}}\right\rangle}_{1}}
+\newcommand{\gpgradeone}[1] {\gpgrade{#1}{1}}
+
+\newcommand{\gpgradetwo}[1] {\gpgrade{#1}{2}}
+\newcommand{\gpgradethree}[1] {\gpgrade{#1}{3}}
+\newcommand{\gpgradefour}[1] {\gpgrade{#1}{4}}
+%
+% </grade selection>
+
+\newcommand{\bracketaverage}[1]{\gpgradezero{#1}}
+
+\newcommand{\adot}[0]{{\dot{a}}}
+\newcommand{\bdot}[0]{{\dot{b}}}
+% taken for centered dot:
+%\newcommand{\cdot}[0]{{\dot{c}}}
+%\newcommand{\ddot}[0]{{\dot{d}}}
+\newcommand{\edot}[0]{{\dot{e}}}
+\newcommand{\fdot}[0]{{\dot{f}}}
+\newcommand{\gdot}[0]{{\dot{g}}}
+\newcommand{\hdot}[0]{{\dot{h}}}
+\newcommand{\idot}[0]{{\dot{i}}}
+\newcommand{\jdot}[0]{{\dot{j}}}
+\newcommand{\kdot}[0]{{\dot{k}}}
+\newcommand{\ldot}[0]{{\dot{l}}}
+\newcommand{\mdot}[0]{{\dot{m}}}
+\newcommand{\ndot}[0]{{\dot{n}}}
+%\newcommand{\odot}[0]{{\dot{o}}}
+\newcommand{\pdot}[0]{{\dot{p}}}
+\newcommand{\qdot}[0]{{\dot{q}}}
+\newcommand{\rdot}[0]{{\dot{r}}}
+\newcommand{\sdot}[0]{{\dot{s}}}
+\newcommand{\tdot}[0]{{\dot{t}}}
+\newcommand{\udot}[0]{{\dot{u}}}
+\newcommand{\vdot}[0]{{\dot{v}}}
+\newcommand{\wdot}[0]{{\dot{w}}}
+\newcommand{\xdot}[0]{{\dot{x}}}
+\newcommand{\ydot}[0]{{\dot{y}}}
+\newcommand{\zdot}[0]{{\dot{z}}}
+\newcommand{\addot}[0]{{\ddot{a}}}
+\newcommand{\bddot}[0]{{\ddot{b}}}
+\newcommand{\cddot}[0]{{\ddot{c}}}
+%\newcommand{\dddot}[0]{{\ddot{d}}}
+\newcommand{\eddot}[0]{{\ddot{e}}}
+\newcommand{\fddot}[0]{{\ddot{f}}}
+\newcommand{\gddot}[0]{{\ddot{g}}}
+\newcommand{\hddot}[0]{{\ddot{h}}}
+\newcommand{\iddot}[0]{{\ddot{i}}}
+\newcommand{\jddot}[0]{{\ddot{j}}}
+\newcommand{\kddot}[0]{{\ddot{k}}}
+\newcommand{\lddot}[0]{{\ddot{l}}}
+\newcommand{\mddot}[0]{{\ddot{m}}}
+\newcommand{\nddot}[0]{{\ddot{n}}}
+\newcommand{\oddot}[0]{{\ddot{o}}}
+\newcommand{\pddot}[0]{{\ddot{p}}}
+\newcommand{\qddot}[0]{{\ddot{q}}}
+\newcommand{\rddot}[0]{{\ddot{r}}}
+\newcommand{\sddot}[0]{{\ddot{s}}}
+\newcommand{\tddot}[0]{{\ddot{t}}}
+\newcommand{\uddot}[0]{{\ddot{u}}}
+\newcommand{\vddot}[0]{{\ddot{v}}}
+\newcommand{\wddot}[0]{{\ddot{w}}}
+\newcommand{\xddot}[0]{{\ddot{x}}}
+\newcommand{\yddot}[0]{{\ddot{y}}}
+\newcommand{\zddot}[0]{{\ddot{z}}}
+
+%<bold and dot greek symbols>
+%
+
+\newcommand{\Deltadot}[0]{{\dot{\Delta}}}
+\newcommand{\Gammadot}[0]{{\dot{\Gamma}}}
+\newcommand{\Lambdadot}[0]{{\dot{\Lambda}}}
+\newcommand{\Omegadot}[0]{{\dot{\Omega}}}
+\newcommand{\Phidot}[0]{{\dot{\Phi}}}
+\newcommand{\Pidot}[0]{{\dot{\Pi}}}
+\newcommand{\Psidot}[0]{{\dot{\Psi}}}
+\newcommand{\Sigmadot}[0]{{\dot{\Sigma}}}
+\newcommand{\Thetadot}[0]{{\dot{\Theta}}}
+\newcommand{\Upsilondot}[0]{{\dot{\Upsilon}}}
+\newcommand{\Xidot}[0]{{\dot{\Xi}}}
+\newcommand{\alphadot}[0]{{\dot{\alpha}}}
+\newcommand{\betadot}[0]{{\dot{\beta}}}
+\newcommand{\chidot}[0]{{\dot{\chi}}}
+\newcommand{\deltadot}[0]{{\dot{\delta}}}
+\newcommand{\epsilondot}[0]{{\dot{\epsilon}}}
+\newcommand{\etadot}[0]{{\dot{\eta}}}
+\newcommand{\gammadot}[0]{{\dot{\gamma}}}
+\newcommand{\kappadot}[0]{{\dot{\kappa}}}
+\newcommand{\lambdadot}[0]{{\dot{\lambda}}}
+\newcommand{\mudot}[0]{{\dot{\mu}}}
+\newcommand{\nudot}[0]{{\dot{\nu}}}
+\newcommand{\omegadot}[0]{{\dot{\omega}}}
+\newcommand{\phidot}[0]{{\dot{\phi}}}
+\newcommand{\pidot}[0]{{\dot{\pi}}}
+\newcommand{\psidot}[0]{{\dot{\psi}}}
+\newcommand{\rhodot}[0]{{\dot{\rho}}}
+\newcommand{\sigmadot}[0]{{\dot{\sigma}}}
+\newcommand{\taudot}[0]{{\dot{\tau}}}
+\newcommand{\thetadot}[0]{{\dot{\theta}}}
+\newcommand{\upsilondot}[0]{{\dot{\upsilon}}}
+\newcommand{\varepsilondot}[0]{{\dot{\varepsilon}}}
+\newcommand{\varphidot}[0]{{\dot{\varphi}}}
+\newcommand{\varpidot}[0]{{\dot{\varpi}}}
+\newcommand{\varrhodot}[0]{{\dot{\varrho}}}
+\newcommand{\varsigmadot}[0]{{\dot{\varsigma}}}
+\newcommand{\varthetadot}[0]{{\dot{\vartheta}}}
+\newcommand{\xidot}[0]{{\dot{\xi}}}
+\newcommand{\zetadot}[0]{{\dot{\zeta}}}
+
+\newcommand{\Deltaddot}[0]{{\ddot{\Delta}}}
+\newcommand{\Gammaddot}[0]{{\ddot{\Gamma}}}
+\newcommand{\Lambdaddot}[0]{{\ddot{\Lambda}}}
+\newcommand{\Omegaddot}[0]{{\ddot{\Omega}}}
+\newcommand{\Phiddot}[0]{{\ddot{\Phi}}}
+\newcommand{\Piddot}[0]{{\ddot{\Pi}}}
+\newcommand{\Psiddot}[0]{{\ddot{\Psi}}}
+\newcommand{\Sigmaddot}[0]{{\ddot{\Sigma}}}
+\newcommand{\Thetaddot}[0]{{\ddot{\Theta}}}
+\newcommand{\Upsilonddot}[0]{{\ddot{\Upsilon}}}
+\newcommand{\Xiddot}[0]{{\ddot{\Xi}}}
+\newcommand{\alphaddot}[0]{{\ddot{\alpha}}}
+\newcommand{\betaddot}[0]{{\ddot{\beta}}}
+\newcommand{\chiddot}[0]{{\ddot{\chi}}}
+\newcommand{\deltaddot}[0]{{\ddot{\delta}}}
+\newcommand{\epsilonddot}[0]{{\ddot{\epsilon}}}
+\newcommand{\etaddot}[0]{{\ddot{\eta}}}
+\newcommand{\gammaddot}[0]{{\ddot{\gamma}}}
+\newcommand{\kappaddot}[0]{{\ddot{\kappa}}}
+\newcommand{\lambdaddot}[0]{{\ddot{\lambda}}}
+\newcommand{\muddot}[0]{{\ddot{\mu}}}
+\newcommand{\nuddot}[0]{{\ddot{\nu}}}
+\newcommand{\omegaddot}[0]{{\ddot{\omega}}}
+\newcommand{\phiddot}[0]{{\ddot{\phi}}}
+\newcommand{\piddot}[0]{{\ddot{\pi}}}
+\newcommand{\psiddot}[0]{{\ddot{\psi}}}
+\newcommand{\rhoddot}[0]{{\ddot{\rho}}}
+\newcommand{\sigmaddot}[0]{{\ddot{\sigma}}}
+\newcommand{\tauddot}[0]{{\ddot{\tau}}}
+\newcommand{\thetaddot}[0]{{\ddot{\theta}}}
+\newcommand{\upsilonddot}[0]{{\ddot{\upsilon}}}
+\newcommand{\varepsilonddot}[0]{{\ddot{\varepsilon}}}
+\newcommand{\varphiddot}[0]{{\ddot{\varphi}}}
+\newcommand{\varpiddot}[0]{{\ddot{\varpi}}}
+\newcommand{\varrhoddot}[0]{{\ddot{\varrho}}}
+\newcommand{\varsigmaddot}[0]{{\ddot{\varsigma}}}
+\newcommand{\varthetaddot}[0]{{\ddot{\vartheta}}}
+\newcommand{\xiddot}[0]{{\ddot{\xi}}}
+\newcommand{\zetaddot}[0]{{\ddot{\zeta}}}
+
+\newcommand{\BDelta}[0]{\boldsymbol{\Delta}}
+\newcommand{\BGamma}[0]{\boldsymbol{\Gamma}}
+\newcommand{\BLambda}[0]{\boldsymbol{\Lambda}}
+\newcommand{\BOmega}[0]{\boldsymbol{\Omega}}
+\newcommand{\BPhi}[0]{\boldsymbol{\Phi}}
+\newcommand{\BPi}[0]{\boldsymbol{\Pi}}
+\newcommand{\BPsi}[0]{\boldsymbol{\Psi}}
+\newcommand{\BSigma}[0]{\boldsymbol{\Sigma}}
+\newcommand{\BTheta}[0]{\boldsymbol{\Theta}}
+\newcommand{\BUpsilon}[0]{\boldsymbol{\Upsilon}}
+\newcommand{\BXi}[0]{\boldsymbol{\Xi}}
+\newcommand{\Balpha}[0]{\boldsymbol{\alpha}}
+\newcommand{\Bbeta}[0]{\boldsymbol{\beta}}
+\newcommand{\Bchi}[0]{\boldsymbol{\chi}}
+\newcommand{\Bdelta}[0]{\boldsymbol{\delta}}
+\newcommand{\Bepsilon}[0]{\boldsymbol{\epsilon}}
+\newcommand{\Beta}[0]{\boldsymbol{\eta}}
+\newcommand{\Bgamma}[0]{\boldsymbol{\gamma}}
+\newcommand{\Bkappa}[0]{\boldsymbol{\kappa}}
+\newcommand{\Blambda}[0]{\boldsymbol{\lambda}}
+\newcommand{\Bmu}[0]{\boldsymbol{\mu}}
+\newcommand{\Bnu}[0]{\boldsymbol{\nu}}
+%\newcommand{\Bomega}[0]{\boldsymbol{\omega}}
+\newcommand{\Bphi}[0]{\boldsymbol{\phi}}
+\newcommand{\Bpi}[0]{\boldsymbol{\pi}}
+\newcommand{\Bpsi}[0]{\boldsymbol{\psi}}
+\newcommand{\Brho}[0]{\boldsymbol{\rho}}
+\newcommand{\Bsigma}[0]{\boldsymbol{\sigma}}
+%\newcommand{\Btau}[0]{\boldsymbol{\tau}}
+%\newcommand{\Btheta}[0]{\boldsymbol{\theta}}
+\newcommand{\Bupsilon}[0]{\boldsymbol{\upsilon}}
+\newcommand{\Bvarepsilon}[0]{\boldsymbol{\varepsilon}}
+\newcommand{\Bvarphi}[0]{\boldsymbol{\varphi}}
+\newcommand{\Bvarpi}[0]{\boldsymbol{\varpi}}
+\newcommand{\Bvarrho}[0]{\boldsymbol{\varrho}}
+\newcommand{\Bvarsigma}[0]{\boldsymbol{\varsigma}}
+\newcommand{\Bvartheta}[0]{\boldsymbol{\vartheta}}
+\newcommand{\Bxi}[0]{\boldsymbol{\xi}}
+\newcommand{\Bzeta}[0]{\boldsymbol{\zeta}}
+%
+%</bold and dot greek symbols>
+
+%-------------------------------------------------------
+\newcommand{\symmetric}[2]{{\left\{{#1},{#2}\right\}}}
+\newcommand{\antisymmetric}[2]{\left[{#1},{#2}\right]}
+
+\newcommand{\dimensions}[1]{\left[#1\right]}
+
+\newcommand{\uDETuvij}[4]{
+\begin{vmatrix}
+ {#1}^{#3} & {#1}^{#4} \\
+ {#2}^{#3} & {#2}^{#4}
+\end{vmatrix}
+}
+
+\newcommand{\PDSq}[2]{\frac{\partial^2 {#2}}{\partial {#1}^2}}
+\newcommand{\transpose}[1]{{#1}^{\mathrm{T}}}
+\newcommand{\stardot}[0]{{*}}
+
+% bivector.tex:
+\newcommand{\laplacian}[0]{\nabla^2}
+\newcommand{\Dsq}[2] {\frac {\partial^2 {#1}} {\partial {#2}^2}}
+\newcommand{\dxj}[2] {\frac {\partial {#1}} {\partial {x_{#2}}}}
+\newcommand{\dsqxj}[2] {\frac {\partial^2 {#1}} {\partial {x_{#2}}^2}}
+
+% ga_wiki_torque.tex:
+\newcommand{\bithree}[0]{{\Bi}_3}
+\newcommand{\nrrp}[0]{\norm{\rcap \wedge \Br'}}
+\newcommand{\dtheta}[1]{\frac{d {#1}}{d \theta}}
+
+% ga_wiki_unit_derivative.tex
+\newcommand{\dt}[1]{\frac{d {#1}}{dt}}
+\newcommand{\BrPrimeRej}[0]{\rcap(\rcap \wedge \Br')}
+
+\newcommand{\AreaOp}[1]{\AName_{#1}}
+\newcommand{\VolumeOp}[1]{\VName_{#1}}
+
+\newcommand{\T}[0]{{\text{T}}}
+
+% spherical_polar.tex
+\newcommand{\Lor}[2]{{{\Lambda^{#1}}_{#2}}}
+\newcommand{\ILor}[2]{{{ \{{\Lambda^{-1}\} }^{#1}}_{#2}}}
+
+% kvector_exponential.tex
+\newcommand{\Babs}[0]{\abs{\BB}}
+
+\newcommand{\ddu}[1] {\frac {d{#1}} {du}}
+
+% legendre.tex
+\newcommand{\agrad}[0]{\Ba \cdot \nabla}
+\newcommand{\bxa}[0]{\Bx\Ba}
+\newcommand{\costheta}[0]{\acap \cdot \xcap}
+\newcommand{\half}[0]{\inv{2}}
+
+% ke_rotation.tex
+\newcommand{\DotT}[1]{\dot{#1}}
+\newcommand{\DDotT}[1]{\ddot{#1}}
+
+\newcommand{\gpscalargrade}[1] {{\left\langle{{#1}}\right\rangle}}
+
+% newtonian_lagrangian_and_gradient.tex
+% PD macro that is backwards from current in macros2:
+\newcommand{\PDb}[2]{ \frac{\partial{#1}}{\partial {#2}} }
+
+% inertial_tensor.tex
+\newcommand{\matrixoftx}[3]{
+{
+\begin{bmatrix}
+{#1}
+\end{bmatrix}
+}_{#2}^{#3}
+}
+
+\newcommand{\coordvec}[2]{
+{
+\begin{bmatrix}
+{#1}
+\end{bmatrix}
+}_{#2}
+}
+
+% bohr.tex
+\newcommand{\K}[0]{\inv{4 \pi \epsilon_0}}
+
+% euler_lagrange.tex
+\newcommand{\DD}[2]{\frac{d{#2}}{d{#1}}}
+\newcommand{\Xdot}[0]{\dot{X}}
+
+\newcommand{\Bwedge}[0]{\boldsymbol{\wedge}}
+
+%---------------------------------------------------------
+% some package is redefining hbar in a way that makes it typeset too close to 
+% stuff on it's left.
+%
+\newcommand{\Hbar}[0]{\,\hbar}
+%---------------------------------------------------------
+
+\newcommand{\FM}[0]{\inv{\sqrt{2\pi\Hbar}}}
+\newcommand{\Iinf}[1]{ \int_{-\infty}^\infty {#1}}
+
+% trace
+\newcommand{\trace}[1]{\tr{#1}}
+\newcommand{\scalarProduct}[2]{{#1} \bullet {#2}}
+\newcommand{\traceB}[1]{\tr\left({#1}\right)}
+
+%-----------------------------------------------
+% \bar{} looks short, but \overline{} looks long:
+%http://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+%$\bar{\mathbb{R}}$ $\overbar{\mathbb{R}}$ $\overline{\mathbb{R}}$
+
+\newcommand{\barb}[0]{\overbar{b}}
+\newcommand{\barz}[0]{\overbar{z}}
+\newcommand{\barq}[0]{\overbar{q}}
+\newcommand{\barA}[0]{\overbar{A}}
+\newcommand{\barh}[0]{\overbar{h}}
+\newcommand{\barmu}[0]{\overbar{\mu}}
+\newcommand{\barqdot}[0]{\dot{\overbar{q}}}
+%-----------------------------------------------
+
+\newcommand{\PauliI}[0]{
+\begin{bmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{bmatrix}
+}
+
+\newcommand{\PauliX}[0]{
+\begin{bmatrix}
+0 & 1 \\
+1 & 0 \\
+\end{bmatrix}
+}
+
+\newcommand{\PauliY}[0]{
+\begin{bmatrix}
+0 & -i \\
+i & 0 \\
+\end{bmatrix}
+}
+
+\newcommand{\PauliYNoI}[0]{
+\begin{bmatrix}
+0 & -1 \\
+1 & 0 \\
+\end{bmatrix}
+}
+
+\newcommand{\PauliZ}[0]{
+\begin{bmatrix}
+1 & 0 \\
+0 & -1 \\
+\end{bmatrix}
+}
+
+% em_bivector_metric_dependencies.tex
+\newcommand{\PDsQ}[2]{\frac{\partial^2 {#2}}{\partial^2 {#1}}}
+
+% lagrangian_field_density.tex
+\newcommand{\PDd}[2]{\frac{\partial^2 {#2}}{{\partial{#1}}^2}}
+
+% electron_rotor.tex
+\newcommand{\reverse}[1]{\tilde{{#1}}}
+\newcommand{\ILambda}[0]{\Pi}
+
+%------------------------------------------------------------------
+
+\newcommand{\expectation}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\lexpectation}[0]{\Biggl\langle}
+\newcommand{\rexpectation}[0]{\Biggr\rangle}
+
+\newcommand{\lroverarrow}[1]{\stackrel{ \leftrightarrow }{#1}}
+\newcommand{\roverarrow}[1]{\stackrel{ \rightarrow }{#1}}
+\newcommand{\loverarrow}[1]{\stackrel{ \leftarrow }{#1}}
+
+\newcommand{\lgrad}[0]{\loverarrow{\grad}}
+\newcommand{\rgrad}[0]{\roverarrow{\grad}}
+\newcommand{\lrgrad}[0]{\lroverarrow{\grad}}
+
+\newcommand{\lpartial}[0]{\loverarrow{\partial}}
+\newcommand{\rpartial}[0]{\roverarrow{\partial}}
+\newcommand{\lrpartial}[0]{\lroverarrow{\partial}}
+
+\newcommand{\lspacegrad}[0]{\loverarrow{\spacegrad}}
+\newcommand{\rspacegrad}[0]{\roverarrow{\spacegrad}}
+\newcommand{\lrspacegrad}[0]{\lroverarrow{\spacegrad}}
+
+% used in gabook.  with these (and some of the other stackrel's below) converted to overset
+% this breaks gabook producing a latex resource exhausted error.
+\newcommand{\lboldpartial}[0]{\loverarrow{\boldpartial}}
+\newcommand{\rboldpartial}[0]{\roverarrow{\boldpartial}}
+\newcommand{\lrboldpartial}[0]{\lroverarrow{\boldpartial}}
+
+\newcommand{\lrT}[0]{\lroverarrow{\BT}}
+
+%\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\questionEquals}[0]{\overset{?}{=}}
+% http://tex.stackexchange.com/a/39230/15 :
+% don't use stackrel or stackbin, but use \underset and \overset from
+% amsmath:
+\newcommand{\dotEquals}[0]{\overset{\cdot}{=}}
+
+\newcommand{\rightshift}[0]{\gg}
+
+\newcommand{\CC}[0]{c^2}
+\newcommand{\Cos}[1]{\cos{\left({#1}\right)}}
+
+% not working anymore.  think it is a conflicting macro for \not.
+% compared to original usage in klien_gordon.ltx
+%
+%\newcommand{\Dslash}[0]{{\not}D}
+%\newcommand{\Dslash}[0]{{\not{}}D}
+%\newcommand{\Dslash}[0]{D\!\!\!/}
+%
+% try these instead:
+\newcommand{\pslash}[0]{\cancel{p}}
+\newcommand{\aslash}[0]{\cancel{a}}
+\newcommand{\bslash}[0]{\cancel{b}}
+\newcommand{\Dslash}[0]{\cancel{D}}
+\newcommand{\Aslash}[0]{\cancel{A}}
+\newcommand{\partialslash}[0]{\cancel{\partial}}
+
+\newcommand{\Expectation}[1]{\left\langle {#1} \right\rangle}
+\newcommand{\Exp}[1]{\exp{\left({#1}\right)}}
+%\newcommand{\FF}[0]{\calF}
+%\newcommand{\FM}[0]{\inv{\sqrt{2\pi\hbar}}}
+\newcommand{\IIinf}[0]{ \int_{-\infty}^\infty }
+\newcommand{\Innerprod}[2]{\left\langle{#1}, {#2}\right\rangle}
+
+%\newcommand{\PDb}[2]{ \frac{\partial{#1}}{\partial {#2}} }
+
+%\newcommand{\PDD}[3]{\frac{\partial^2 {#3}}{\partial {#1}\partial {#2}}}
+\newcommand{\PDN}[3]{\frac{\partial^{#3} {#2}}{\partial {#1}^{#3}}}
+
+%\newcommand{\PDSq}[2]{\frac{\partial^2 {#2}}{\partial {#1}^2}}
+%\newcommand{\PDsQ}[2]{\frac{\partial^2 {#2}}{\partial^2 {#1}}}
+
+\newcommand{\Sch}[0]{{Schr\"{o}dinger} }
+\newcommand{\Sin}[1]{\sin{\left({#1}\right)}}
+
+\newcommand{\curl}[0]{\grad \times}
+\newcommand{\delambert}[0]{\sum_{\alpha = 1}^4{\PDSq{x_\alpha}{}}}
+\newcommand{\delsquared}[0]{\nabla^2}
+\newcommand{\diverg}[0]{\grad \cdot}
+
+\newcommand{\halfPhi}[0]{\frac{\phi}{2}}
+
+%
+% shorthand for unit vectors or (qm) vector operators.  
+%
+\newcommand{\acap}[0]{\hat{\Ba}}
+\newcommand{\bcap}[0]{\hat{\Bb}}
+\newcommand{\ccap}[0]{\hat{\Bc}}
+\newcommand{\dcap}[0]{\hat{\Bd}}
+\newcommand{\ecap}[0]{\hat{\Be}}
+\newcommand{\fcap}[0]{\hat{\Bf}}
+\newcommand{\gcap}[0]{\hat{\Bg}}
+\newcommand{\hcap}[0]{\hat{\Bh}}
+\newcommand{\icap}[0]{\hat{\Bi}}
+% jcap used by aastex
+\newcommand{\jCap}[0]{\hat{\Bj}}
+\newcommand{\kcap}[0]{\hat{\Bk}}
+\newcommand{\lcap}[0]{\hat{\Bl}}
+\newcommand{\mcap}[0]{\hat{\Bm}}
+\newcommand{\ncap}[0]{\hat{\Bn}}
+\newcommand{\ocap}[0]{\hat{\Bo}}
+\newcommand{\pcap}[0]{\hat{\Bp}}
+\newcommand{\qcap}[0]{\hat{\Bq}}
+\newcommand{\rcap}[0]{\hat{\Br}}
+\newcommand{\scap}[0]{\hat{\Bs}}
+\newcommand{\tcap}[0]{\hat{\Bt}}
+\newcommand{\ucap}[0]{\hat{\Bu}}
+\newcommand{\vcap}[0]{\hat{\Bv}}
+\newcommand{\wcap}[0]{\hat{\Bw}}
+\newcommand{\xcap}[0]{\hat{\Bx}}
+\newcommand{\ycap}[0]{\hat{\By}}
+\newcommand{\zcap}[0]{\hat{\Bz}}
+
+%\newcommand{\bicap}[0]{\hat{\mathbf{\imath}}}
+
+% Had tried \widehat instead of \hat in some but not all cases, since \hat looks pinched and sometimes off center.  Find that
+% widehat looks too wide in others, as others agreed:
+%
+% http://tex.stackexchange.com/questions/121937/hat-and-widehat-look-terrible-fixing-width-and-better-positioning
+% http://tex.stackexchange.com/questions/20473/how-can-i-manually-choose-the-size-of-a-wide-accent-math-mode
+% 
+% see latex/hat.tex for some experimentation for this.  There widehat looked better at a glance, but may be font or package dependent since attempting
+% to use it everywhere looks bad in phy1520.pdf
+%
+% ... reverted to \hat:
+\newcommand{\Vcap}[0]{\hat{\BV}}
+\newcommand{\Bcap}[0]{\hat{\BB}}
+\newcommand{\Fcap}[0]{\hat{\BF}}
+\newcommand{\Rcap}[0]{\hat{\BR}}
+\newcommand{\Gcap}[0]{\hat{\BG}}
+\newcommand{\Ecap}[0]{\hat{\BE}}
+\newcommand{\Hcap}[0]{\hat{\BH}}
+\newcommand{\Acap}[0]{\hat{\BA}}
+\newcommand{\Lcap}[0]{\hat{\BL}}
+\newcommand{\Pcap}[0]{\hat{\BP}}
+\newcommand{\thetacap}[0]{\hat{\Btheta}}
+\newcommand{\taucap}[0]{\hat{\Btau}}
+\newcommand{\rhocap}[0]{\hat{\Brho}}
+\newcommand{\alphacap}[0]{\hat{\Balpha}}
+\newcommand{\phicap}[0]{\hat{\Bphi}}
+\newcommand{\psicap}[0]{\hat{\Bpsi}}
+
+% should now be eliminated:
+%\newcommand{\ahat}[0]{\hat{a}}
+%\newcommand{\bhat}[0]{\hat{b}}
+%\newcommand{\hhat}[0]{\hat{h}}
+%\newcommand{\phat}[0]{\hat{p}}
+%\newcommand{\xhat}[0]{\hat{x}}
+%\newcommand{\Xhat}[0]{\hat{X}}
+%\newcommand{\Phat}[0]{\hat{P}}
+%\newcommand{\Hhat}[0]{\hat{H}}
+
+\newcommand{\hata}[0]{\hat{a}}
+\newcommand{\hatb}[0]{\hat{b}}
+\newcommand{\hatc}[0]{\hat{c}}
+\newcommand{\hatd}[0]{\hat{d}}
+\newcommand{\hate}[0]{\hat{e}}
+\newcommand{\hatf}[0]{\hat{f}}
+\newcommand{\hatg}[0]{\hat{g}}
+\newcommand{\hath}[0]{\hat{h}}
+\newcommand{\hati}[0]{\hat{i}}
+\newcommand{\hatj}[0]{\hat{j}}
+\newcommand{\hatk}[0]{\hat{k}}
+\newcommand{\hatl}[0]{\hat{l}}
+\newcommand{\hatm}[0]{\hat{m}}
+\newcommand{\hatn}[0]{\hat{n}}
+\newcommand{\hato}[0]{\hat{o}}
+\newcommand{\hatp}[0]{\hat{p}}
+\newcommand{\hatq}[0]{\hat{q}}
+\newcommand{\hatr}[0]{\hat{r}}
+\newcommand{\hats}[0]{\hat{s}}
+\newcommand{\hatt}[0]{\hat{t}}
+\newcommand{\hatu}[0]{\hat{u}}
+\newcommand{\hatv}[0]{\hat{v}}
+\newcommand{\hatw}[0]{\hat{w}}
+\newcommand{\hatx}[0]{\hat{x}}
+\newcommand{\haty}[0]{\hat{y}}
+\newcommand{\hatz}[0]{\hat{z}}
+
+\newcommand{\hatA}[0]{\hat{A}}
+\newcommand{\hatB}[0]{\hat{B}}
+\newcommand{\hatC}[0]{\hat{C}}
+\newcommand{\hatD}[0]{\hat{D}}
+\newcommand{\hatE}[0]{\hat{E}}
+\newcommand{\hatF}[0]{\hat{F}}
+\newcommand{\hatG}[0]{\hat{G}}
+\newcommand{\hatH}[0]{\hat{H}}
+\newcommand{\hatI}[0]{\hat{I}}
+\newcommand{\hatJ}[0]{\hat{J}}
+\newcommand{\hatK}[0]{\hat{K}}
+\newcommand{\hatL}[0]{\hat{L}}
+\newcommand{\hatM}[0]{\hat{M}}
+\newcommand{\hatN}[0]{\hat{N}}
+\newcommand{\hatO}[0]{\hat{O}}
+\newcommand{\hatP}[0]{\hat{P}}
+\newcommand{\hatQ}[0]{\hat{Q}}
+\newcommand{\hatR}[0]{\hat{R}}
+\newcommand{\hatS}[0]{\hat{S}}
+\newcommand{\hatT}[0]{\hat{T}}
+\newcommand{\hatU}[0]{\hat{U}}
+\newcommand{\hatV}[0]{\hat{V}}
+\newcommand{\hatW}[0]{\hat{W}}
+\newcommand{\hatX}[0]{\hat{X}}
+\newcommand{\hatY}[0]{\hat{Y}}
+\newcommand{\hatZ}[0]{\hat{Z}}
+
+\newcommand{\pihat}[0]{\hat{\pi}}
+\newcommand{\phihat}[0]{\hat{\phi}}
+\newcommand{\psihat}[0]{\hat{\psi}}
+\newcommand{\rhohat}[0]{\hat{\rho}}
+\newcommand{\sigmahat}[0]{\hat{\sigma}}
+\newcommand{\Thetahat}[0]{\hat{\Theta}}
+\newcommand{\Pihat}[0]{\hat{\Pi}}
+
+%-------------------------------------------------------------------
+
+\newcommand{\Rdot}[0]{\dot{R}}
+\newcommand{\ddotOmega}[0]{\ddot{\Omega}}
+\newcommand{\ddotalpha}[0]{\ddot{\alpha}}
+\newcommand{\ddotomega}[0]{\ddot{\omega}}
+\newcommand{\ddotphi}[0]{\ddot{\phi}}
+\newcommand{\ddotpsi}[0]{\ddot{\psi}}
+\newcommand{\ddottheta}[0]{\ddot{\theta}}
+\newcommand{\dotOmega}[0]{\dot{\Omega}}
+\newcommand{\dotalpha}[0]{\dot{\alpha}}
+\newcommand{\dotomega}[0]{\dot{\omega}}
+\newcommand{\dotphi}[0]{\dot{\phi}}
+\newcommand{\dotpsi}[0]{\dot{\psi}}
+\newcommand{\dottheta}[0]{\dot{\theta}}
+
+%-------------------------------------------------------------------
+\newcommand{\BOne}[0]{\mathbf{1}}
+
+%------------------------------------------------------
+% cross_old.tex
+
+%\newcommand{\crossop}[1]{\crossprod{#1}{}}
+
+\newcommand{\PDP}[2]{\BP^{#1}\BD{\BP^{#2}}}
+\newcommand{\PDPDP}[3]{\Bv^T\BP^{#1}\BD\BP^{#2}\BD\BP^{#3}\Bv}
+
+\newcommand{\Mp}[0]{
+\begin{bmatrix}
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0
+\end{bmatrix}
+}
+\newcommand{\Mpp}[0]{
+\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}
+}
+\newcommand{\Mppp}[0]{
+\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{bmatrix}
+}
+\newcommand{\Mpu}[0]{
+\begin{bmatrix}
+u_1 & 0 & 0 & 0 \\
+0 & u_2 & 0 & 0 \\
+0 & 0 & u_3 & 0 \\
+0 & 0 & 0 & u_4
+\end{bmatrix}
+}
+
+% PHY356F.tex:
+\newcommand{\directproduct}[0]{\otimes}
+
+\newcommand{\youtubehref}[1]{\href{http://youtu.be/#1}{http://youtu.be/#1}}
+
+% stolen and based on:
+% http://courses.csail.mit.edu/6.897/spring03/template.tex
+\newcommand{\handout}[6]{
+  \noindent
+  \begin{center}
+  \framebox{
+    \vbox{
+      \hbox to 5.78in { {\bf #6} \hfill #2 }
+      \vspace{4mm}
+      \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+      \vspace{2mm}
+      \hbox to 5.78in { {\em #3 \hfill #4} }
+    }
+  }
+  \end{center}
+  \vspace*{4mm}
+}
+
+\newcommand{\lecture}[5]{\handout{#1}{#2}{#3}{Scribe: #4}{Lecture #1}{#5}\section{Lecture #1}}
+
+%--------------------------------------------------------------------
+%
+% This is for the thermodynamic d with a bar through it, representing path dependent differentials.
+
+\usepackage[T1]{fontenc}
+%\newcommand{\dbar}[0]{d}
+\newcommand{\dbar}[0]{\text{\dj}}
+
+%---------------------------------------------------------
+% moved to phy452/thisbook.sty
+
+\newcommand{\kB}[0]{k_{\mathrm{B}}}
+%\newcommand{\kF}[0]{k_{\mathrm{F}}}
+%\newcommand{\EF}[0]{\epsilon_{\mathrm{F}}}
+%\newcommand{\CV}[0]{C_{\mathrm{V}}}
+%\newcommand{\CP}[0]{C_{\mathrm{P}}}
+%\newcommand{\ZGorig}[0]{Z_{\mathrm{G}}}
+% like our text:
+%\newcommand{\ZGtext}[0]{\calQ}
+%\newcommand{\ZG}[0]{\Omega}
+%\newcommand{\gBose}[1]{g_{#1}(z)}
+
+
+
+%---------------------------------------------------------
+\newcommand{\largestIntLessThan}[1]{\lfloor #1\rfloor}
+\newcommand{\largestIntGreaterThan}[1]{\lceil #1\rceil}
+
+\newcommand{\textAndIndex}[1]{#1\index{#1}}
+\newcommand{\sectionAndIndex}[1]{\section{#1}\index{#1}}
+\newcommand{\dquoteAndIndex}[1]{``#1''\index{#1}}
+%\newcommand{\paragraphAndIndex}[1]{\paragraph{#1}\index{#1}}
+
+\newcommand{\angstrom}[0]{\text{\AA}}
+
+\newcommand{\examhint}[1]{\paragraph{Examination hint:}#1}
+
+%\usepackage{units}
+\newcommand{\Unit}[1]{\,\unit{#1}}
+\newcommand{\Unitfrac}[2]{\,\unitfrac{#1}{#2}}
+\newcommand{\Unitinv}[1]{\,\unitfrac{}{#1}}
+
+\newcommand{\hkSq}[1]{\frac{\Hbar^2 {#1}^2}{2m}}
+%---------------------------------------------------------
+% http://tex.stackexchange.com/questions/45341/labeling-underlined-text-over-multiple-lines
+
+\RequirePackage{soul}
+\newcommand{\textunderline}[1]{\ul{#1}}
+
+%---------------------------------------------------------
+% http://tex.stackexchange.com/a/101138/15
+%
+\RequirePackage{scalerel} %[2014/03/10]
+\RequirePackage{stackengine}
+
+\newcommand\mytilde[1]{\ThisStyle{%
+  \setbox0=\hbox{$\SavedStyle#1$}%
+  \stackengine{-.1\LMpt}{$\SavedStyle#1$}{%
+    \stretchto{\scaleto{\SavedStyle\mkern.2mu\sim}{.5467\wd0}}{.7\ht0}%
+%    .2mu is the kern imbalance when clipping white space
+%    .5467++++ is \ht/[kerned \wd] aspect ratio for \sim glyph
+  }{O}{c}{F}{T}{S}%
+}}
+%---------------------------------------------------------
+% inline frac, to make it easy to switch from \frac{}{}
+\newcommand{\ifrac}[2]{{#1}/{#2}}
+%---------------------------------------------------------
+
+% genCalTxt.pl
+
+\newcommand{\txtA}[0]{{\textrm{A}}}
+\newcommand{\txtB}[0]{{\textrm{B}}}
+\newcommand{\txtC}[0]{{\textrm{C}}}
+\newcommand{\txtD}[0]{{\textrm{D}}}
+\newcommand{\txtE}[0]{{\textrm{E}}}
+\newcommand{\txtF}[0]{{\textrm{F}}}
+\newcommand{\txtG}[0]{{\textrm{G}}}
+\newcommand{\txtH}[0]{{\textrm{H}}}
+\newcommand{\txtI}[0]{{\textrm{I}}}
+\newcommand{\txtJ}[0]{{\textrm{J}}}
+\newcommand{\txtK}[0]{{\textrm{K}}}
+\newcommand{\txtL}[0]{{\textrm{L}}}
+\newcommand{\txtM}[0]{{\textrm{M}}}
+\newcommand{\txtN}[0]{{\textrm{N}}}
+\newcommand{\txtO}[0]{{\textrm{O}}}
+\newcommand{\txtP}[0]{{\textrm{P}}}
+\newcommand{\txtQ}[0]{{\textrm{Q}}}
+\newcommand{\txtR}[0]{{\textrm{R}}}
+\newcommand{\txtS}[0]{{\textrm{S}}}
+\newcommand{\txtT}[0]{{\textrm{T}}}
+\newcommand{\txtU}[0]{{\textrm{U}}}
+\newcommand{\txtV}[0]{{\textrm{V}}}
+\newcommand{\txtW}[0]{{\textrm{W}}}
+\newcommand{\txtX}[0]{{\textrm{X}}}
+\newcommand{\txtY}[0]{{\textrm{Y}}}
+\newcommand{\txtZ}[0]{{\textrm{Z}}}
+\newcommand{\txta}[0]{{\textrm{a}}}
+\newcommand{\txtb}[0]{{\textrm{b}}}
+\newcommand{\txtc}[0]{{\textrm{c}}}
+\newcommand{\txtd}[0]{{\textrm{d}}}
+\newcommand{\txte}[0]{{\textrm{e}}}
+\newcommand{\txtf}[0]{{\textrm{f}}}
+\newcommand{\txtg}[0]{{\textrm{g}}}
+\newcommand{\txth}[0]{{\textrm{h}}}
+\newcommand{\txti}[0]{{\textrm{i}}}
+\newcommand{\txtj}[0]{{\textrm{j}}}
+\newcommand{\txtk}[0]{{\textrm{k}}}
+\newcommand{\txtl}[0]{{\textrm{l}}}
+\newcommand{\txtm}[0]{{\textrm{m}}}
+\newcommand{\txtn}[0]{{\textrm{n}}}
+\newcommand{\txto}[0]{{\textrm{o}}}
+\newcommand{\txtp}[0]{{\textrm{p}}}
+\newcommand{\txtq}[0]{{\textrm{q}}}
+\newcommand{\txtr}[0]{{\textrm{r}}}
+\newcommand{\txts}[0]{{\textrm{s}}}
+\newcommand{\txtt}[0]{{\textrm{t}}}
+\newcommand{\txtu}[0]{{\textrm{u}}}
+\newcommand{\txtv}[0]{{\textrm{v}}}
+\newcommand{\txtw}[0]{{\textrm{w}}}
+\newcommand{\txtx}[0]{{\textrm{x}}}
+\newcommand{\txty}[0]{{\textrm{y}}}
+\newcommand{\txtz}[0]{{\textrm{z}}}
+%---------------------------------
+\RequirePackage{amsmath}
+
+%-----------------------------------------------------------------------------------
+% See marco's answer in:
+   %       http://tex.stackexchange.com/questions/53808/miktex-font-ccicons-at-600-not-found
+   %
+   % to use this package with MikTex on Windows 7.
+   %
+   \RequirePackage{ccicons}
+   % provides: \ccbyncnd
+
+%-----------------------------------------------------------------------------------
+% for captionof:
+
+   % also using caption for color captions:
+   % http://www.latex-community.org/forum/viewtopic.php?f=45&p=42828
+   \PassOptionsToPackage{dvipsnames,svgnames}{xcolor}
+   \RequirePackage{caption}
+   \captionsetup{labelfont={color=DarkOliveGreen,bf},textfont={color=Maroon}}
+
+%--------------------------------------------------------------------------------------------
+% Color equation numbers:
+
+   % http://tex.stackexchange.com/questions/28903/changing-the-apperance-of-equation-numbers-with-amsmath/28907#28907
+   % http://tex.stackexchange.com/questions/50521/coloured-equation-number-without-changing-colour-of-reference-using-hyperref
+   \makeatletter
+   \let\mytagform@=\tagform@
+   \def\tagform@#1{\maketag@@@{\color{DarkOliveGreen}(#1)}}
+   \makeatother
+
+%------------------------------------------------------------------------------------
+% http://tex.stackexchange.com/questions/57253/in-a-multiple-file-latex-document-is-there-a-way-to-tag-each-page-with-the-file
+%
+% could restrict to drafting mode:
+% <didn't end up needing this.>
+
+   %\RequirePackage{fancyhdr}
+   %\RequirePackage{currfile}
+   %\pagestyle{fancy}
+   %\lhead{}
+   %\chead{}
+   %\rhead{}
+   %\lfoot{}
+   %\cfoot{\thepage}
+   %\rfoot{\currfilepath}
+   %\renewcommand\headrulewidth{0pt}
+   %\renewcommand\footrulewidth{0pt}
+
+%-----------------------------------------------------------------------------------
+% want indexes, but it's a lot of work to add in the indexing after the fact.  Stub this out as opposed to making a crappy one.
+% (that comment applied to phy454.pdf)
+%
+
+%   \RequirePackage{makeidx}
+%   \makeindex
+%\newcommand{\index}[1]{}
+
+%--------------------------------------------------------------------------------------------
+% Long equation support:
+%
+
+% https://tex.stackexchange.com/a/6831/15 (part I)
+\mathchardef\hyphenmathcode=\mathcode`\-
+
+   % http://tex.stackexchange.com/questions/21290/how-to-make-left-right-pairs-of-delimiter-work-over-multiple-lines
+   % breqn package supports \left \right over multiple lines.
+
+   % Note: mathpazo option required for flexisym if I want \boldsymbol{\Omega} to work.  otherwise it
+   % shows up as a solid black box.
+   %
+   \PassOptionsToPackage{mathpazo}{flexisym}
+   \RequirePackage{flexisym}
+   \RequirePackage{breqn}
+   % and this one for dmath env equation numbers
+   % http://tex.stackexchange.com/questions/57007/colored-equation-numbers-with-breqn-package/57008#57008
+   \renewcommand{\eqnumcolor}{\color{DarkOliveGreen}}
+
+%-----------------------------------------------------------------------------------
+% 
+% Misc. new commands.  could potentially move to xxxxxxx_macros 
+%
+
+% this doesn't work in an Exercise environment, and the paragraph text ends up displayed later (for example in the summary
+% sections.  have removed all references).
+% could probably fix this like done in \imageFigure, making the \paragraph{} use ifinner predicate.
+% verify output.  have changed \titleformat for paragraph below instead.
+%\newcommand{\unnumberedSubsection}[1]{{\color{Maroon}{\paragraph{#1}}}}
+\newcommand{\unnumberedSubsection}[1]{\paragraph{#1}}
+
+\newcommand{\question}[0]{unnumberedSubsection{Question:}}
+\newcommand{\answer}[0]{unnumberedSubsection{Answer:}}
+
+%\newtheorem{mydefinition}[theorem]{\color{DarkOliveGreen}Definition}
+%
+%\newcommand{\makedefinition}[3]{
+%\begin{mydefinition}%
+%\emph{(\color{Maroon}{#1})}%
+%\label{#2}%
+%\par%
+%#3%
+%\end{mydefinition}%
+%}
+
+%%% title, label, text
+%%\newcommand{\makeexample}[3]{%
+%%\begin{Exercise}[%
+%%title={#1},%
+%%label={#2},%
+%%name={Example},%
+%%counter={Example}%
+%%]%
+%%\noindent{\color{Maroon}{\rule{\linewidth}{0.5mm}}}
+%%\par
+%%#3%
+%%\par\noindent
+%%{\color{Maroon}{\rule{\linewidth}{0.5mm}}}
+%%\end{Exercise}%
+%%}
+%%%\addcontentsline{toc}{section}{Example \thechapter.\theExample\ #1}
+%%%\pdfbookmark[1]{Example \thechapter.\theExample\ #1}{ex\thechapter.\theExample}
+
+\newcommand{\makeproblem}[3]{%
+\begin{Exercise}[%
+title={#1},%
+label={#2}%
+]%
+#3%
+\end{Exercise}%
+}
+
+\newcommand{\makeoproblem}[4]{%
+\begin{Exercise}[%
+title={#1},%
+label={#2},%
+origin={#3}%
+]%
+#4%
+\end{Exercise}%
+}
+
+%\addcontentsline{toc}{section}{Example \thechapter.\theExercise\ #1}
+%\pdfbookmark[1]{Example \thechapter.\theExercise\ #1}{ex\thechapter.\theExercise}
+
+% {label}{text}
+\newcommand{\makeanswer}[2]{%
+\begin{Answer}[%
+ref={#1}
+]%
+#2%
+\end{Answer}%
+}
+
+\newcommand{\makesubproblem}[2]{%
+\Question{#1\label{#2}}
+}
+
+% paragraph initially didn't appear to work but think that was because I'd messed up the params to 
+% \makeanswer.  Regardless, this is nicer coloring than just plain paragraph (which is auto-colored now).
+%\paragraph{Solution Part \ref{#2}. #1}
+\newcommand{\makesubanswer}[2]{%
+\par%
+{\color{DarkOliveGreen}{Solution Part \ref{#2}.}}  {\color{Maroon}{\textit{#1}}}%
+}
+
+\newcommand{\makeSubAnswer}[2]{%
+%Part \ref{#2}.  #1%
+\paragraph{Part \ref{#2}.  #1}%
+}
+
+%\newcommand{\FIXME}[1]{\unnumberedSubsection{EDITING NOTE}\par#1}
+\newcommand{\FIXME}[1]{}
+%--------------------------------------------------------------------------------------------
+
+
+% titlesec package based modifications, based on the titleformat's found in classicthesis.  I've added color:
+\newcommand{\myClassicThesisOverrides}[0]{%
+   \titleformat{\chapter}[display]
+      {\relax}{\mbox{}\oldmarginpar{\hspace*{-5\baselineskip}\vspace*{-5\baselineskip}\color{DarkOliveGreen}\chapterNumber\thechapter}}{0pt}%
+      % this is too far to the right for 6x9 and for gabook*pdf.
+      %{\relax}{\mbox{}\oldmarginpar{\vspace*{-3\baselineskip}\color{DarkOliveGreen}\chapterNumber\thechapter}}{0pt}%
+      {\color{Maroon}\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]
+   \titleformat{\section}
+      {\relax}{\color{DarkOliveGreen}{\textsc{\MakeTextLowercase{\thesection}}}}{1em}{\color{Maroon}\spacedlowsmallcaps}
+   \titleformat{\subsection}
+      {\relax}{\color{DarkOliveGreen}{\textsc{\MakeTextLowercase{\thesubsection}}}}{1em}{\color{Maroon}\normalsize\itshape}
+   \titleformat{\subsubsection}
+      {\relax}{\color{DarkOliveGreen}{\textsc{\MakeTextLowercase{\thesubsubsection}}}}{1em}{\color{Maroon}\normalsize\itshape}        
+   \titleformat{\paragraph}[runin]
+      {\relax}{\color{DarkOliveGreen}{\textsc{\MakeTextLowercase{\theparagraph}}}}{1em}{\color{Maroon}\normalsize\itshape}        
+% not required: only used in Colophon.tex
+%     \renewcommand{\finalVersionString}{\emph{Final Version} as of \today\ (\myVersion).}
+}
+
+% titlesec modifications like those used in my application of the classicthesis template (above)
+% note that I've also got \chapter hacked in xxxxxx_prologue_print2.tex so that it's like \title.
+\newcommand{\colorSectionsForArticle}[0]{%
+   \titleformat{\section}
+      {\relax}{\color{DarkOliveGreen}{\textsc{\thesection}}}{1em}{\color{Maroon}}
+   \titleformat{\subsection}
+      {\relax}{\color{DarkOliveGreen}{\textsc{\thesubsection}}}{1em}{\color{Maroon}\normalsize\itshape}
+   \titleformat{\subsubsection}
+      {\relax}{\color{DarkOliveGreen}{\textsc{\thesubsubsection}}}{1em}{\color{Maroon}\normalsize\itshape}
+   \titleformat{\paragraph}[runin]
+      {\relax}{\color{DarkOliveGreen}{\textsc{\MakeTextLowercase{\theparagraph}}}}{1em}{\color{Maroon}\normalsize\itshape}        
+   \titlespacing*{\chapter}{0pt}{1\baselineskip}{1.2\baselineskip}
+   \titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
+   \titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
+   \titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
+}
+%--------------------------------------------------------------------------------------------
+
+% http://tex.stackexchange.com/questions/81949/can-individual-items-in-a-list-be-labelled-and-hyperref-linked#comment175241_81949 
+%
+% link to \phantomsection in mathematica.tex or matlab.tex \item lists.
+\newcommand{\itemCite}[3]{%
+\hyperref[path:#1:#2]{#3}%
+}
+
+\newcommand{\itemRef}[2]{\itemCite{#1}{#2}{#2}}
+
+%--------------------------------------------------------------------------------------------
+
+% this replaces use of \underbrace{math}_{label}, but requires for each use in an equation environment
+% an extra numeric parameter for the l1, l2, l3, m1, m2, m3 ... node and label markers
+% [which I'm sure could be automated].
+% 
+\RequirePackage{tikz}
+
+\newcounter{mathLableNode}
+
+% formula, text, node#
+\newcommand{\myMathWithDescription}[3]{%
+\tikz[baseline]{%
+   \node[draw=DarkOliveGreen,rounded corners,anchor=base] (m#3)%
+   {$\displaystyle#1$};%
+   \node[above of=m#3] (l#3) {#2};%
+      \draw[-,Maroon] (l#3) -- (m#3);%
+}%
+}
+
+
+% allowing for label placement:
+%
+% http://www.texample.net/tikz/examples/beamer-arrows/
+%
+% http://tex.stackexchange.com/questions/86188/labelling-with-arrows-in-an-automated-way/86203#86203
+
+\newif\ifclipme\clipmetrue
+\tikzset{labelstyle/.style={LabelStyle/.append style={#1}},linestyle/.style={LineStyle/.append style={#1}}}
+\tikzset{LabelStyle/.initial={},LineStyle/.initial={}}
+
+\newcommand{\mathWithDescription}[4][]{{%
+   \tikzset{#1}%
+      \tikz[baseline]{
+         \node[draw=DarkOliveGreen,rounded corners,anchor=base] (m#4) {$\displaystyle#2$};
+         \ifclipme\begin{pgfinterruptboundingbox}\fi
+            \node[above of=m#4,font=\strut, LabelStyle] (l#4) {#3};
+         \draw[-,Maroon, LineStyle] (l#4) to (m#4);
+         \ifclipme\end{pgfinterruptboundingbox}\fi
+      }%
+}}
+
+\newcommand{\mathWithDescriptionStarred}[3][]{{%
+   \clipmefalse%
+      \mathWithDescription[#1]{#2}{#3}{\themathLableNode}%
+}}
+
+\newcommand{\mathLabelBox}[3][]{%
+   \stepcounter{mathLableNode}%
+      \mathWithDescription[#1]{#2}{#3}{\themathLableNode}%
+      %\mathWithDescription[#1]{#2}{XX:#3}{\themathLableNode}%
+      \vphantom{\mathWithDescriptionStarred[#1]{#2}{#3}{\themathLableNode}}%
+}
+
+% doesn't work: I think it gets expanded too early:
+%\newcommand{\labelBoxPlacementBelow}[0]{labelstyle={below of=m\themathLableNode,below of=m\themathLableNode}}
+
+%-------------------------------------------------------------------------------------
+
+% phy452: this causes pdflatex to hang (and spin up the cpu) with last output at
+% figures/basicStatMechLecture2Fig8.pdf
+%
+% what is it doing?
+%
+\newcommand{\myFancyBox}[1]{%
+   \tikz[baseline]\node [draw=DarkOliveGreen,rounded corners,anchor=base] {$\displaystyle#1$};%
+}
+
+%\newcommand{\myBoxed}[1]{\boxed{#1}}
+%
+% both of these cause pdflatex to hang on phy452:
+%\newcommand{\myBoxed}[1]{\mathLabelBox{#1}{}}
+%\newcommand{\myBoxed}[1]{\myFancyBox{#1}}
+
+%\newcommand{\xmyBoxed}[2]{%
+   %\tikz[baseline]{%
+      %    \node[draw=red,rounded corners,anchor=base] (m#2)%
+         %    {$\displaystyle#1$};%
+         %}%
+         %}
+         %
+         %\newcommand{\myBoxed}[1]{%
+            %   \stepcounter{mathLableNode}%
+               %   \xmyBoxed{#1}{\themathLableNode}%
+               %}
+
+               %\newcommand{\xmyBoxed}[2]{%
+                  %\tikz[baseline]{%
+                     %    \node[draw=red,rounded corners,anchor=base] (m#2)%
+                        %    {$\displaystyle#1$};%
+                        %}%
+                        %}
+                        %
+                        %\newcounter{tikzNodeNum}
+                        %
+                        %\renewcommand{\myBoxed}[1]{%
+                           %   \stepcounter{tikzNodeNum}%
+                              %   \xmyBoxed{#1}{\thetikzNodeNum}%
+                              %}
+
+                              % http://tex.stackexchange.com/questions/98540/hf-tikz-doesnt-box-around-equation/
+                              %
+                              % You can still use:
+                              %
+                              %\tikzmarkin[rounded corners]{<id>}[<lower math content>][<upper math content>]. hf-tikz also provides the key disable rounded corners, setting that to false does the some thing as rounded corners. (Note that all the package options (like beamer, shade, nofill, .) are disabled as I overwrite the \tikzmarkin macro.) . Qrrbrbirlbel
+                              %
+
+                              %\usepackage{hf-tikz}
+                              \usepackage[customcolors]{hf-tikz}
+                              \newsavebox\qrrTikzmarkBox
+                              \RenewDocumentCommand{\tikzmarkin}{O{} m D(){0.1,-0.18} D(){-0.1,0.35} G{}}{%
+                                 \if\relax\detokenize{#5}\relax
+                                    \dp\qrrTikzmarkBox=0pt\relax
+                                    \ht\qrrTikzmarkBox=0pt\relax
+                                    \else
+                                    \sbox\qrrTikzmarkBox{$\displaystyle#5$}
+                                 \fi
+                                    \tikz[remember picture,overlay]
+                                    \draw[line width=1pt,#1,draw=DarkOliveGreen,rounded corners]
+(pic cs:#2) ++([yshift=-\the\dp\qrrTikzmarkBox]#3) rectangle ([yshift=\the\ht\qrrTikzmarkBox]#4) node [anchor=text] (#2) {}
+;
+#5
+}
+
+\newcounter{boxNodeNum}
+
+\newcommand{\myBoxed}[1]{%
+   \stepcounter{boxNodeNum}%
+   \tikzmarkin{bb\theboxNodeNum}{#1}
+   \tikzmarkend{bb\theboxNodeNum}
+}
+
+%-------------------------------------------------------------------------------------
+% cref can probably be taught to do this:
+% problem reference
+\newcommand{\prref}[1]{%
+problem \ref{#1}%
+}
+%-------------------------------------------------------------------------------------
+% http://tex.stackexchange.com/a/131829/15
+\RequirePackage{empheq}
+
+\newcommand*\mybox[1]{%
+  \fcolorbox{DarkOliveGreen}{Maroon!5}{\hspace{1em}#1\hspace{1em}}}
+
+\newcommand{\boxedEquation}[2]{%
+\begin{empheq}[box=\mybox]{equation}\label{#1}%
+#2%
+\end{empheq}%
+}
+
+\newcommand{\boxedEquationStarred}[1]{%
+\begin{empheq}[box=\mybox]{equation*}%
+#1%
+\end{empheq}%
+}
+
+%-------------------------------------------------------------------------------------
+% Example based on:
+%
+% http://ctan.cms.math.ca/tex-archive/macros/latex/contrib/mdframed/mdframed.pdf
+% 
+\RequirePackage{tikz}
+\PassOptionsToPackage{framemethod=tikz}{mdframed}
+\RequirePackage{mdframed}
+
+\usetikzlibrary{calc,arrows}
+\tikzset{
+  excursus arrow/.style={%
+    line width=2pt,
+    draw=DarkOliveGreen!40,
+    rounded corners=2ex,
+  },
+  excursus head/.style={
+    fill=white,
+    font=\bfseries\sffamily,
+    text=DarkOliveGreen!80,
+    anchor=base west,
+  },
+}
+
+\mdfdefinestyle{digressionarrows}{%
+  singleextra={%
+    \path let \p1=(P), \p2=(O) in (\x2,\y1) coordinate (Q);
+    \path let \p1=(Q), \p2=(O) in (\x1,{(\y1-\y2)/2}) coordinate (M);
+    \path [excursus arrow, round cap-to]
+    ($(O)+(5em,0ex)$) -| (M) |- %
+    ($(Q)+(12em,0ex)$) .. controls +(0:16em) and +(185:6em) .. %
+  ++(23em,2ex);
+  \node [excursus head] at ($(Q)+(2.5em,-0.75pt)$) {Digression};},
+  firstextra={%
+    \path let \p1=(P), \p2=(O) in (\x2,\y1) coordinate (Q);
+    \path [excursus arrow,-to]
+    (O) |- %
+    ($(Q)+(12em,0ex)$) .. controls +(0:16em) and +(185:6em) .. %
+    ++(23em,2ex);
+    \node [excursus head] at ($(Q)+(2.5em,-2pt)$) {Digression};},
+  secondextra={%
+    \path let \p1=(P), \p2=(O) in (\x2,\y1) coordinate (Q);
+    \path [excursus arrow,round cap-]
+    ($(O)+(5em,0ex)$) -| (Q);},
+  middleextra={%
+    \path let \p1=(P), \p2=(O) in (\x2,\y1) coordinate (Q);
+    \path [excursus arrow]
+    (O) -- (Q);},
+  middlelinewidth=2.5em,middlelinecolor=white,
+  hidealllines=true,topline=true,
+  innertopmargin=0.5ex,
+  innerbottommargin=2.5ex,
+  innerrightmargin=2pt,
+  innerleftmargin=2ex,
+  skipabove=0.87\baselineskip,
+  skipbelow=0.62\baselineskip,
+}
+
+\newcommand{\makedigression}[1]{%
+\begin{mdframed}[style=digressionarrows]%
+#1%
+\end{mdframed}
+}
+
+%%----------------------------------------------------------------------------------------
+%% 
+%% http://tex.stackexchange.com/questions/40028/highlight-elements-in-the-matrix/40059#40059
+%%
+%% The following two macros allow marking left/upper, right/lower node positions for box drawing, and then drawing the box.
+%% unique node numbers must be passed to these.
+%\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+%
+%\newcommand{\firstDrawNodeBox}[3][]{%
+%    \tikz[overlay,remember picture]{%
+%    \draw[DarkOliveGreen,#1]%
+%      ($(#2)+(-0.4em,0.9em)$) rectangle%
+%      ($(#3)+(0.5em,-0.3em)$);}%
+%}
+%
+%% here's some logic to allow for three boxes to be drawn with preceding marks, with counter increments after
+%% the boxes are drawn.
+%\newcounter{FirstBoxCounter}
+%\newcounter{SecondBoxCounter}
+%\newcounter{ThirdBoxCounter}
+%
+%\newcommand{\tikzLeftMark}[0]{\tikzmark{tbFirstLeft\theFirstBoxCounter}}
+%\newcommand{\tikzLeftMarkSecond}[0]{\tikzmark{tbSecondLeft\theSecondBoxCounter}}
+%\newcommand{\tikzLeftMarkThird}[0]{\tikzmark{tbThirdLeft\theThirdBoxCounter}}
+%
+%\newcommand{\tikzRightMark}[0]{\tikzmark{tbFirstRight\theFirstBoxCounter}}
+%\newcommand{\tikzRightMarkSecond}[0]{\tikzmark{tbSecondRight\theSecondBoxCounter}}
+%\newcommand{\tikzRightMarkThird}[0]{\tikzmark{tbThirdRight\theThirdBoxCounter}}
+%
+%\newcommand{\DrawFirstBox}[0]{%
+%   \firstDrawNodeBox[thick]{tbFirstLeft\theFirstBoxCounter}{tbFirstRight\theFirstBoxCounter}%
+%   \stepcounter{FirstBoxCounter}%
+%}
+%\newcommand{\DrawSecondBox}[0]{%
+%   \firstDrawNodeBox[thick]{tbSecondLeft\theSecondBoxCounter}{tbSecondRight\theSecondBoxCounter}%
+%   \stepcounter{SecondBoxCounter}%
+%}
+%\newcommand{\DrawThirdBox}[0]{%
+%   \firstDrawNodeBox[thick]{tbThirdLeft\theThirdBoxCounter}{tbThirdRight\theThirdBoxCounter}%
+%   \stepcounter{ThirdBoxCounter}%
+%}
+%
+%% example invokation in: notes/latex/matrixHighlight2.tex
+%------------------------------------------------------------------------------------------------------
+% 
+% http://tex.stackexchange.com/a/213022/15
+%
+
+%\usepackage{tikz}
+\RequirePackage{tikz}
+\usetikzlibrary{calc,tikzmark}
+
+\newcommand{\DrawNodeBox}[3][]{%
+  \tikz[overlay,remember picture]{%
+    \draw[DarkOliveGreen,#1]%
+    ($({pic cs:#2})+(-0.4em,0.9em)$) rectangle%
+    ($({pic cs:#3})+(0.5em,-0.3em)$);}%
+}
+
+\newcounter{MyBoxCounter}
+\setcounter{MyBoxCounter}{0}
+
+\gdef\MyStepBoxCounter{\stepcounter{MyBoxCounter}}
+
+%\newcommand\DrawMyBox[2][]{%
+%  \DrawNodeBox[#1]{tbleft#2\theMyBoxCounter}{tbright#2\theMyBoxCounter}%
+%  \gdef\MyStepBoxCounter{\stepcounter{MyBoxCounter}}%
+%}
+%
+%\newcommand\mytikzmark[2]{%
+%  \MyStepBoxCounter%
+%  \global\let\MyStepBoxCounter\relax%
+%  \tikzmark{tb#1#2\theMyBoxCounter}%
+%}
+
+\newcommand\DrawMyBox[2][]{%
+  \DrawNodeBox[#1]{tbleft-#2-\theMyBoxCounter}{tbright-#2-\theMyBoxCounter}%
+  \gdef\MyStepBoxCounter{\stepcounter{MyBoxCounter}}%
+}
+
+\newcommand\mytikzmark[2]{%
+  \MyStepBoxCounter%
+  \global\let\MyStepBoxCounter\relax%
+  \tikzmark{tb#1-#2-\theMyBoxCounter}%
+}
+
+%------------------------------------------------------------------------------------------------------
+
+% use instead of \S for chapter numbers.
+%\newcommand{\chaptext}[0]{ch.}
+%\newcommand{\eqntext}[0]{eq.}
+%\newcommand{\figtext}[0]{fig.}
+%\newcommand{\tabtext}[0]{tab.}
+
+\newcommand{\textchapref}[1]{ch.\,#1}
+\newcommand{\texteqnref}[1]{eq.\,#1}
+\newcommand{\textfigref}[1]{fig.\,#1}
+\newcommand{\texttabref}[1]{tab.\,#1}
+\newcommand{\textprref}[1]{pr.\,#1}
+
+\newcommand{\partref}[1]{part\, \ref{#1}}
+
+%------------------------------------------------------------------------------------------------------
+
+
+\usepackage{natbib}
+
+\usepackage[
+colorlinks=true,
+bookmarks=false,
+pdfauthor={\authorname, \email},
+backref
+]{hyperref}
+
+
+\usepackage[english]{cleveref}
+\crefname{Exercise}{exercise}{exercises}
+\Crefname{Exercise}{Exercise}{Exercises}
+
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+
+\usepackage{tikz}
+
+\RequirePackage{titlesec}
+\RequirePackage{ifthen}
+
+
+\makeatletter
+\let\insertdate\@date
+\makeatother
+
+\titleformat{\chapter}[display]
+{\bfseries\Large}
+{\color{DarkSlateGrey}\filleft \authorname
+\ifthenelse{\isundefined{\studentnumber}}{}{\\ \studentnumber}
+\ifthenelse{\isundefined{\phonenumber}}{}{\\ \phonenumber}
+\ifthenelse{\isundefined{\address}}{}{\\ \address}
+\ifthenelse{\isundefined{\email}}{}{\\ \email}
+\ifthenelse{\isundefined{\dateintitle}}{}{\\ \insertdate}
+%
+}
+{4ex}
+{\color{DarkOliveGreen}{\titlerule}\color{Maroon}
+\vspace{2ex}
+\filright}
+[\vspace{2ex}
+\color{DarkOliveGreen}\titlerule
+]
+
+\newcommand{\beginArtWithToc}[0]{\begin{document}\tableofcontents}
+\newcommand{\beginArtNoToc}[0]{\begin{document}}
+\newcommand{\EndNoBibArticle}[0]{\end{document}}
+\newcommand{\EndArticle}[0]{\bibliography{Bibliography}\bibliographystyle{plainnat}\end{document}}
+
+
+
+
+\colorSectionsForArticle
+
+
+
+
+
+
+
+\newcommand{\eqnref}[1]{eq. (\ref{#1})}
+\newcommand{\Eqnref}[1]{Eq. (\ref{#1})}
+
+
+
+
+\newcommand{\quantumsolidschapcite}[1]{\citep{phy487:#1}}
+
+
+
+%\usepackage{xxxxxxx_layout_exercise}
+%\usepackage{xxxxxxx_braket}
+%\usepackage{xxxxxxx_figures}
+%\usepackage{siunitx}
+\usepackage{verbatim}
+
+
+
+
+
+\beginArtNoToc
+
+\generatetitle{Review of hyperwedge.pdf}
+
+\paragraph{Overall impression.}
+This was an enjoyable paper.  It was very interesting to see the homogenous solution method that started it off, and to follow the progression of the narrative to the conclusion, where linear equation solution methods were used to compute the hyperwedge (wedge of N-1 vec{t}ors).
+
+I would have liked to have seen more discussion about the specific numerical algorthims chosen for the implementation, and how those fared against each other (if that was studied.)
+
+I don't think that the \( m \ne n \) case in section 3 is worth mentioning in this paper.  There are enough new ideas being introduced, and with that never being relevant for the rest of the paper, I don't think that it adds anything to mention, and it is distracting as one starts to think about how to handle that case.
+
+Section 5 spells out the 3D CGA example.  This initially gives the impression that it is to help clarify the ideas with a specific example, but really seems to be just to introduce the numerical results.  I think that (18), and unnumbered-after-that don't add much, since they just restate things without change.
+
+I do think that a specific worked example, specifically that of the 3D case, which is complicated enough to be fairly general, but simple enough to follow easily would be valuable before diving into the general case.  I've written out sample latex where I did this for myself in order to follow the ideas of the paper.  Without that example I had a lot of trouble.
+
+\paragraph{Minor comments.}
+
+\begin{itemize}
+\item After equation (10) in the sentence starting ``For \(m = n\)'', the \( A \) of \(A_m^\conj\) should be in bold for consistency.
+\item That same sentence should call out the \( \alpha \Bx = \BA_m^\conj \) relationship (as a non-inline equation), so that equation (15) is more obvious.
+\item Page 4: Paragraph starting with ``Suppose'': I would have found it more obvious to use \( n \) whereever \( N -1 \) was written.
+\item Same page.  Inline equation just after (15): \( \vec{x} = A^{-1} \vec{y} \).  \( \vec{y} \) should be \( \vec{b}\).
+\item Page 5: ``We are studying this issue.''  Perhaps it is reasonable to use a strategy akin to pivoting in Gaussian elimination (columns and rows are permuted so that divisions are always by the largest absolute value possible.)  The translation of that idea to this algorithm would probably be to pick the homogeneous dimension to match the column vec{t}or with the largest absolute magnitude.
+\end{itemize}
+
+\paragraph{Worked example.}
+
+A three variable system
+\begin{equation}\label{eqn:hyperwedge:160}
+A \vec{x} = \vec{b}.
+\end{equation}
+can be written out explicitly as three equations
+\begin{equation}\label{eqn:hyperwedge:120}
+\begin{aligned}
+\vec{a}_0 \cdot \vec{x} + b_1 &= 0 \\
+\vec{b}_2 \cdot \vec{x} + b_2 &= 0 \\
+\vec{c}_3 \cdot \vec{x} + b_3 &= 0.
+\end{aligned}
+\end{equation}
+We can solve an equivalent \( 3 + 1 \) dimensional homogeneous equation by letting
+\begin{equation}\label{eqn:hyperwedge:180}
+\begin{aligned}
+\Ba_1 &= \vec{a}_1 + \Be_4 b_1 \\
+\Ba_2 &= \vec{b}_2 + \Be_4 b_2 \\
+\Ba_3 &= \vec{c}_3 + \Be_4 b_3 \\
+\Bx &= \vec{x} + \Be_4,
+\end{aligned}
+\end{equation}
+for which the equivalent system to solve is
+\begin{equation}\label{eqn:hyperwedge:200}
+\begin{aligned}
+\Ba_1 \cdot \Bx &= 0 \\
+\Ba_2 \cdot \Bx &= 0 \\
+\Ba_3 \cdot \Bx &= 0.
+\end{aligned}
+\end{equation}
+Because \( \Bx \) is perpendicular to each of \( \Ba_1, \Ba_2, \Ba_3 \) it's dot product with the volume element for that subspace is zero.  That is
+\begin{equation}\label{eqn:hyperwedge:220}
+\Bx \cdot \lr{ \Ba_1 \wedge \Ba_2 \wedge \Ba_3 }
+=
+\lr{\Bx \cdot \Ba_1} \lr{ \Ba_2 \wedge \Ba_3 }
+-\lr{\Bx \cdot \Ba_2} \lr{ \Ba_1 \wedge \Ba_3 }
++\lr{\Bx \cdot \Ba_3} \lr{ \Ba_1 \wedge \Ba_2 }
+= 0.
+\end{equation}
+Let
+\begin{equation}\label{eqn:hyperwedge:240}
+\BA_3 = \Ba_1 \wedge \Ba_2 \wedge \Ba_3 = \BA_3^\conj I_4,
+\end{equation}
+where \( \BA_3^\conj \) is a vector dual to \( \BA_3 \).  Observe that \( \Bx \cdot \BA_3 \) can be reexpressed using in terms of the dual
+\begin{equation}\label{eqn:hyperwedge:260}
+\begin{aligned}
+\Bx \cdot \BA_3
+&= \gpgradetwo{ \Bx \BA_3^\conj I_4 }
+&=
+\Bx \cdot \BA_3^\conj \gpgradetwo{ I_4 } + \lr{ \Bx \wedge \BA_3^\conj } I_4
+&=
+\lr{ \Bx \wedge \BA_3^\conj } I_4,
+\end{aligned}
+\end{equation}
+so
+\begin{equation}\label{eqn:hyperwedge:280}
+\Bx \wedge \BA_3^\conj = 0.
+\end{equation}
+Since \( \BA_3^\conj \) is a vector, it must be proportional to \( \Bx \).  That is
+\begin{equation}\label{eqn:hyperwedge:300}
+\alpha \Bx = \BA_3^\conj.
+\end{equation}
+This allows us to write
+\begin{equation}\label{eqn:hyperwedge:320}
+\BA_3^\conj = \alpha \lr{ \vec{x} + \Be_4 },
+\end{equation}
+or
+\begin{equation}\label{eqn:hyperwedge:340}
+\begin{aligned}
+\BA_3
+&= \alpha \lr{ A^{-1} \vec{b} + \Be_4 }^\conj. \\
+&= \alpha \lr{ A^{-1} \vec{b} }^\conj + \alpha I_3.
+\end{aligned}
+\end{equation}
+To fix \( \alpha \) consider the expansion of \( \BA_3 \) in terms of the original 3D basis
+\begin{equation}\label{eqn:hyperwedge:360}
+\begin{aligned}
+\Ba_1 \wedge \Ba_2 \wedge \Ba_3
+&=
+\lr{ \vec{a}_1 + \Be_4 b_1 }
+\wedge
+\lr{ \vec{a}_2 + \Be_4 b_2 }
+\wedge
+\lr{ \vec{a}_3 + \Be_4 b_3 } \\
+&=
+\vec{a}_1
+\wedge
+\vec{a}_2
+\wedge
+\vec{a}_3
++
+\lr{
+\vec{a}_1 \wedge \Be_4 \wedge \vec{a}_3
+} b_2
++
+\lr{
+\vec{a}_1 \wedge \vec{a}_2 \wedge \Be_4
+} b_3
++
+\lr{
+\Be_4 \wedge \vec{a}_2 \wedge \vec{a}_3
+} b_1 \\
+&=
+\vec{a}_1
+\wedge
+\vec{a}_2
+\wedge
+\vec{a}_3
++
+\Be_4 \lr{
+   \lr{
+   \vec{a}_3 \wedge \vec{a}_1
+   } b_2
+   +
+   \lr{
+   \vec{a}_1 \wedge \vec{a}_2
+   } b_3
+   +
+   \lr{
+   \vec{a}_2 \wedge \vec{a}_3
+   } b_1
+}.
+\end{aligned}
+\end{equation}
+This can be summarized as
+\begin{equation}\label{eqn:hyperwedge:380}
+\BA_3 =
+\vec{a}_1 \wedge \vec{a}_2 \wedge \vec{a}_3
++ \Be_4 \gamma,
+\end{equation}
+where \( \gamma \in \bigwedge^2(\bbR^3) \) is a bivector in the original 3D space.  This allows for determination of the \( \alpha \) factor in \cref{eqn:hyperwedge:340}
+\begin{equation}\label{eqn:hyperwedge:400}
+\vec{a}_1 \wedge \vec{a}_2 \wedge \vec{a}_3
+= \det\lr{A} I_3 = \alpha I_3,
+\end{equation}
+so
+\begin{equation}\label{eqn:hyperwedge:420}
+\alpha = \det\lr{A},
+\end{equation}
+and
+\begin{equation}\label{eqn:hyperwedge:440}
+\BA_3
+=
+\det\lr{A} \lr{
+   \lr{A^{-1} \vec{b}}^\conj + I_3
+}.
+\end{equation}
+This can be written out explicitly as
+\begin{equation}\label{eqn:hyperwedge:460}
+\BA_3
+=
+\det\lr{A} \lr{
+   \sum_{i = 1}^3
+\Be_i^\conj
+\lr{A^{-1} \vec{b}} \cdot \Be_i
++ I_3
+}.
+\end{equation}
+This demonstrates the claim that the duality operation on \( A^{-1} \vec{d} \) only requires picking off the coordinates.
+
+\EndArticle

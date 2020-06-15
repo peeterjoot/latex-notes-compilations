@@ -145,3 +145,6 @@
 [submodule "blogit"]
 	path = blogit
 	url = git@github.com:peeterjoot/blogit.git
+[submodule "figures/blogit"]
+	path = figures/blogit
+	url = git@github.com:peeterjoot/blogitFigures.git
