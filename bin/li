@@ -1,3 +1,0 @@
-#!/bin/bash
-
-sed 's/Copyright ©/Copyright (C)/' | latexindent | sed 's/Copyright (C)/Copyright ©/'
