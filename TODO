@@ -1,5 +1,75 @@
+- Run thethe.py against:
 
-Landing pages:
+   gabookII/gabookII.pdf
+   miscphysics/miscphysics.pdf
+   classicalmechanics/classicalmechanics.pdf
+   phy356-qmI/phy356.pdf
+   phy487-qmsolids/phy487.pdf
+   phy450-relativisticEandM/phy450.pdf
+   phy2403-quantum-field-theory/phy2403.pdf
+   phy1520-quantum/phy1520.pdf
+   phy454-continuumechanics/phy454.pdf
+   phy456-qmII/phy456.pdf
+   ece1229-antenna/ece1229.pdf
+
+- (after above) Save, make tag, make dist, and repost to filezilla and add changelog
+
+   gabookII/gabookII.pdf
+   miscphysics/miscphysics.pdf
+   classicalmechanics/classicalmechanics.pdf
+   phy356-qmI/phy356.pdf
+   phy487-qmsolids/phy487.pdf
+   phy450-relativisticEandM/phy450.pdf
+   phy2403-quantum-field-theory/phy2403.pdf
+   phy1520-quantum/phy1520.pdf
+   phy454-continuumechanics/phy454.pdf
+   phy456-qmII/phy456.pdf
+   ece1229-antenna/ece1229.pdf
+   GAelectrodynamics/GAelectrodynamics.pdf
+
+- repost to leanpub
+
+   phy356-qmI/phy356.pdf
+   phy487-qmsolids/phy487.pdf
+   phy450-relativisticEandM/phy450.pdf
+   phy2403-quantum-field-theory/phy2403.pdf
+   phy1520-quantum/phy1520.pdf
+   phy454-continuumechanics/phy454.pdf
+   phy456-qmII/phy456.pdf
+   ece1229-antenna/ece1229.pdf
+   GAelectrodynamics/GAelectrodynamics.pdf
+
+- once first version approved:
+
+   - order a copy,
+   - then disable (since Mo still wants redacted solutions.)
+
+- repost to kdp
+
+   phy356-qmI/phy356.pdf
+   phy487-qmsolids/phy487.pdf
+   phy450-relativisticEandM/phy450.pdf
+   phy2403-quantum-field-theory/phy2403.pdf
+   phy1520-quantum/phy1520.pdf
+   phy454-continuumechanics/phy454.pdf
+   phy456-qmII/phy456.pdf
+   ece1229-antenna/ece1229.pdf
+   GAelectrodynamics/GAelectrodynamics.pdf
+
+- 'make clean ; make' in all of the following dirs are broken:
+   - once fixed run the link checker against them too.
+
+   ece1236-microwaves
+   ece1254-multiphysics
+   ece1505-convex-optimization
+   otherbook
+
+- where is:
+   gabookI/gabookI.pdf
+
+   should run url checker and thethe.py against it too if resurrected.
+
+- Landing pages:
    Go through all the pdf links, and if any are to non-versioned versions, update those, and
    add separate landing pages for each of these:
 
@@ -17,7 +87,7 @@ Landing pages:
    # and then rewrite:
    http://peeterjoot.com/writing/
 
-Figures:
+- Figures:
 
    Going through this list looking at the Mathematia based figures to see which should be updated
    (PlotStyle -> Thick and so forth)
@@ -33,34 +103,45 @@ Figures:
       ece1228-electromagnetic-theory
       ece1229-antenna
 
-450, 452, 487, GAelectrodynamics, 2403
+- 450, 487, GAelectrodynamics, 2403
    -- dashes in version_bash.tex weren't showing up properly
       rebuild and refresh all these pdf's
 
-Rework as 6x9 and post to kdp (for draft copies)
-#  450  -- e&m
-#  485  -- optics
-#  452  -- stat mech
-#  487  -- condensed matter
-#  2403 -- fields
-#  1520 -- grad qm      -- Arun has given permission not to redact.
-#   454  -- fluid mechanics
-#   456 -- qm II
-   1254 -- multiphysics << unredacted for myself.
-   354  -- classical mechanics
-   356 -- qm I
-   1229 -- antenna
+- Rework as 6x9 and post to kdp (for draft copies)
 
-6x9 instructions:
+      1254 -- multiphysics << unredacted for myself.
+      354  -- classical mechanics
+      356 -- qm I
+      1229 -- antenna
 
-- specialize: 
-   backmatter.tex
-   GNUmakefile # new path for $(THISBOOK).tex, ...
-   thisbook.sty
-   classicthesis-config.tex
-   hack preface.tex for the page numbering position bug (add: \thispagestyle{empty})
-   customize the dedication and change the rules to avoid the generic one being used (do this for phy485)
+- 6x9 instructions:
 
-   git commit -a
-   make clean;make
+   - specialize: 
+      backmatter.tex
+      GNUmakefile # new path for $(THISBOOK).tex, ...
+      thisbook.sty -- need at least mychapter definition.
+      classicthesis-config.tex
+      hack preface.tex for the page numbering position bug (add: \thispagestyle{empty})
+      customize the dedication and change the rules to avoid the generic one being used (do this for phy485)
 
+      git commit -a
+      make clean;make
+
+- Proofing checklist:
+
+   - Equation grammar.
+   - Spell check.
+   - Periods for chapters, examples, figures, section, subsection, paragraphs.
+   - Run urlcheckerpy
+   - Run thethe.py
+   - Don't use dmath+aligned:  grep -nB1 {aligned} `cat thefiles` | grep {dmath}
+   - Fix gutter overflow issues.
+   - Look for dmaths in makeproblem, makeexamples, and itemize that lead to inset equation numbers.
+   - Check for equations that overlap equation numbers.
+   - Check the size of the figures.
+   - Check indexes for entries with different spelling/case.
+   - Make sure all the indexing is done.  at least chapter,section,paragraph,problems
+   - make dist, tag
+   - push
+   - copy to kdp, leanpub, landing page.
+   - bump version.

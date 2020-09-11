@@ -704,7 +704,8 @@ Chronological listing of Mathematica notebooks
       if ( $genSitesMathematicaPages )
       {
 #         $path = "https://raw.github.com/peeterjoot/mathematica/master/$path" ;
-         $path = "https://github.com/peeterjoot/mathematica/raw/master/$path" ;
+         #$path = "https://github.com/peeterjoot/mathematica/raw/master/$path" ;
+         $path = "https://raw.githubusercontent.com/peeterjoot/mathematica/master/$path" ;
       }
 #      else
 #      {
@@ -893,7 +894,8 @@ my $out = "
       my $desc = $_->{'WHAT'} ;
       my $thisfilter = $_->{'FILTER'} ;
 
-      my $fullpath = "https://raw.github.com/peeterjoot/mathematica/master/$path" ;
+      #my $fullpath = "https://raw.github.com/peeterjoot/mathematica/master/$path" ;
+      my $fullpath = "https://raw.githubusercontent.com/peeterjoot/mathematica/master/$path" ;
 
       if ( $filter )
       {
@@ -1025,7 +1027,8 @@ my $out = "
          next unless ( $path =~ /$filter/ ) ;
       }
 
-      my $fullpath = "https://raw.github.com/peeterjoot/matlab/master/$path" ;
+      #my $fullpath = "https://raw.github.com/peeterjoot/matlab/master/$path" ;
+      my $fullpath = "https://raw.githubusercontent.com/peeterjoot/matlab/master/$path" ;
 
       my $label = $path ;
       $label =~ s,/,:,g ;
@@ -1085,7 +1088,7 @@ These Julia notebooks, can be found in
 
 \\href{https://github.com/peeterjoot/julia}{https://github.com/peeterjoot/julia}.
 
-These notebooks are text files.  The julia program, available freely at \\href{www.julialang.org}{www.julialang.org}, is required to execute them.  Some Julia code can also be evaluated with Matlab.
+These notebooks are text files.  The julia program, available freely at \\href{https://julialang.org/}{www.julialang.org}, is required to execute them.  Some Julia code can also be evaluated with Matlab.
 " ;
    }
 
@@ -1123,7 +1126,8 @@ These notebooks are text files.  The julia program, available freely at \\href{w
          next unless ( $path =~ /$filter/ ) ;
       }
 
-      my $fullpath = "https://raw.github.com/peeterjoot/julia/master/$path" ;
+      #my $fullpath = "https://raw.github.com/peeterjoot/julia/master/$path" ;
+      my $fullpath = "https://raw.githubusercontent.com/peeterjoot/julia/master/$path" ;
 
       my $label = $path ;
       $label =~ s,/,:,g ;
