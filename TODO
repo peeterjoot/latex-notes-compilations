@@ -1,16 +1,65 @@
-- Run thethe.py against:
 
-   gabookII/gabookII.pdf
-   miscphysics/miscphysics.pdf
-   classicalmechanics/classicalmechanics.pdf
-   phy356-qmI/phy356.pdf
-   phy487-qmsolids/phy487.pdf
-   phy450-relativisticEandM/phy450.pdf
-   phy2403-quantum-field-theory/phy2403.pdf
-   phy1520-quantum/phy1520.pdf
-   phy454-continuumechanics/phy454.pdf
-   phy456-qmII/phy456.pdf
-   ece1229-antenna/ece1229.pdf
+- Once first version approved: ece1228:
+
+   - kdp: publish redacted copy (wait until my print version arrives: Thurs.)
+   - Update the landing page.
+   - Post to leanpub too.
+
+- tried running:
+
+      perl -p -i -e 's/^ *$/%/;' `cat toreviewblanks.txt`
+
+  in ece1254-multiphysics, but it resulted in float lost.
+
+   -- review all the old notes collections (and gabook's) for such blanks.  Perhaps attempt some global replacements?
+
+- blog the republish of:
+
+   stat mech
+   optics
+   condensed matter
+   continuum
+
+- have in progress changes (minor)
+
+  phy452-basicstatmech/ (republish later.)
+
+- ready for republish (minor)
+
+   phy1520-quantum/
+   phy2403-quantum-field-theory/
+   ece1229-antenna/
+   phy456-qmII/
+   phy450-relativisticEandM/
+
+- ready for republish (minor -- not on kdp nor leanpub)
+
+   ece1505-convex-optimization/
+   ece1236-microwaves/
+   phy356-qmI/
+   gabookII/
+   miscphysics/
+   classicalmechanics/
+   otherbook/ -- this is low quality and now has lots of 6x9 gutter issues.  Don't post without fixing those up (and perhaps never.)
+
+- have in progress reviews on kdp for:
+
+   Continuum Mechanics: Notes and prob...
+
+   Condensed Matter Physics: Notes and...
+   Advanced Classical Optics: Notes an...
+   Basic Statistical Mechanics: Notes ...
+   Electromagnetic Theory: Notes and p...
+
+can I abort the reviews for the last 4?
+   https://www.kdpcommunity.com/s/question/0D52T000058ubwfSAA/is-there-a-way-to-abort-inreview-to-unselect-expanded-distribution
+
+Did I select ED for Electromagnetic Theory?
+
+- Add spellcheck rules (sp.mk) to:
+
+   gabookI/GNUmakefile
+   gabookII/GNUmakefile
 
 - (after above) Save, make tag, make dist, and repost to filezilla and add changelog
 
@@ -18,11 +67,9 @@
    miscphysics/miscphysics.pdf
    classicalmechanics/classicalmechanics.pdf
    phy356-qmI/phy356.pdf
-   phy487-qmsolids/phy487.pdf
    phy450-relativisticEandM/phy450.pdf
    phy2403-quantum-field-theory/phy2403.pdf
    phy1520-quantum/phy1520.pdf
-   phy454-continuumechanics/phy454.pdf
    phy456-qmII/phy456.pdf
    ece1229-antenna/ece1229.pdf
    GAelectrodynamics/GAelectrodynamics.pdf
@@ -30,39 +77,22 @@
 - repost to leanpub
 
    phy356-qmI/phy356.pdf
-   phy487-qmsolids/phy487.pdf
    phy450-relativisticEandM/phy450.pdf
    phy2403-quantum-field-theory/phy2403.pdf
    phy1520-quantum/phy1520.pdf
-   phy454-continuumechanics/phy454.pdf
    phy456-qmII/phy456.pdf
    ece1229-antenna/ece1229.pdf
    GAelectrodynamics/GAelectrodynamics.pdf
 
-- once first version approved:
-
-   - order a copy,
-   - then disable (since Mo still wants redacted solutions.)
-
-- repost to kdp
+- Repost to kdp
 
    phy356-qmI/phy356.pdf
-   phy487-qmsolids/phy487.pdf
    phy450-relativisticEandM/phy450.pdf
    phy2403-quantum-field-theory/phy2403.pdf
    phy1520-quantum/phy1520.pdf
-   phy454-continuumechanics/phy454.pdf
    phy456-qmII/phy456.pdf
    ece1229-antenna/ece1229.pdf
    GAelectrodynamics/GAelectrodynamics.pdf
-
-- 'make clean ; make' in all of the following dirs are broken:
-   - once fixed run the link checker against them too.
-
-   ece1236-microwaves
-   ece1254-multiphysics
-   ece1505-convex-optimization
-   otherbook
 
 - where is:
    gabookI/gabookI.pdf
@@ -103,10 +133,6 @@
       ece1228-electromagnetic-theory
       ece1229-antenna
 
-- 450, 487, GAelectrodynamics, 2403
-   -- dashes in version_bash.tex weren't showing up properly
-      rebuild and refresh all these pdf's
-
 - Rework as 6x9 and post to kdp (for draft copies)
 
       1254 -- multiphysics << unredacted for myself.
@@ -116,13 +142,14 @@
 
 - 6x9 instructions:
 
-   - specialize: 
+   - specialize:
       backmatter.tex
       GNUmakefile # new path for $(THISBOOK).tex, ...
       thisbook.sty -- need at least mychapter definition.
       classicthesis-config.tex
       hack preface.tex for the page numbering position bug (add: \thispagestyle{empty})
       customize the dedication and change the rules to avoid the generic one being used (do this for phy485)
+      chapter -> mychapter
 
       git commit -a
       make clean;make
@@ -145,3 +172,12 @@
    - push
    - copy to kdp, leanpub, landing page.
    - bump version.
+
+   # purge dumb Canadian spelling that spellcheck has been prompting for: (review -- may hit urls and captions)
+   perl -p -i -e 's/\bbehaviour\b/behavior/g;' `gfind -name "*.tex"`
+   perl -p -i -e 's/\bmodelled\b/modeled/g;' `gfind -name "*.tex"`
+   perl -p -i -e 's/\blabelled\b/labeled/g;' `gfind -name "*.tex"`
+   perl -p -i -e 's/\bmodelling\b/modeling/g;' `gfind -name "*.tex"`
+   perl -p -i -e 's/\blabelling\b/labeling/g;' `gfind -name "*.tex"`
+
+   :%s/\([nN]\)eighbour/\1eighbor/gc
