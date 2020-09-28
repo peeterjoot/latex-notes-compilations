@@ -2,6 +2,13 @@ THISDIR := ece1254-multiphysics-redacted
 THISBOOK := ece1254
 ORIGDIR := ece1254-multiphysics
 
+BIBLIOGRAPHY_PATH := classicthesis_mine
+HAVE_OWN_CONTENTS := 1
+#HAVE_OWN_TITLEPAGE := 1
+MY_CLASSICTHESIS_FRONTBACK_FILES += ../latex/classicthesis_mine/FrontBackmatter/Index.tex
+MY_CLASSICTHESIS_FRONTBACK_FILES += ../latex/classicthesis_mine/FrontBackmatter/ContentsAndFigures.tex
+BOOKTEMPLATE := ../latex/classicthesis_mine/ClassicThesis2.tex
+
 #VER := $(shell grep Version ../$(ORIGDIR)/.revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
 
 include ../$(ORIGDIR)/make.revision
