@@ -148,3 +148,6 @@
 [submodule "figures/blogit"]
 	path = figures/blogit
 	url = git@github.com:peeterjoot/blogitFigures.git
+[submodule "python"]
+	path = python
+	url = git@github.com:peeterjoot/python.git

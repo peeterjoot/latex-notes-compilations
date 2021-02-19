@@ -9,13 +9,13 @@ DONT_MAKE += potentialMethods
 DONT_MAKE += curvilinear
 DONT_MAKE += frequencydomain
 DONT_MAKE += phy450-relativisticEandM/mmacells
-DONT_MAKE += phy2403-quantum-field-theory/mmacells
 DONT_MAKE += GAelectrodynamics/mmacells
 DONT_MAKE += phy2403-quantum-field-theory-redacted/mmacells
+DONT_MAKE += phy2403-quantum-field-theory/mmacells
+DONT_MAKE += julia
 DONT_MAKE += latex
 DONT_MAKE += mathematica
 DONT_MAKE += matlab
-DONT_MAKE += julia
 
 SUBDIRS := $(filter-out $(FIGURES) .git $(DONT_MAKE),$(REPOS))
 SUBDIRS += $(wildcard *-redacted)
