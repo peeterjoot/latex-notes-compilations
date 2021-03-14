@@ -1,5 +1,14 @@
 # latex-notes-compilations
-Master repository for Peeter's various latex notes compilations and/or books.
+Master repository for Peeter's various latex notes compilations and/or books:
+
+https://www.amazon.com/dp/1798504219 Relativistic Electrodynamics: Notes and problems from 2011 PHY450H1S
+https://www.amazon.com/dp/B088NXZBG5 QUANTUM MECHANICS II: Notes and problems from UofT PHY456H1F 2012
+https://www.amazon.com/dp/1092133593 Advanced Classical Optics: Notes and problems from UofT PHY485H1F 2012
+https://www.amazon.com/dp/1799119963 Condensed Matter Physics: Notes and problems from UofT PHY487H1F 2013
+https://www.amazon.com/dp/1798195194 Basic Statistical Mechanics: Notes and problems from 2013 UofT PHY452H1S
+https://www.amazon.com/dp/109738487X Continuum Mechanics: Notes and problems from UofT PHY454H1S 2012
+https://www.amazon.com/dp/B088NXZBG5 Graduate Quantum Mechanics: Notes and problems from 2015 UofT PHY1520H
+https://www.amazon.com/dp/1795771011 Quantum Field Theory I: Notes and problems from UofT PHY2403 2018
 
 Most of the submodules found in this repository represent a single book or notes compilation, or the figures for that item.
 

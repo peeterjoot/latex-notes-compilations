@@ -1,44 +1,26 @@
-- last refresh: 
+- last refresh:
 
-                                    kdp         blog        Leanpub     When              Version        ED
-   GAelectrodynamics/bw             Y           Y           N           18 Feb 2021       V0.16-1        Y
-   GAelectrodynamics/color          Y           Y           N           18 Feb 2021       V0.16-1        N
-
-ED forces the price up, but the Royalties stay fixed.  ED royalties are very low at the default prices or near it (esp. for GA/color.)
-
-ready:
-   phy1520-quantum/
-   phy2403-quantum-field-theory/
-   ece1229-antenna/
-   phy456-qmII/
-   phy450-relativisticEandM/
-   ece1228-electromagnetic-theory/
-   ece1254-multiphysics/            replaced hand drawn graphs with .dot file based ones.
-   phy452-basicstatmech/
-
-- in-progress reorganization:
-
-   classicalmechanics/
-
-
-- sort of ready for republish (minor -- not on kdp nor leanpub)
-
-   ece1505-convex-optimization/
-      
-      -- this was converted to 6x9 and now has gutter issues.  Fix those before posting a new version.
-
-- ready for republish (minor -- not on kdp nor leanpub)
-   ece1236-microwaves/
-   phy356-qmI/
+                            kdp(pap) kdp(hard)  blog        Leanpub     When              Version
+   GAelectrodynamics/bw            Y         Y  Y           N/A         18 Feb 2021       V0.16-1
+   phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
+   phy485-optics                   Y         Y  N           N           28 Feb 2021       V0.1.12-1
+   phy452-basicstatmech            Y         Y  N           N           07 Mar 2021       V0.1.14-6
+   phy450-relativisticEandM        Y         Y  N           N           07 Mar 2021       V0.1.11-1
+   phy1520-quantum                 Y         Y  N           N           07 Mar 2021       V0.1.10-1
+   phy2403-quantum-field-theory    Y         Y  N           N           07 Mar 2021       V0.1.260-0
+   phy454-continuumechanics        Y         Y  N           N           07 Mar 2021       V0.1.12-0
+   phy456-qmII                     Y         Y  N           N           07 Mar 2021       V0.1.11-1
+   ece1229-antenna                              unpublished
+   ece1228-electromagnetic-theory               unpublished
+   classicalmechanics                           unpublished
+   ece1254-multiphysics                         unpublished
+   ece1236-microwaves/                          never published
    gabookII/
    miscphysics/
+   phy356-qmI/  -- rework as 6x9?
    otherbook/ -- this is low quality and now has lots of 6x9 gutter issues.  Don't post without fixing those up (and perhaps never.)
-
-- Note: can I abort reviews? :
-
-   https://www.kdpcommunity.com/s/question/0D52T000058ubwfSAA/is-there-a-way-to-abort-inreview-to-unselect-expanded-distribution
-
-   (nope)
+   GAelectrodynamics/color       N/A            Y           Y           18 Feb 2021       V0.16-1     (kdp unpublished.)
+   ece1505-convex-optimization -- this was converted to 6x9 and now has gutter issues.  Fix those before posting a new version.
 
 - Add spellcheck rules (sp.mk) to:
 
@@ -70,23 +52,10 @@ ready:
 
 - Figures:
 
-   Going through this list looking at the Mathematia based figures to see which should be updated
-   (PlotStyle -> Thick and so forth)
-
-      phy487-qmsolids
-      phy485-optics
-         -- repost those when that's done.
-
-      phy454-continuumechanics
-      ece1254-multiphysics
-      gabook
-      ece1505-convex-optimization
-      ece1228-electromagnetic-theory
-      ece1229-antenna
-
-- Rework as 6x9 and post to kdp (for draft copies)
-
-      356 -- qm I
+   Review everything looking at the Mathematia based figures to see which should be updated:
+     - PlotStyle -> Thick
+     - MaTeX
+     - texStyle
 
 - 6x9 instructions:
 
