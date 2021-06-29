@@ -1,15 +1,15 @@
 - last refresh:
 
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
-   GAelectrodynamics/bw            Y         Y  Y           N/A         18 Feb 2021       V0.16-1
-   phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
-   phy485-optics                   Y         Y  N           N           28 Feb 2021       V0.1.12-1
+   phy1520-quantum                 Y         Y  Y           N           27 Jun 2021       V0.1.10-2
    phy452-basicstatmech            Y         Y  N           N           07 Mar 2021       V0.1.14-6
    phy450-relativisticEandM        Y         Y  N           N           07 Mar 2021       V0.1.11-1
-   phy1520-quantum                 Y         Y  N           N           07 Mar 2021       V0.1.10-1
    phy2403-quantum-field-theory    Y         Y  N           N           07 Mar 2021       V0.1.260-0
    phy454-continuumechanics        Y         Y  N           N           07 Mar 2021       V0.1.12-0
    phy456-qmII                     Y         Y  N           N           07 Mar 2021       V0.1.11-1
+   phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
+   phy485-optics                   Y         Y  N           N           28 Feb 2021       V0.1.12-1
+   GAelectrodynamics/bw            Y         Y  Y           N/A         18 Feb 2021       V0.16-1
    ece1229-antenna                              unpublished
    ece1228-electromagnetic-theory               unpublished
    classicalmechanics                           unpublished
