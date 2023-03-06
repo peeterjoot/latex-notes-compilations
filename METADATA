@@ -39,6 +39,7 @@ my $cdf = 0 ;
 #my $doMathematicaFtp = 0 ;
 my $redacted = 0 ;
 my $filter ;
+my $chaptertex = 'chapter';
 
 GetOptions
 (
@@ -71,6 +72,7 @@ GetOptions
    'filter=s'              => \$filter,
    'bib!'                  => \$doBib,
    'history!'              => \$doHistory,
+   'chapter=s'             => \$chaptertex,
    'all'        => sub {
                           $doGabook = 1 ;
                           $doGabookI = 1 ;
@@ -1160,7 +1162,7 @@ sub dumpem
 {
    my @sorted = sort datesort @_ ;
 
-   print "\\chapter{Chronological Index}\n\\label{chap:Chronology}\n\n\\begin{itemize}\n\n" ;
+   print "\\${chaptertex}{Chronological Index}\n\\label{chap:Chronology}\n\n\\begin{itemize}\n\n" ;
    foreach (@sorted)
    {
       my ($source, $title, $date, $ref, $what)
@@ -1170,7 +1172,10 @@ sub dumpem
              $_->{'REF'},
              $_->{'WHAT'} ) ;
 
-      $what = '' if ( !defined $what and $what ne '' ) ;
+      $what  = '' if ( !defined $what ) ;
+      $title = '' if ( !defined $title ) ;
+      $ref = ''   if ( !defined $ref ) ;
+      $date = ''  if ( !defined $date ) ;
 
       print "\\item $date \\ref{chap:$ref} $title\n\n$what" ;
    }

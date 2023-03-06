@@ -151,3 +151,6 @@
 [submodule "python"]
 	path = python
 	url = git@github.com:peeterjoot/python.git
+[submodule "booktemplate"]
+	path = booktemplate
+	url = git@github.com:peeterjoot/booktemplate.git
