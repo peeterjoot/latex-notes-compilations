@@ -21,7 +21,7 @@ GENERATED_SOURCES += julia.tex
 GENERATED_SOURCES += mathematica.tex 
 
 PHY1520TEX := $(notdir $(wildcard ../$(ORIGDIR)/*.tex))
-PHY1520TEX += FrontBackmatter/preface.tex
+PHY1520TEX += $(addprefix FrontBackmatter/,$(notdir $(wildcard ../$(ORIGDIR)/FrontBackmatter/*.tex)))
 PHY1520STY += thisbook.sty
 PHY1520STY += ece1505.sty
 
@@ -41,8 +41,13 @@ $(PHY1520TEX) : %.tex : ../$(ORIGDIR)/%.tex
 $(PHY1520STY) : %.sty : ../$(ORIGDIR)/%.sty
 	cp $< $@
 
+copy : $(PHY1520STY) $(PHY1520TEX)
+
 clean ::
 	rm -f $(PHY1520TEX) $(PHY1520STY)
+
+scrpage2.sty : ../latex/scrpage2.sty
+	cp $^ $@
 
 myrefs.bib : 
 	(cd ../$(ORIGDIR) ; make myrefs.bib)

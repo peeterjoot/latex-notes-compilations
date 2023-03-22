@@ -14,21 +14,36 @@
    phy456-qmII                     Y         Y  N           N           07 Mar 2021       V0.1.11-1
    phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
    phy485-optics                   Y         Y  N           N           28 Feb 2021       V0.1.12-1
+   gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
+   gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
+   ece1505-convex-optimization                                          12 Mar 2023       V0.1.5
+   miscphysics/
+   otherbook/ -- this is low quality and now has lots of 6x9 gutter issues.  Don't post without fixing those up (and perhaps never.)
+   phy356-qmI/  -- rework as 6x9?
+
+   GAelectrodynamics/color       N/A            Y           Y           18 Feb 2021       V0.16-1     (kdp unpublished.)
    ece1229-antenna                              unpublished
    ece1228-electromagnetic-theory               unpublished
    classicalmechanics                           unpublished
    ece1254-multiphysics                         unpublished
    ece1236-microwaves/                          never published
-   gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
-   gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
-   miscphysics/
-   otherbook/ -- this is low quality and now has lots of 6x9 gutter issues.  Don't post without fixing those up (and perhaps never.)
-   phy356-qmI/  -- rework as 6x9?
-   GAelectrodynamics/color       N/A            Y           Y           18 Feb 2021       V0.16-1     (kdp unpublished.)
-   ece1505-convex-optimization -- this was converted to 6x9 and now has gutter issues.  Fix those before posting a new version.
 
-note:
-leanpub upload url:
+- phy454-continuumechanics
+
+review gutters post dmath purge.
+
+- dmath references left in:
+
+phy456-qmII
+phy485-optics
+phy487-qmsolids
+ece1228-electromagnetic-theory
+ece1229-antenna
+ece1236-microwaves
+ece1254-multiphysics
+phy1520-quantum
+
+- note: leanpub upload url:
 
     https://leanpub.com/geometricalgebraforelectricalengineers/upload
 
