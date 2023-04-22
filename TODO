@@ -5,17 +5,17 @@
 - last refresh:
 
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
+   phy452-basicstatmech            N         N  Y           N           18 Apr 2023       V0.1.14-8 -- unable to upload to KDP.
+   gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
+   gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
    phy454-continuumechanics        Y         Y  Y           Y           12 Mar 2022       V0.1.12-2
    GAelectrodynamics/bw            Y         Y  Y           Y           15 May 2022       V0.16-13
    phy1520-quantum                 Y         Y  Y           N           27 Jun 2021       V0.1.10-2
-   phy452-basicstatmech            Y         Y  N           N           07 Mar 2021       V0.1.14-6
    phy450-relativisticEandM        Y         Y  N           N           07 Mar 2021       V0.1.11-1
    phy2403-quantum-field-theory    Y         Y  N           N           07 Mar 2021       V0.1.260-0
    phy456-qmII                     Y         Y  N           N           07 Mar 2021       V0.1.11-1
    phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
    phy485-optics                   Y         Y  N           N           28 Feb 2021       V0.1.12-1
-   gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
-   gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
    ece1505-convex-optimization                                          12 Mar 2023       V0.1.5
    miscphysics/
    otherbook/ -- this is low quality and now has lots of 6x9 gutter issues.  Don't post without fixing those up (and perhaps never.)
@@ -27,10 +27,6 @@
    classicalmechanics                           unpublished
    ece1254-multiphysics                         unpublished
    ece1236-microwaves/                          never published
-
-- phy454-continuumechanics
-
-review gutters post dmath purge.
 
 - dmath references left in:
 
@@ -69,10 +65,10 @@ phy1520-quantum
 
    # update:
 
-   http://peeterjoot.com/physicsplay-git/
+   https://peeterjoot.com/physicsplay-git/
 
    # and then rewrite:
-   http://peeterjoot.com/writing/
+   https://peeterjoot.com/writing/
 
 - Figures:
 

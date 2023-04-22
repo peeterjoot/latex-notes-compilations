@@ -425,79 +425,79 @@ elsif ( $doBib )
    ## generate cross reference's to gabook for miscphysics.pdf
    #printBookBib( 'Exploring physics with Geometric Algebra',
    #              'gabook',
-   #              'http://peeterjoot.com/archives/math2009/gabook.pdf',
+   #              'https://peeterjoot.com/archives/math2009/gabook.pdf',
    #              @gabook ) ;
 
    printBookBib( 'gabookI',
-                 'http://peeterjoot.com/archives/math2015/gabookI.pdf',
+                 'https://peeterjoot.com/archives/math2015/gabookI.pdf',
                  @gabookI ) ;
 
    printBookBib( 'gabookII',
-                 'http://peeterjoot.com/archives/math2015/gabookII.pdf',
+                 'https://peeterjoot.com/archives/math2015/gabookII.pdf',
                  @gabookII ) ;
 
    printBookBib( 'miscphysics',
-                 'http://peeterjoot.com/archives/math2009/miscphysics.pdf',
+                 'https://peeterjoot.com/archives/math2009/miscphysics.pdf',
                  @miscphysics ) ;
 
    printBookBib( 'phy356',
-                 'http://peeterjoot.com/archives/math2010/phy356.pdf',
+                 'https://peeterjoot.com/archives/math2010/phy356.pdf',
                  @phy356 ) ;
 
    printBookBib( 'phy456',
-                 'http://peeterjoot.com/archives/math2011/phy456.pdf',
+                 'https://peeterjoot.com/archives/math2011/phy456.pdf',
                  @phy456 ) ;
 
    printBookBib( 'phy450',
-                 'http://peeterjoot.com/archives/math2011/phy450.pdf',
+                 'https://peeterjoot.com/archives/math2011/phy450.pdf',
                  @phy450 ) ;
 
    printBookBib( 'classicalmechanics',
-                 'http://peeterjoot.com/archives/math2013/classicalmechanics.pdf',
+                 'https://peeterjoot.com/archives/math2013/classicalmechanics.pdf',
                  @classicalmechanics ) ;
 
    printBookBib( 'phy454',
-                 'http://peeterjoot.com/archives/math2012/phy454.pdf',
+                 'https://peeterjoot.com/archives/math2012/phy454.pdf',
                  @phy454 ) ;
 
    printBookBib( 'phy452',
-                 'http://peeterjoot.com/archives/math2013/phy452.pdf',
+                 'https://peeterjoot.com/archives/math2013/phy452.pdf',
                  @phy452 ) ;
 
    printBookBib( 'phy485',
-                 'http://peeterjoot.com/archives/math2012/phy485.pdf',
+                 'https://peeterjoot.com/archives/math2012/phy485.pdf',
                  @phy485 ) ;
 
    printBookBib( 'phy487',
-                 'http://peeterjoot.com/archives/math2013/phy487.pdf',
+                 'https://peeterjoot.com/archives/math2013/phy487.pdf',
                  @phy487 ) ;
 
    printBookBib( 'ece1254',
-                 'http://peeterjoot.com/archives/math2014/ece1254.pdf',
+                 'https://peeterjoot.com/archives/math2014/ece1254.pdf',
                  @ece1254 ) ;
 
    printBookBib( 'ece1229',
-                 'http://peeterjoot.com/archives/math2015/ece1229.pdf',
+                 'https://peeterjoot.com/archives/math2015/ece1229.pdf',
                  @ece1229 ) ;
 
    printBookBib( 'phy1520',
-                 'http://peeterjoot.com/archives/math2015/phy1520.pdf',
+                 'https://peeterjoot.com/archives/math2015/phy1520.pdf',
                  @phy1520 ) ;
 
    printBookBib( 'phy2403',
-                 'http://peeterjoot.com/archives/math2018/phy2403.pdf',
+                 'https://peeterjoot.com/archives/math2018/phy2403.pdf',
                  @phy2403 ) ;
 
    printBookBib( 'ece1236',
-                 'http://peeterjoot.com/archives/math2016/ece1236.pdf',
+                 'https://peeterjoot.com/archives/math2016/ece1236.pdf',
                  @ece1236 ) ;
 
    printBookBib( 'ece1228',
-                 'http://peeterjoot.com/archives/math2016/ece1228.pdf',
+                 'https://peeterjoot.com/archives/math2016/ece1228.pdf',
                  @ece1228 ) ;
 
    printBookBib( 'GAelectrodynamics',
-                 'http://peeterjoot.com/archives/math2018/GAelectrodynamics.pdf',
+                 'https://peeterjoot.com/archives/math2018/GAelectrodynamics.pdf',
                  @GAelectrodynamics ) ;
 }
 elsif ( $doMathematica )
