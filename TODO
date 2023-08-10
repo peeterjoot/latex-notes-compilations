@@ -6,24 +6,26 @@
 
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
    phy452-basicstatmech            N         N  Y           N           18 Apr 2023       V0.1.14-8 -- unable to upload to KDP.
-   phy456-qmII                     N         N  Y           N           22 Apr 2023       V0.1.11-3
    GAelectrodynamics               Y         Y                          30 Jul 2023       V0.18-1
    GAelectrodynamics                            Y           Y           1  Aug 2023       V0.18-2 
    phy485-optics                   Y         Y  N           N           28 Feb 2021       V0.1.12-1
+      -- Refresh some of the figures (thick/black/...), then post anew.  KDP upload now clean as of 1.12-4.
+   phy456-qmII                     N         N  Y           N           22 Apr 2023       V0.1.11-3
+      -- Refresh all versions to know everything is in synch.
+   phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
+      -- dmath purge done: 0.1.12-1 -- not checked with kdp -- expect errors.
 
-   gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
-   gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
    phy454-continuumechanics        Y         Y  Y           Y           12 Mar 2022       V0.1.12-2
    phy1520-quantum                 Y         Y  Y           N           27 Jun 2021       V0.1.10-2
    phy450-relativisticEandM        Y         Y  N           N           07 Mar 2021       V0.1.11-1
    phy2403-quantum-field-theory    Y         Y  N           N           07 Mar 2021       V0.1.260-0
-   phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
    ece1505-convex-optimization                                          12 Mar 2023       V0.1.5
    miscphysics/
    otherbook/ -- this is low quality and now has lots of 6x9 gutter issues.  Don't post without fixing those up (and perhaps never.)
    phy356-qmI/  -- rework as 6x9?
+   gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
+   gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
 
-   GAelectrodynamics/color       N/A            Y           Y           18 Feb 2021       V0.16-1     (kdp unpublished.)
    ece1229-antenna                              unpublished
    ece1228-electromagnetic-theory               unpublished
    classicalmechanics                           unpublished
@@ -32,8 +34,6 @@
 
 - dmath references left in:
 
-phy485-optics
-phy487-qmsolids
 ece1228-electromagnetic-theory
 ece1229-antenna
 ece1236-microwaves
