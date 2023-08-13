@@ -14,9 +14,18 @@
       -- Refresh all versions to know everything is in synch.
    phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
       -- dmath purge done: 0.1.12-1 -- not checked with kdp -- expect errors.
+   phy1520-quantum                 Y         Y  Y           N           27 Jun 2021       V0.1.10-2
+      -- dmath purge done: 0.1.10-4 -- not checked with kdp -- expect errors.
+   ece1228-electromagnetic-theory               unpublished
+      -- dmath purge done: upload to kdp to check
+   ece1254-multiphysics                         unpublished
+      -- dmath purge done: upload to kdp to check
+   ece1229-antenna                              unpublished
+      -- dmath purge done: upload to kdp to check
+   ece1236-microwaves/                          never published
+      -- dmath purge done: upload to kdp to check
 
    phy454-continuumechanics        Y         Y  Y           Y           12 Mar 2022       V0.1.12-2
-   phy1520-quantum                 Y         Y  Y           N           27 Jun 2021       V0.1.10-2
    phy450-relativisticEandM        Y         Y  N           N           07 Mar 2021       V0.1.11-1
    phy2403-quantum-field-theory    Y         Y  N           N           07 Mar 2021       V0.1.260-0
    ece1505-convex-optimization                                          12 Mar 2023       V0.1.5
@@ -26,19 +35,7 @@
    gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
    gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
 
-   ece1229-antenna                              unpublished
-   ece1228-electromagnetic-theory               unpublished
    classicalmechanics                           unpublished
-   ece1254-multiphysics                         unpublished
-   ece1236-microwaves/                          never published
-
-- dmath references left in:
-
-ece1228-electromagnetic-theory
-ece1229-antenna
-ece1236-microwaves
-ece1254-multiphysics
-phy1520-quantum
 
 - note: leanpub upload url:
 
