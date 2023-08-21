@@ -26,8 +26,8 @@ Example of how to clone a subset of the repository:
     make mmacells.sty # make bug
     make
 
-This should checkout the submodules associated with the GAelectrodynamics book project, which has a lot of good latex examples you can draw on for your own work.  
-If you get as far as the make steps (which mean that you've installed all the prereqs like latex, git, make, ...) then the ctt script can be used to 
+This should checkout the submodules associated with the GAelectrodynamics book project, which has a lot of good latex examples you can draw on for your own work. 
+If you get as far as the make steps (which mean that you've installed all the prereqs like latex, git, make, ...) then the ctt script can be used to
 create standalone documents.
 
 TODO:
@@ -52,3 +52,34 @@ TODO:
 
 - have old general TODO list still in physicsplay/notes/
 
+## To use booktemplate
+
+try this to start with:
+
+   git clone git@github.com:peeterjoot/latex-notes-compilations.git peeterjoot
+   cd peeterjoot/
+   export PATH=$PATH:`pwd`/latex/bin
+   for i in latex booktemplate ; do git submodule update --init $i ; (cd $i && git checkout master) ; done
+   cd booktemplate/
+   make
+
+Notes:
+* You will need a Unix command line.  MacOS with homebrew is one option, as is any flavor of Linux, or a Windows WSL-2 Linux installation.
+* You can change that peeterjoot clone path to something else if you want, but I'll refer to it as peeterjoot/ below.
+* The clone and submodule update commands above, assume that you have a github userid and have created your own ssh key pair.
+* You'll want to add the `pwd`/latex/bin path above to your PATH (.bash_profile, .profile, ...)
+* I've assumed you are using a ksh/bash compatible shell.  If you aren't then you probably know how to modify this appropriately.
+
+I'd suggest that you make your own git repo for that (and one for figures), but you can seed that with the "booktemplate" above once you've cloned it.
+
+If you want to see how this works for one of my other notes compilation, or my book, run something like:
+
+   for i in figures/GAelectrodynamics figures/gabook mathematica GAelectrodynamics gapauli latex frequencydomain; do git submodule update --init $i ; (cd $i && git checkout master) ; done
+
+from the peeterjoot/ directory, or if you want to grab all, run:
+
+   ./bin/cloneem
+
+(also from the peeterjoot/ directory)
+
+Another option, that may be preferable, if you don't want all the crap that I've accumulated over the years, is to start with the classicthesis template directly.  I took a copy of that years ago and hacked it considerably, so if you start with that, you can use a recent version (I haven't taken the time to update my notes to a recent version of classicthesis, as it has changed a lot.)
