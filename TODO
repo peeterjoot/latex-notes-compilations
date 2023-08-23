@@ -4,39 +4,69 @@
 
 - GAelectrodynamics
 
-   Finish the color/bw figure specialization.
+   Finish the color/bw figure specialization, and re-upload.
+
+   fig 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
+
+- GAelectrodynamics
+
+   re-upload to refresh the spherical parameterization simplifications.
+
+- ready to upload:
+                            kdp(pap) kdp(hard)  blog        Leanpub     When              Version
+   GAelectrodynamics               Y         Y  Y           Y           22 Aug 2023       V0.1.18-4
+   phy450-relativisticEandM        Y         Y  Y           Y           22 Aug 2023       V0.1.12
+   phy452-basicstatmech            Y         Y  Y           Y           22 Aug 2023       V0.1.14-12
+      -- update changelog too.
+   phy454-continuumechanics        Y         Y  Y           Y           22 Aug 2023       V0.1.12-9
+      -- update changelog too: See Changelog.txt
+   phy456-qmII                     Y         Y  Y           Y           22 Aug 2023       V0.1.11-4
+   phy485-optics                   Y         Y  Y           Y           22 Aug 2023       V0.1.12-5
+      -- Refresh some of the figures (thick/black/...), then post anew.
+   phy487-qmsolids                 Y         Y  Y           Y           22 Aug 2023       V0.1.12-1
+      -- dmath purge done: 0.1.12-1 -- not checked with kdp -- expect errors.
+   phy1520-quantum                 Y         Y  Y           Y           22 Aug 2023       V0.1.10-4
+      -- dmath purge done: 0.1.10-4 -- not checked with kdp -- expect errors.
+   phy2403-quantum-field-theory    Y         Y  Y           Y           22 Aug 2023       V0.1.261
+   ece1505-convex-optimization                                          22 Aug 2023       V0.1.6
+   gabookI/                                     Y           N/A         22 Aug 2023       V1.3.3-3
+      -- kdp check now passes: fix cover picture, update blurb and cover blurb, print copy for myself and unpublish
+   gabookII/                                    Y           N/A         22 Aug 2023       V0.1.6
+      -- kdp check now passes: fix cover picture, update blurb and cover blurb, print copy for myself and unpublish
+   classicalmechanics                           unpublished
+      -- dmath purge done: upload to kdp to check
+   ece1228-electromagnetic-theory               unpublished
+      -- dmath purge done: upload to kdp to check
+   ece1236-microwaves/                          never published
+      -- dmath purge done: upload to kdp to check
+   ece1254-multiphysics                         unpublished
+      -- dmath purge done: upload to kdp to check
+   ece1229-antenna                              unpublished
+      -- dmath purge done: upload to kdp to check
 
 - last refresh:
 
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
    GAelectrodynamics               Y         Y  Y           Y           14 Aug 2023       V0.18-3
-
-(rebuild and re-upload all with rebuild_dist to make sure they are properly synched.)
-
-   phy454-continuumechanics        Y         Y                          13 Aug 2023       V0.1.12-8
-   phy454-continuumechanics                     Y           Y           12 Mar 2022       V0.1.12-2
-      -- update blog and leanpub versions, and add changelog entries.  See Changelog.txt
-
+   phy450-relativisticEandM        Y         Y  N           N           07 Mar 2021       V0.1.11-1
    phy452-basicstatmech            Y         Y                          13 Aug 2023       V0.1.14-11
    phy452-basicstatmech                         Y           N           18 Apr 2023       V0.1.14-8
-      -- update blog and leanpub versions, and add changelog.
-
-   phy485-optics                   Y         Y  N           N           28 Feb 2021       V0.1.12-1
-      -- Refresh some of the figures (thick/black/...), then post anew.  KDP upload now clean as of 1.12-4.
-   gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
-      -- kdp check now passes: fix cover picture, update blurb and cover blurb, print copy for myself and unpublish
-   gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
-      -- kdp check now passes: fix cover picture, update blurb and cover blurb, print copy for myself and unpublish
-
-
-
-
+   phy454-continuumechanics        Y         Y                          13 Aug 2023       V0.1.12-8
+   phy454-continuumechanics                     Y           Y           12 Mar 2022       V0.1.12-2
    phy456-qmII                     N         N  Y           N           22 Apr 2023       V0.1.11-3
-      -- Refresh all versions to know everything is in synch.
+   phy485-optics                   Y         Y  N           N           28 Feb 2021       V0.1.12-1
    phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
       -- dmath purge done: 0.1.12-1 -- not checked with kdp -- expect errors.
    phy1520-quantum                 Y         Y  Y           N           27 Jun 2021       V0.1.10-2
       -- dmath purge done: 0.1.10-4 -- not checked with kdp -- expect errors.
+   phy2403-quantum-field-theory    Y         Y  N           N           07 Mar 2021       V0.1.260-0
+   ece1505-convex-optimization                                          12 Mar 2023       V0.1.5
+   gabookII/                                    Y           N/A         6 Mar 2023        V0.1.5
+      -- kdp check now passes: fix cover picture, update blurb and cover blurb, print copy for myself and unpublish
+   gabookI/                                     Y           N/A         4 Mar 2023        V1.3.1
+      -- kdp check now passes: fix cover picture, update blurb and cover blurb, print copy for myself and unpublish
+   classicalmechanics                           unpublished
+      -- dmath purge done: upload to kdp to check
    ece1228-electromagnetic-theory               unpublished
       -- dmath purge done: upload to kdp to check
    ece1254-multiphysics                         unpublished
@@ -47,21 +77,19 @@
       -- dmath purge done: upload to kdp to check
 
 
-   phy450-relativisticEandM        Y         Y  N           N           07 Mar 2021       V0.1.11-1
-   phy2403-quantum-field-theory    Y         Y  N           N           07 Mar 2021       V0.1.260-0
-   ece1505-convex-optimization                                          12 Mar 2023       V0.1.5
+
    miscphysics/
+      -- what's in this?
    otherbook/
       -- this is low quality and now has lots of 6x9 gutter issues.  Don't post without fixing those up (and perhaps never.)
    phy356-qmI/  -- rework as 6x9?
-   classicalmechanics                           unpublished
 
 - note: leanpub upload url:
 
     https://leanpub.com/geometricalgebraforelectricalengineers/upload
 
 -  gabookI/
-   - run spellcheck against
+   - run spellcheck against -- tried on sofia-macbook and terminal messed up (try w/o tmux?)
    - should run url checker and thethe.py against it too if resurrected.
 
 -  gabookII/
