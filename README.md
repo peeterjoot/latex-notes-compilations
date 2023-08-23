@@ -26,9 +26,9 @@ Example of how to clone a subset of the repository:
     make mmacells.sty # make bug
     make
 
-This should checkout the submodules associated with the GAelectrodynamics book project, which has a lot of good latex examples you can draw on for your own work. 
-If you get as far as the make steps (which mean that you've installed all the prereqs like latex, git, make, ...) then the ctt script can be used to
-create standalone documents.
+This should checkout the submodules associated with the GAelectrodynamics book project, which has a lot of good latex examples you can draw on for your own work.
+
+If you get as far as the make steps (which mean that you've installed all the prereqs like latex, git, make, ...) then the ctt script can be used to create standalone documents.
 
 TODO:
 
