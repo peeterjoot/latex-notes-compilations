@@ -8,13 +8,8 @@
 
    fig 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
 
-- GAelectrodynamics
-
-   re-upload to refresh the spherical parameterization simplifications.
-
 - ready to upload:
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
-   GAelectrodynamics               Y         Y  Y           Y           22 Aug 2023       V0.1.18-4
    phy450-relativisticEandM        Y         Y  Y           Y           22 Aug 2023       V0.1.12
    phy452-basicstatmech            Y         Y  Y           Y           22 Aug 2023       V0.1.14-12
       -- update changelog too.
@@ -45,9 +40,8 @@
       -- dmath purge done: upload to kdp to check
 
 - last refresh:
-
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
-   GAelectrodynamics               Y         Y  Y           Y           14 Aug 2023       V0.18-3
+   GAelectrodynamics               Y         Y  Y           Y           22 Aug 2023       V0.1.18-4
    phy450-relativisticEandM        Y         Y  N           N           07 Mar 2021       V0.1.11-1
    phy452-basicstatmech            Y         Y                          13 Aug 2023       V0.1.14-11
    phy452-basicstatmech                         Y           N           18 Apr 2023       V0.1.14-8
