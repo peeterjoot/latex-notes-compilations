@@ -17,25 +17,7 @@
 - ready to upload:
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
 
-   phy456-qmII                     Y         Y  Y           Y           22 Aug 2023       V0.1.11-4
-   phy487-qmsolids                 Y         Y  Y           Y           22 Aug 2023       V0.1.12-1
-      -- dmath purge done: 0.1.12-1 -- not checked with kdp -- expect errors.
-   phy1520-quantum                 Y         Y  Y           Y           22 Aug 2023       V0.1.10-4
-      -- dmath purge done: 0.1.10-4 -- not checked with kdp -- expect errors.
-   phy2403-quantum-field-theory    Y         Y  Y           Y           22 Aug 2023       V0.1.261
-
-
-   phy485-optics                   Y         Y  Y           Y           22 Aug 2023       V0.1.12-5
-      -- paperback failed checks (looks like too small figure text in figures 4.63, 4.64, 4.65)
-
-
    ece1505-convex-optimization                                          22 Aug 2023       V0.1.6
-   gabookI/                                     Y           N/A         22 Aug 2023       V1.3.3-3
-      -- kdp check now passes: fix cover picture, update blurb and cover blurb, print copy for myself and unpublish
-   gabookII/                                    Y           N/A         22 Aug 2023       V0.1.6
-      -- kdp check now passes: fix cover picture, update blurb and cover blurb, print copy for myself and unpublish
-   classicalmechanics                           unpublished
-      -- dmath purge done: upload to kdp to check
    ece1228-electromagnetic-theory               unpublished
       -- dmath purge done: upload to kdp to check
    ece1236-microwaves/                          never published
@@ -45,7 +27,7 @@
    ece1229-antenna                              unpublished
       -- dmath purge done: upload to kdp to check
 
-- last refresh (U == unpublished)
+- last refresh (U == unpublished, T == TODO)
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
    GAelectrodynamics               Y         Y  Y           Y           23 Aug 2023       V0.1.19-0
    phy450-relativisticEandM        Y         Y  Y           Y           23 Aug 2023       V0.1.12-3
@@ -53,15 +35,23 @@
    phy454-continuumechanics        Y         Y  Y           Y           22 Aug 2023       V0.1.12-9
    classicalmechanics              U         U  Y           Y           23 Aug 2023       V0.1.17-1
    gabookI/                        N/A       -  Y           N/A         23 Aug 2023       V1.3.3-3
+      -- unpublish after ordering a copy.
    gabookII/                       N/A       -  Y           N/A         23 Aug 2023       V0.1.6
+      -- unpublish after ordering a copy.
+   phy485-optics                   -         Y  Y           Y           22 Aug 2023       V0.1.12-5
+   phy485-optics                   Y         -  -           -           24 Aug 2023       V0.1.13-1
+      -- in review.  Let's see if it passes this time, or if they flag all the other figures.
+   phy456-qmII                     Y         Y  T           T           24 Aug 2023       V0.1.12-0
+      -- in review.
+   phy2403-quantum-field-theory    Y         Y  T           T           22 Aug 2023       V0.1.261
+      -- in review.
 
 
-   phy456-qmII                     N         N  Y           N           22 Apr 2023       V0.1.11-3
-   phy487-qmsolids                 Y         Y  Y           N           28 Feb 2021       V0.1.10
-      -- dmath purge done: 0.1.12-1 -- not checked with kdp -- expect errors.
-   phy1520-quantum                 Y         Y  Y           N           27 Jun 2021       V0.1.10-2
-      -- dmath purge done: 0.1.10-4 -- not checked with kdp -- expect errors.
-   phy2403-quantum-field-theory    Y         Y  N           N           07 Mar 2021       V0.1.260-0
+   phy487-qmsolids                 Y         T  T           T           22 Aug 2023       V0.1.12-1
+      -- gutter fixes required.
+   phy1520-quantum                 Y         T  T           T           22 Aug 2023       V0.1.10-4
+      -- gutter fixes required.
+
 
 
    ece1505-convex-optimization                                          12 Mar 2023       V0.1.5
@@ -72,7 +62,7 @@
    ece1229-antenna                              unpublished
       -- dmath purge done: upload to kdp to check
    ece1236-microwaves/                          never published
-      -- dmath purge done: upload to kdp to check
+      -- dmath purge done.
 
 
 
