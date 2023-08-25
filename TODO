@@ -14,47 +14,30 @@
 - phy485-optics
       -- Refresh some of the figures (thick/black/...), then post anew.
 
-- ready to upload:
-                            kdp(pap) kdp(hard)  blog        Leanpub     When              Version
-
-   ece1505-convex-optimization                                          22 Aug 2023       V0.1.6
-   ece1228-electromagnetic-theory               unpublished
-      -- dmath purge done: upload to kdp to check
-   ece1236-microwaves/                          never published
-      -- dmath purge done: upload to kdp to check
-   ece1254-multiphysics                         unpublished
-      -- dmath purge done: upload to kdp to check
-   ece1229-antenna                              unpublished
-      -- dmath purge done: upload to kdp to check
-
 - last refresh (U == unpublished, T == TODO)
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
-   GAelectrodynamics               Y         Y  Y           Y           23 Aug 2023       V0.1.19-0
-   phy450-relativisticEandM        Y         Y  Y           Y           23 Aug 2023       V0.1.12-3
-   phy452-basicstatmech            Y         Y  Y           Y           22 Aug 2023       V0.1.14-12
-   phy454-continuumechanics        Y         Y  Y           Y           22 Aug 2023       V0.1.12-9
    classicalmechanics              U         U  Y           Y           23 Aug 2023       V0.1.17-1
    gabookI/                        N/A       -  Y           N/A         23 Aug 2023       V1.3.3-3
       -- unpublish after ordering a copy.
    gabookII/                       N/A       -  Y           N/A         23 Aug 2023       V0.1.6
       -- unpublish after ordering a copy.
+   GAelectrodynamics               Y         Y  Y           Y           23 Aug 2023       V0.1.19-0
+   phy450-relativisticEandM        Y         Y  Y           Y           23 Aug 2023       V0.1.12-3
+   phy452-basicstatmech            Y         Y  Y           Y           22 Aug 2023       V0.1.14-12
+   phy454-continuumechanics        Y         Y  Y           Y           22 Aug 2023       V0.1.12-9
+   phy456-qmII                     Y         Y  Y           Y           24 Aug 2023       V0.1.12-0
    phy485-optics                   -         Y  Y           Y           22 Aug 2023       V0.1.12-5
    phy485-optics                   Y         -  -           -           24 Aug 2023       V0.1.13-1
-      -- in review.  Let's see if it passes this time, or if they flag all the other figures.
-   phy456-qmII                     Y         Y  T           T           24 Aug 2023       V0.1.12-0
-      -- in review.
-   phy2403-quantum-field-theory    Y         Y  T           T           22 Aug 2023       V0.1.261
-      -- in review.
-
-
-   phy487-qmsolids                 Y         T  T           T           22 Aug 2023       V0.1.12-1
-      -- gutter fixes required.
-   phy1520-quantum                 Y         T  T           T           22 Aug 2023       V0.1.10-4
-      -- gutter fixes required.
+   phy487-qmsolids                 Y         Y  Y           Y           24 Aug 2023       V0.1.12-3
+      -- review IP.
+   phy1520-quantum                 Y         Y  Y           Y           22 Aug 2023       V0.1.10-8
+      -- review IP.
+   phy2403-quantum-field-theory    Y         Y  Y           Y           22 Aug 2023       V0.1.261
 
 
 
-   ece1505-convex-optimization                                          12 Mar 2023       V0.1.5
+   READY TO UPLOAD:
+   ece1505-convex-optimization                                          22 Aug 2023       V0.1.6
    ece1228-electromagnetic-theory               unpublished
       -- dmath purge done: upload to kdp to check
    ece1254-multiphysics                         unpublished
@@ -80,6 +63,10 @@
    https://leanpub.com/continuummechanics/upload
    https://leanpub.com/advancedclassicaloptics/upload
    https://leanpub.com/classicalmechanics/upload
+   https://leanpub.com/quantummechanics/upload
+   https://leanpub.com/quantumfieldtheory/upload
+   https://leanpub.com/condensedmatterphysics/upload
+   https://leanpub.com/graduatequantummechanics/upload
 
 -  gabookI/
    - run spellcheck against -- tried on sofia-macbook and terminal messed up (try w/o tmux?)
