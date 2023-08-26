@@ -17,6 +17,11 @@
 - last refresh (U == unpublished, T == TODO)
                             kdp(pap) kdp(hard)  blog        Leanpub     When              Version
    classicalmechanics              U         U  Y           Y           23 Aug 2023       V0.1.17-1
+   ece1254-multiphysics            U         -  T           -           24 Aug 2023       V0.1.13-1
+   ece1228-electromagnetic-theory  U         -  T           -           25 Aug 2023       V0.1.21-6
+   ece1229-antenna                 U         -  T           -           25 Aug 2023       V0.2.5-4
+   ece1236-microwaves              -         -  T           -           22 Aug 2023       V0.1.11-1
+   ece1505-convex-optimization     -         -  T           -           22 Aug 2023       V0.1.6
    gabookI/                        N/A       -  Y           N/A         23 Aug 2023       V1.3.3-3
       -- unpublish after ordering a copy.
    gabookII/                       N/A       -  Y           N/A         23 Aug 2023       V0.1.6
@@ -36,24 +41,12 @@
 
 
 
-   READY TO UPLOAD:
-   ece1505-convex-optimization                                          22 Aug 2023       V0.1.6
-   ece1228-electromagnetic-theory               unpublished
-      -- dmath purge done: upload to kdp to check
-   ece1254-multiphysics                         unpublished
-      -- dmath purge done: upload to kdp to check
-   ece1229-antenna                              unpublished
-      -- dmath purge done: upload to kdp to check
-   ece1236-microwaves/                          never published
-      -- dmath purge done.
-
-
-
-   miscphysics/
+   miscphysics                     -         -  T           -           xx yyy zzzz       V?
       -- what's in this?
-   otherbook/
+   otherbook                       -         -  T           -           xx yyy zzzz       V?
       -- this is low quality and now has lots of 6x9 gutter issues.  Don't post without fixing those up (and perhaps never.)
-   phy356-qmI/  -- rework as 6x9?
+   phy356-qmI                      -         -  T           -           xx yyy zzzz       V?
+      -- rework as 6x9?
 
 - note: leanpub upload url:
 
