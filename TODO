@@ -1,15 +1,11 @@
-- ALL: 
+- Test drove phy450's version_bash.tex, and had to fix a couple things.  Do that same test drive with all the rest.
 
-   refresh kdp version to pick up new cleaner black and white "color scheme".
+- New eps -> pdf conversion seems to be at a low resolution, at least for 3D figures (see: blogit/cramersProjection.pdf).  Investigate/fix.
 
-- GAelectrodynamics
-
-   Finish the color/bw figure specialization, and re-upload.
-
-   fig 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
+- Incorporate cramersProjection.tex into GAEE.
 
 - phy452-basicstatmech
-   kdp: fig 7.43 -- fonts not embedded properly.  Redo with matex.
+   kdp: fig 7.43 -- fonts not embedded properly.  Redo with MaTeX.
 
 - phy485-optics
       -- Refresh some of the figures (thick/black/...), then post anew.
@@ -26,7 +22,7 @@
       -- unpublish after ordering a copy.
    gabookII/                       N/A       -  Y           N/A         23 Aug 2023       V0.1.6
       -- unpublish after ordering a copy.
-   GAelectrodynamics               Y         Y  Y           Y           23 Aug 2023       V0.1.19-0
+   GAelectrodynamics               Y         Y  Y           Y           02 Sep 2023       V0.1.19-2
    phy450-relativisticEandM        Y         Y  Y           Y           23 Aug 2023       V0.1.12-3
    phy452-basicstatmech            Y         Y  Y           Y           22 Aug 2023       V0.1.14-12
    phy454-continuumechanics        Y         Y  Y           Y           22 Aug 2023       V0.1.12-9
