@@ -1,12 +1,10 @@
 - Test driving the instructions in each of these led to failures.
 
-   miscphysics/version_bash.tex
    phy356-qmI/version_bash.tex
-      -- ?Toggle 'print-version' undefined.
+
+      -- fixed up the parameters.sty issues, but it still doesn't build.
 
 - New eps -> pdf conversion seems to be at a low resolution, at least for 3D figures (see: blogit/cramersProjection.pdf).  Investigate/fix.
-
-- Incorporate cramersProjection.tex into GAEE.
 
 - phy452-basicstatmech
    kdp: fig 7.43 -- fonts not embedded properly.  Redo with MaTeX.
@@ -26,7 +24,7 @@
       -- unpublish after ordering a copy.
    gabookII/                       N/A       -  Y           N/A         23 Aug 2023       V0.1.6
       -- unpublish after ordering a copy.
-   GAelectrodynamics               Y         Y  Y           Y           02 Sep 2023       V0.1.19-2
+   GAelectrodynamics               Y         Y  Y           Y           30 Sep 2023       V0.2.1
    phy450-relativisticEandM        Y         Y  Y           Y           23 Aug 2023       V0.1.12-3
    phy452-basicstatmech            Y         Y  Y           Y           22 Aug 2023       V0.1.14-12
    phy454-continuumechanics        Y         Y  Y           Y           22 Aug 2023       V0.1.12-9
