@@ -1,4 +1,8 @@
-- Test drove phy450's version_bash.tex, and had to fix a couple things.  Do that same test drive with all the rest.
+- Test driving the instructions in each of these led to failures.
+
+   miscphysics/version_bash.tex
+   phy356-qmI/version_bash.tex
+      -- ?Toggle 'print-version' undefined.
 
 - New eps -> pdf conversion seems to be at a low resolution, at least for 3D figures (see: blogit/cramersProjection.pdf).  Investigate/fix.
 
