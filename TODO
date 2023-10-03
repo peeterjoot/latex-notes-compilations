@@ -1,8 +1,5 @@
 - New eps -> pdf conversion seems to be at a low resolution, at least for 3D figures (see: blogit/cramersProjection.pdf).  Investigate/fix.
 
-- phy452-basicstatmech
-   kdp: fig 7.43 -- fonts not embedded properly.  Redo with MaTeX.
-
 - phy485-optics
       -- Refresh some of the figures (thick/black/...), then post anew.
 
@@ -19,9 +16,9 @@
    gabookII/                       N/A       -  Y           N/A         23 Aug 2023       V0.1.6
       -- unpublish after ordering a copy.
    GAelectrodynamics               Y         Y  Y           Y           30 Sep 2023       V0.2.1
-   phy356-qmI                      -         -  Y           -           01 Oct 2023       V0.2.3
+   phy356-qmI                      U         -  Y           -           01 Oct 2023       V0.2.3 (blog) / V0.3.1 (kdp)
    phy450-relativisticEandM        Y         Y  Y           Y           23 Aug 2023       V0.1.12-3
-   phy452-basicstatmech            Y         Y  Y           Y           22 Aug 2023       V0.1.14-12
+   phy452-basicstatmech            Y         Y  Y           Y           22 Aug 2023       V0.1.14-12 (blog/leanpub), V0.2.0 (kdp)
    phy454-continuumechanics        Y         Y  Y           Y           22 Aug 2023       V0.1.12-9
    phy456-qmII                     Y         Y  Y           Y           24 Aug 2023       V0.1.12-0
    phy485-optics                   -         Y  Y           Y           22 Aug 2023       V0.1.12-5
